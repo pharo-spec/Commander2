@@ -4,8 +4,22 @@ Class {
 	#instVars : [
 		'contents'
 	],
+	#classInstVars : [
+		'family'
+	],
 	#category : #'Lieutenant-Example'
 }
+
+{ #category : #example }
+ContactBook class >> family [
+	<sampleInstance>
+        ^family ifNil: [
+          family := self new
+            add: 'John' phone: '342 345';
+            add: 'Bill' phone: '123 678';
+            add: 'Mary' phone: '789 567';
+            yourself ]
+]
 
 { #category : #'adding/removing' }
 ContactBook >> add: contactName phone: phone [
@@ -18,6 +32,16 @@ ContactBook >> add: contactName phone: phone [
 { #category : #'adding/removing' }
 ContactBook >> addContact: aContact [
   contents add: aContact
+]
+
+{ #category : #accessing }
+ContactBook >> contents [
+	^ contents
+]
+
+{ #category : #accessing }
+ContactBook >> contents: anObject [
+	contents := anObject
 ]
 
 { #category : #'adding/removing' }
