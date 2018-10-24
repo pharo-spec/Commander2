@@ -1,5 +1,5 @@
 Class {
-	#name : #LtRenameContactCommand,
+	#name : #LtSimpleRenameContactCommand,
 	#superclass : #Object,
 	#instVars : [
 		'contact',
@@ -9,7 +9,7 @@ Class {
 }
 
 { #category : #'instance creation' }
-LtRenameContactCommand class >> contact: aContact to: newNameString [
+LtSimpleRenameContactCommand class >> contact: aContact to: newNameString [
         ^self new
             contact: aContact;
             newName: newNameString;
@@ -17,26 +17,26 @@ LtRenameContactCommand class >> contact: aContact to: newNameString [
 ]
 
 { #category : #accessing }
-LtRenameContactCommand >> contact [
+LtSimpleRenameContactCommand >> contact [
 	^ contact
 ]
 
 { #category : #accessing }
-LtRenameContactCommand >> contact: anObject [
+LtSimpleRenameContactCommand >> contact: anObject [
 	contact := anObject
 ]
 
 { #category : #execution }
-LtRenameContactCommand >> execute [
-        contact name: newName
+LtSimpleRenameContactCommand >> execute [
+	contact name: newName
 ]
 
 { #category : #accessing }
-LtRenameContactCommand >> newName [
+LtSimpleRenameContactCommand >> newName [
 	^ newName
 ]
 
 { #category : #accessing }
-LtRenameContactCommand >> newName: anObject [
+LtSimpleRenameContactCommand >> newName: anObject [
 	newName := anObject
 ]

@@ -52,16 +52,53 @@ ContactBookPresenter >> menuForContactBook [
 							aGroup 
 								addItem:
 									[ :anItem | 
-									anItem name:'Rename';
+									anItem name: 'Rename';
 									icon: (self iconNamed: #smallFindIcon);
 									action: self rename
-									]].
+									];
+								
+								addMenuItem: (MenuItemPresenter2 new)
+														
+								
+								].
+	^ aMenu buildWithSpecAsPopup
 	
+]
+
+{ #category : #commandish }
+ContactBookPresenter >> rename [
+	
+	| newName |
+	newName := UIManager default
+    request: 'New name of the contact'
+    initialAnswer: self selectedContact name
+    title: 'Rename a contact'.
+	newName isEmptyOrNil | (newName = self selectedContact name) 
+		ifTrue: [ ^ self ].
+	self selectedContact name: newName.
+]
+
+{ #category : #commandish }
+ContactBookPresenter >> renameWithFullLogic [
+	
+	| newName |
+	newName := UIManager default
+    request: 'New name of the contact'
+    initialAnswer: self selectedContact name
+    title: 'Rename a contact'.
+	newName isEmptyOrNil | (newName = self selectedContact name) 
+		ifTrue: [ ^ LtCommandAborted signal ].
+	self selectedContact name: newName.
+]
+
+{ #category : #accessing }
+ContactBookPresenter >> selectedContact [
+  ^ table selectedItem
 ]
 
 { #category : #'model access' }
 ContactBookPresenter >> setModelBeforeInitialization: aDomainObject [
-        contactBook := aDomainObject
+	contactBook := aDomainObject
 ]
 
 { #category : #accessing }
