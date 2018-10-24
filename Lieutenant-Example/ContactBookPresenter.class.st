@@ -33,10 +33,30 @@ ContactBookPresenter >> contactBook: aBook [
 
 { #category : #initialization }
 ContactBookPresenter >> initializeWidgets [
-         table := self newList.
-        table numberOfColumns: 2 withWidths: #(250 250).
-        table displayBlock: [ :contact | {contact name. contact phone} ].
-        table items: contactBook contents.
+	table := self newList.
+	table numberOfColumns: 2 withWidths: #(250 250).
+	table
+		displayBlock: [ :contact | 
+			{contact name.
+			contact phone} ].
+	table items: contactBook contents.
+	table menu:
+				[ self menuForContactBook ].
+]
+
+{ #category : #initialization }
+ContactBookPresenter >> menuForContactBook [
+	| aMenu |
+	aMenu := MenuPresenter new.
+	aMenu addGroup: [ :aGroup | 
+							aGroup 
+								addItem:
+									[ :anItem | 
+									anItem name:'Rename';
+									icon: (self iconNamed: #smallFindIcon);
+									action: self rename
+									]].
+	
 ]
 
 { #category : #'model access' }
