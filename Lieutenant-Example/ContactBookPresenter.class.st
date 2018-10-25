@@ -17,8 +17,8 @@ ContactBookPresenter class >> defaultSpec [
 
 { #category : #example }
 ContactBookPresenter class >> familyExample [
-        <sampleInstance>
-        ^ (self on: ContactBook family) openWithSpec
+	<sampleInstance>
+	^ (self on: ContactBook family) openWithSpec
 ]
 
 { #category : #accessing }
