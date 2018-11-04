@@ -25,7 +25,7 @@ ClassListPresenter class >> example [
 ClassListPresenter class >> menuBla: aBuilder [
 	<Bla>
 
-	(aBuilder item: #'Browse full from Builder')
+	(aBuilder item: #'Browse full')
 		keyText: 'b';
 		selector: #browseMethodFull;
 		withSeparatorAfter.
@@ -48,7 +48,7 @@ ClassListPresenter >> classList: anObject [
 	classList := anObject
 ]
 
-{ #category : #initialization }
+{ #category : #menu }
 ClassListPresenter >> classMenu: aMenu [
 
 	aMenu addTitle: 'Class list'.
@@ -69,6 +69,16 @@ ClassListPresenter >> initializeWidgets [
 	classList := self instantiate: FastTablePresenter.
 	classList items: Object withAllSubclasses. 
 	classList menu: [ :aMenu | self classMenu: aMenu ].
+]
+
+{ #category : #menu }
+ClassListPresenter >> menuBla: aBuilder [
+	<Bla>
+
+	(aBuilder item: #'Browse full')
+		keyText: 'b';
+		selector: #browseMethodFull;
+		withSeparatorAfter.
 ]
 
 { #category : #accessing }

@@ -11,5 +11,6 @@ BaselineOfLieutenant >> baseline: spec [
 	spec for: #common do: [ 
 		spec 
 			package: 'Lieutenant';
-			package: 'Lieutenant-Example' ]
+			package: 'Lieutenant-Example';
+			package: 'Lieutenant-Test' ]
 ]
