@@ -49,6 +49,13 @@ LtCommand class >> defaultShortcutKey [
  	^ 'O'
 ]
 
+{ #category : #testing }
+LtCommand >> canBeExecutedIn: anObject [
+	"Specify whether the command can be executed. Usually a presenter will invoke this method with itself or an object representing a selection context"
+	
+	^ true
+]
+
 { #category : #accessing }
 LtCommand >> description [
 
