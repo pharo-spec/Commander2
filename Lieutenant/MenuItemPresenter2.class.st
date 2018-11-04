@@ -1,5 +1,5 @@
 "
-to see if we could have menu whose logic is defined by a command.
+to see if we could have menu whose logic is defined by a  command.
 "
 Class {
 	#name : #MenuItemPresenter2,

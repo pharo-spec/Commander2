@@ -69,7 +69,7 @@ LtCommand >> hasIcon [
 
 { #category : #accessing }
 LtCommand >> iconName [
-	^ iconName hasIcon ifTrue: [ iconName := self class defaultIconName ]
+	^ self hasIcon ifTrue: [ iconName := self class defaultIconName ]
 ]
 
 { #category : #accessing }
