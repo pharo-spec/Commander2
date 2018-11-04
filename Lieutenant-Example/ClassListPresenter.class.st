@@ -21,7 +21,7 @@ ClassListPresenter class >> example [
 	^ self new openWithSpec
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #menu }
 ClassListPresenter class >> menuBla: aBuilder [
 	<Bla>
 
@@ -34,7 +34,8 @@ ClassListPresenter class >> menuBla: aBuilder [
 { #category : #menu }
 ClassListPresenter >> browseMethodFull [
 
-	Smalltalk tools browser openOnClass: self selectedClass
+	self selectedClass ifNotNil:
+		[:myClass | Smalltalk tools browser openOnClass: self selectedClass]
 ]
 
 { #category : #accessing }
@@ -47,7 +48,7 @@ ClassListPresenter >> classList: anObject [
 	classList := anObject
 ]
 
-{ #category : #initialization }
+{ #category : #menu }
 ClassListPresenter >> classMenu: aMenu [
 
 	aMenu addTitle: 'Class list'.
@@ -70,7 +71,7 @@ ClassListPresenter >> initializeWidgets [
 	classList menu: [ :aMenu | self classMenu: aMenu ].
 ]
 
-{ #category : #initialization }
+{ #category : #menu }
 ClassListPresenter >> menuBla: aBuilder [
 	<Bla>
 
@@ -80,7 +81,7 @@ ClassListPresenter >> menuBla: aBuilder [
 		withSeparatorAfter.
 ]
 
-{ #category : #initialization }
+{ #category : #accessing }
 ClassListPresenter >> selectedClass [
 
 	 ^ classList selectedItem
