@@ -5,8 +5,15 @@ Hence even though the class describing a command define an iconName/name/shortcu
 A command may have an icon or not (message noIcon/useIcon)
 Then when it has an icon it can be defined statically as a class method, or customized on the spot.
 
-
-
+[[[
+LtOpenCommandForTest new
+]]]
+   
+[[[
+LtOpenCommandForTest new			
+	name: 'on the fly';
+   shortkey: 'A'
+]]]
 
 Questions: 
 
