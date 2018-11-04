@@ -1,12 +1,17 @@
 "
-Contrary to commander my command can be customised on use.
-Hence eventhough the class describing a command define an iconName, when creating the command such information can be overloaded. 
+Contrary to Commander, a command can be customised at the moment of use.
+Hence even though the class describing a command define an iconName/name/shortcut, when creating the command such information can be overloaded. 
+
+A command may have an icon or not (message noIcon/useIcon)
+Then when it has an icon it can be defined statically as a class method, or customized on the spot.
 
 
 
-Question: 
 
-Why canBeExecutedInContext: aToolContext is a class method?
+Questions: 
+
+- May be this logic can be simplified. For now make it works.
+- Why canBeExecutedInContext: aToolContext is a class method?
 "
 Class {
 	#name : #LtCommand,
@@ -14,6 +19,7 @@ Class {
 	#instVars : [
 		'name',
 		'description',
+		'hasIcon',
 		'iconName',
 		'shortcutKey'
 	],
@@ -55,6 +61,13 @@ LtCommand >> description: aString [
 	description := aString 
 ]
 
+{ #category : #icons }
+LtCommand >> ensureIcon [
+	"Force to return an icon. By default when there is no icon returns an error."
+	
+	^self iconName ifNil: [ self iconNamed: #error ]
+]
+
 { #category : #execution }
 LtCommand >> execute [
 	"by default do nothing"
@@ -62,19 +75,39 @@ LtCommand >> execute [
 
 { #category : #testing }
 LtCommand >> hasIcon [
-	"Returns true when there is an icon name. Not all the command are required to have icon."
+	"Returns true when the command defines an icon name. Not all the commands are required to have icon."
 	
-	^ (iconName = #noIconName) not
+	^ hasIcon
+]
+
+{ #category : #icons }
+LtCommand >> icon [
+	"Precondition: do not call icon on receiver not having an icon."
+	"It may be better to have iconNamed:ifNone: in addition to iconNamed: in superclass."
+	^ self iconNamed: self iconName
 ]
 
 { #category : #accessing }
 LtCommand >> iconName [
-	^ self hasIcon ifTrue: [ iconName := self class defaultIconName ]
+	"Return the name of an icon, when the command is supposed to have one, nil otherwise"
+	
+	^ hasIcon 
+		ifFalse: [ nil "we could also raise an error but we should check the impact" ]
+		ifTrue: [ iconName isNil 
+						ifTrue: [ iconName := self class defaultIconName ].
+					iconName ]
+	
 ]
 
 { #category : #accessing }
 LtCommand >> iconName: aSymbol [ 
 	iconName := aSymbol
+]
+
+{ #category : #initialization }
+LtCommand >> initialize [ 
+	
+	hasIcon := true
 ]
 
 { #category : #accessing }
@@ -88,6 +121,11 @@ LtCommand >> name: aString [
 	name := aString
 ]
 
+{ #category : #icons }
+LtCommand >> noIcon [
+	hasIcon := false
+]
+
 { #category : #accessing }
 LtCommand >> shortcutKey [
 	"it is probably bad and we should store something else"
@@ -98,4 +136,9 @@ LtCommand >> shortcutKey [
 { #category : #accessing }
 LtCommand >> shortcutKey: aString [
  	shortcutKey := aString 
+]
+
+{ #category : #icons }
+LtCommand >> useIcon [
+	hasIcon := true
 ]
