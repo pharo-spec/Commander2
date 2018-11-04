@@ -1,3 +1,13 @@
+"
+Contrary to commander my command can be customised on use.
+Hence eventhough the class describing a command define an iconName, when creating the command such information can be overloaded. 
+
+
+
+Question: 
+
+Why canBeExecutedInContext: aToolContext is a class method?
+"
 Class {
 	#name : #LtCommand,
 	#superclass : #Object,
