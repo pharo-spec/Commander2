@@ -11,32 +11,32 @@ Class {
 }
 
 { #category : #default }
-LtCommand >> defaultCommandName [ 
+LtCommand class >> defaultCommandName [ 
 
 	^ 'Unnamed'
 ]
 
 { #category : #default }
-LtCommand >> defaultDescription [
+LtCommand class >> defaultDescription [
 	^ 'I''m a little command and I should provide a nice description for my user.'
 ]
 
 { #category : #default }
-LtCommand >> defaultIconName [
+LtCommand class >> defaultIconName [
 	"nil is not really nice but it indicates that by default the command does not have an icon."
 
 	^ nil
 ]
 
 { #category : #accessing }
-LtCommand >> defaultShortcutKey [
+LtCommand class >> defaultShortcutKey [
  	^ 'O'
 ]
 
 { #category : #accessing }
 LtCommand >> description [
 
-	^ description ifNil: [ description := self defaultDescription ]
+	^ description ifNil: [ description := self class defaultDescription ]
 ]
 
 { #category : #accessing }
@@ -59,7 +59,7 @@ LtCommand >> hasIcon [
 
 { #category : #accessing }
 LtCommand >> iconName [
-	^ iconName hasIcon ifTrue: [ iconName := self defaultIconName ]
+	^ iconName hasIcon ifTrue: [ iconName := self class defaultIconName ]
 ]
 
 { #category : #accessing }
@@ -69,7 +69,7 @@ LtCommand >> iconName: aSymbol [
 
 { #category : #accessing }
 LtCommand >> name [
-	^name ifNil: [ name := self defaultCommandName ]
+	^name ifNil: [ name := self class defaultCommandName ]
 ]
 
 { #category : #accessing }
@@ -82,7 +82,7 @@ LtCommand >> name: aString [
 LtCommand >> shortcutKey [
 	"it is probably bad and we should store something else"
 	
-	^ shortcutKey ifNil: [ shortcutKey := self defaultShortCutKey ]
+	^ shortcutKey ifNil: [ shortcutKey := self class defaultShortcutKey ]
 ]
 
 { #category : #accessing }
