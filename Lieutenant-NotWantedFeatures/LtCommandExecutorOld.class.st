@@ -34,17 +34,17 @@ For example if the user creates new package from browser then at the end the bro
 
 "
 Class {
-	#name : #LtCommandExecutor,
+	#name : #LtCommandExecutorOld,
 	#superclass : #Object,
 	#instVars : [
 		'command',
 		'invokingTool'
 	],
-	#category : #Lieutenant
+	#category : #'Lieutenant-NotWantedFeatures'
 }
 
 { #category : #'instance creation' }
-LtCommandExecutor class >> createCommand: aCommand toBeExecutedFor: aTool [
+LtCommandExecutorOld class >> createCommand: aCommand toBeExecutedFor: aTool [
 	| command |
 	command := aCommand new.
 	self prepareNewCommand: command from: aTool.
@@ -52,26 +52,26 @@ LtCommandExecutor class >> createCommand: aCommand toBeExecutedFor: aTool [
 ]
 
 { #category : #error }
-LtCommandExecutor >> abortExceptionClass [
+LtCommandExecutorOld >> abortExceptionClass [
 
 	^ LtCommandAborted
 ]
 
 { #category : #execution }
-LtCommandExecutor >> applyCommandResult [
+LtCommandExecutorOld >> applyCommandResult [
 	"Final step of command execution, the impact on invoker tool."
 	
 	command applyResultIn: invokingTool 
 ]
 
 { #category : #execution }
-LtCommandExecutor >> basicExecuteCommand [
+LtCommandExecutorOld >> basicExecuteCommand [
 	
 	command execute
 ]
 
 { #category : #execution }
-LtCommandExecutor >> executeCommand [
+LtCommandExecutorOld >> executeCommand [
 	"Command execution is structured around 3 main steps: 1 adaptation to most recent tool context, 2 execution, and 3 command effects on the system."
 	
 	[ self prepareCommandForExecution.
@@ -81,14 +81,14 @@ LtCommandExecutor >> executeCommand [
 ]
 
 { #category : #execution }
-LtCommandExecutor >> prepareCommandForExecution [
+LtCommandExecutorOld >> prepareCommandForExecution [
 	"Before its execution a command may need to do special action."
 	
 	command prepareForExecutionIn: invokingTool 
 ]
 
 { #category : #initialization }
-LtCommandExecutor >> prepareNewCommand: aCommand from: aTool [
+LtCommandExecutorOld >> prepareNewCommand: aCommand from: aTool [
 
 	command := aCommand. 
 	invokingTool := aTool. 
