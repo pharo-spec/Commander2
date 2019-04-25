@@ -5,7 +5,7 @@ Class {
 		'name',
 		'phone'
 	],
-	#category : #'Lieutenant-Example'
+	#category : #'Lieutenant-Test'
 }
 
 { #category : #'instance creation' }

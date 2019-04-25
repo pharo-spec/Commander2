@@ -7,7 +7,7 @@ Class {
 	#instVars : [
 		'command'
 	],
-	#category : #Lieutenant
+	#category : #'Lieutenant-Example'
 }
 
 { #category : #api }

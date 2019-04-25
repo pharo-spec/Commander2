@@ -22,12 +22,12 @@ LtCommandTest >> testIconValueOfCommandWithIcon [
 { #category : #tests }
 LtCommandTest >> testIconValueOfCommandWithNoIcon [
 
-	| commandWithIcon |
-	commandWithIcon := LtNoIconCommandForTest new.
-	self deny: commandWithIcon hasIcon.
-	self assert: commandWithIcon iconName equals: nil.
+	| commandWithoutIcon |
+	commandWithoutIcon := LtNoIconCommandForTest new.
+	self deny: commandWithoutIcon hasIcon.
+	self assert: commandWithoutIcon iconName equals: nil.
  	
-	self should: [ commandWithIcon icon ] raise: MessageNotUnderstood
+	self should: [ commandWithoutIcon icon ] raise: MessageNotUnderstood
 ]
 
 { #category : #tests }
