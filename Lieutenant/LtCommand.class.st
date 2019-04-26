@@ -93,17 +93,19 @@ LtCommand >> description: aString [
 	description := aString 
 ]
 
-{ #category : #execute }
+{ #category : #hooks }
 LtCommand >> execute [
 	"Execute the actions that should be done by the command.
 	 This method expect that the context has been put in #context inst. var. if any context is relevant."
 	self subclassResponsibility
 ]
 
-{ #category : #execute }
-LtCommand >> execute: anObject [
-	self context: anObject.
-	self execute
+{ #category : #hooks }
+LtCommand >> extractInformationFromContext: anObject [
+	"This hook allows the command to extract information from anObject into its instance variables.
+	 It is called before the call to #execute.
+	 The overriding of this method in subclasses is optional but it is usually more convenient to do it.
+	"
 ]
 
 { #category : #testing }
@@ -120,4 +122,11 @@ LtCommand >> name [
 LtCommand >> name: aString [
 
 	name := aString
+]
+
+{ #category : #'public-api' }
+LtCommand >> run: anObject [
+	self context: anObject.
+	self extractInformationFromContext: self context.
+	self execute
 ]
