@@ -24,6 +24,11 @@ LtCommandDecorator >> canBeExecutedIn: anObject [
 ]
 
 { #category : #accessing }
+LtCommandDecorator >> context [
+	^ self decoratedCommand context
+]
+
+{ #category : #accessing }
 LtCommandDecorator >> decoratedCommand [
 	^ decoratedCommand
 ]
@@ -45,7 +50,6 @@ LtCommandDecorator >> description: aString [
 
 { #category : #execute }
 LtCommandDecorator >> execute [
-	"Execute the decorated command."
 	self decoratedCommand execute
 ]
 

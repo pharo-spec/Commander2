@@ -3,9 +3,9 @@ While other commands actions should be defined by overriding #execute method, I'
 I  execute a block as my action. 
 
 [[[ 
-LtGenericCommand new 
+LtBlockCommand new 
    name: 'on the fly';
-   shortkey: 'A';
+   shortkey: 'A' asKeyCombination;
    block: [ Smalltalk beep ]
 ]]]
 
@@ -32,6 +32,7 @@ LtBlockCommand >> block: anObject [
 
 { #category : #execution }
 LtBlockCommand >> execute [
-
-	block value
+	self hasContext
+		ifTrue: [ block value: self context ]
+		ifFalse: [ block value ]
 ]

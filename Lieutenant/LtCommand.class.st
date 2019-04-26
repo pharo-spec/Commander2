@@ -25,7 +25,8 @@ Class {
 	#superclass : #Object,
 	#instVars : [
 		'name',
-		'description'
+		'description',
+		'context'
 	],
 	#category : #Lieutenant
 }
@@ -65,6 +66,16 @@ LtCommand >> canBeExecutedIn: anObject [
 	^ true
 ]
 
+{ #category : #accessing }
+LtCommand >> context [
+	^ context
+]
+
+{ #category : #accessing }
+LtCommand >> context: anObject [
+	context := anObject
+]
+
 { #category : #decorating }
 LtCommand >> decorateWith: aLtCommandDecoratorClass [
 	^ aLtCommandDecoratorClass decorate: self
@@ -84,8 +95,20 @@ LtCommand >> description: aString [
 
 { #category : #execute }
 LtCommand >> execute [
-	"Execute the command."
+	"Execute the actions that should be done by the command.
+	 This method expect that the context has been put in #context inst. var. if any context is relevant."
 	self subclassResponsibility
+]
+
+{ #category : #execute }
+LtCommand >> execute: anObject [
+	self context: anObject.
+	self execute
+]
+
+{ #category : #testing }
+LtCommand >> hasContext [
+	^ self context isNotNil
 ]
 
 { #category : #accessing }
