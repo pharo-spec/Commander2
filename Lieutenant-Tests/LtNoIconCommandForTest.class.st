@@ -1,7 +1,7 @@
 Class {
 	#name : #LtNoIconCommandForTest,
 	#superclass : #LtCommand,
-	#category : #'Lieutenant-Test'
+	#category : #'Lieutenant-Tests'
 }
 
 { #category : #initialization }

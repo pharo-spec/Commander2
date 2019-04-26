@@ -1,7 +1,7 @@
 Class {
 	#name : #LtOpenCommandForTest,
 	#superclass : #LtCommand,
-	#category : #'Lieutenant-Test'
+	#category : #'Lieutenant-Tests'
 }
 
 { #category : #default }

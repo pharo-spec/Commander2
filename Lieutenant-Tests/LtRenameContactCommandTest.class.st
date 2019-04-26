@@ -1,7 +1,7 @@
 Class {
 	#name : #LtRenameContactCommandTest,
 	#superclass : #TestCase,
-	#category : #'Lieutenant-Test'
+	#category : #'Lieutenant-Tests'
 }
 
 { #category : #tests }

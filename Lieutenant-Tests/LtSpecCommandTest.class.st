@@ -4,7 +4,7 @@ Class {
 	#instVars : [
 		'command'
 	],
-	#category : #'Lieutenant-Test'
+	#category : #'Lieutenant-Tests'
 }
 
 { #category : #running }

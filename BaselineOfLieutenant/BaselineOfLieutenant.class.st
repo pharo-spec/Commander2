@@ -12,5 +12,5 @@ BaselineOfLieutenant >> baseline: spec [
 		spec 
 			package: 'Lieutenant';
 			package: 'Lieutenant-Example';
-			package: 'Lieutenant-Test' ]
+			package: 'Lieutenant-Tests' ]
 ]

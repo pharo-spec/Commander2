@@ -5,7 +5,7 @@ Class {
 		'contact',
 		'newName'
 	],
-	#category : #'Lieutenant-Test'
+	#category : #'Lieutenant-Tests'
 }
 
 { #category : #'instance creation' }

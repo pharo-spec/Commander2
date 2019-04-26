@@ -8,7 +8,7 @@ Class {
 		'commandToBeDecorated',
 		'decorator'
 	],
-	#category : #'Lieutenant-Test'
+	#category : #'Lieutenant-Tests'
 }
 
 { #category : #running }

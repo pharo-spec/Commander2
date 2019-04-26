@@ -1,7 +1,7 @@
 Class {
 	#name : #LtCommandTest,
 	#superclass : #TestCase,
-	#category : #'Lieutenant-Test'
+	#category : #'Lieutenant-Tests'
 }
 
 { #category : #tests }
