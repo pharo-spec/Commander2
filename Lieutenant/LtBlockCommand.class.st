@@ -1,6 +1,6 @@
 "
-While other commands should be defined upfront, I'm a generic command. 
-I execute a block as my action. 
+While other commands actions should be defined by overriding #execute method, I''m a block command. 
+I  execute a block as my action. 
 
 [[[ 
 LtGenericCommand new 
@@ -12,7 +12,7 @@ LtGenericCommand new
 
 "
 Class {
-	#name : #LtGenericCommand,
+	#name : #LtBlockCommand,
 	#superclass : #LtCommand,
 	#instVars : [
 		'block'
@@ -21,17 +21,17 @@ Class {
 }
 
 { #category : #accessing }
-LtGenericCommand >> block [
+LtBlockCommand >> block [
 	^ block
 ]
 
 { #category : #accessing }
-LtGenericCommand >> block: anObject [
+LtBlockCommand >> block: anObject [
 	block := anObject
 ]
 
 { #category : #execution }
-LtGenericCommand >> execute [
+LtBlockCommand >> execute [
 
 	block value
 ]

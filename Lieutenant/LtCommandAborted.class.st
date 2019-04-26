@@ -1,5 +1,8 @@
+"
+I am raised when the execution of a command has been aborted.
+"
 Class {
 	#name : #LtCommandAborted,
-	#superclass : #Warning,
+	#superclass : #LtCommandError,
 	#category : #Lieutenant
 }
