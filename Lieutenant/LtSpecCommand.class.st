@@ -1,3 +1,10 @@
+"
+I am a command decorator adding informations useful when for usage in context of a Spec application.
+
+Basically, I add:
+- an #icon (#blank by default)
+- a #shortcutKey (optional)
+"
 Class {
 	#name : #LtSpecCommand,
 	#superclass : #LtCommandDecorator,
