@@ -58,6 +58,11 @@ LtCommandDecorator >> execute [
 	self decoratedCommand execute
 ]
 
+{ #category : #hooks }
+LtCommandDecorator >> extractInformationFromContext: anObject [
+	self decoratedCommand extractInformationFromContext: anObject
+]
+
 { #category : #accessing }
 LtCommandDecorator >> name [
 	^ self decoratedCommand name

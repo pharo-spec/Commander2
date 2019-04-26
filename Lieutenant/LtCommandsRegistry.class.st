@@ -14,6 +14,7 @@ LtCommandsRegistry >> allCommands [
 
 { #category : #'private - utilities' }
 LtCommandsRegistry >> buildSpecMenuOn: aMenuBuilder [
+	self flag: #TODO. "Can not set the icon in menu because of shitty API of Morphic menu stuff..."
 	categoryToCommandsDict
 		at: #root
 		ifPresent: [ :commands | 
@@ -22,7 +23,7 @@ LtCommandsRegistry >> buildSpecMenuOn: aMenuBuilder [
 					|command|
 					command := commandClassToContextBlock key new.
 					aMenuBuilder
-						add: command name target: [ command runWith: commandClassToContextBlock value ] selector: #value ] ].
+						add: command name target: [ command runWith: commandClassToContextBlock value value ] selector: #value ] ].
 
 	((categoryToCommandsDict associations
 		reject: [ :assoc | assoc key = #root ])
@@ -35,10 +36,9 @@ LtCommandsRegistry >> buildSpecMenuOn: aMenuBuilder [
 					|command|
 					command := commandClassToContextBlock key new asSpecCommand.
 					subMenu
-						add: command name target: [ command runWith: commandClassToContextBlock value ] selector: #value ].
+						add: command name target: [ command runWith: commandClassToContextBlock value value ] selector: #value ].
 			aMenuBuilder
 				add: assoc key asCamelCase
-				icon: (self iconNamed: #blank)
 				subMenu: subMenu ]
 ]
 
@@ -65,6 +65,11 @@ LtCommandsRegistry >> registerCommand: aLtCommandClass underCategory: aSymbol wi
 	
 	(categoryToCommandsDict at: aSymbol ifAbsentPut: OrderedCollection new)
 		add: (aLtCommandClass -> blockToRetrieveContext)
+]
+
+{ #category : #accessing }
+LtCommandsRegistry >> registerCommand: aLtCommandClass withContextBlock: blockToRetrieveContext [
+	self registerCommand: aLtCommandClass underCategory: #root withContextBlock: blockToRetrieveContext
 ]
 
 { #category : #accessing }
