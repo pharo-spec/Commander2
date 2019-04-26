@@ -11,7 +11,8 @@ Class {
 	#instVars : [
 		'iconName',
 		'shortcutKey',
-		'alwaysVisible'
+		'alwaysVisible',
+		'weight'
 	],
 	#category : #Lieutenant
 }
@@ -66,7 +67,8 @@ LtSpecCommand >> iconName: aSymbol [
 LtSpecCommand >> initialize [ 
 	super initialize.
 	self iconName: self class defaultIconName.
-	self alwaysVisible: true
+	self alwaysVisible: true.
+	self weight: 10
 ]
 
 { #category : #accessing }
@@ -77,4 +79,18 @@ LtSpecCommand >> shortcutKey [
 { #category : #accessing }
 LtSpecCommand >> shortcutKey: aString [
  	shortcutKey := aString 
+]
+
+{ #category : #accessing }
+LtSpecCommand >> weight [
+	"Returns the weight of the command (for displaying it in the menu).
+	 The less weight, the higher in the menu.
+	 Of course, this method should return a Number.
+	"
+	^ weight
+]
+
+{ #category : #accessing }
+LtSpecCommand >> weight: anObject [
+	weight := anObject
 ]

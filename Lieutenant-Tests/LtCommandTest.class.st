@@ -34,6 +34,6 @@ LtCommandTest >> testOpenSimpleDefaultValues [
 	self assert: command name equals: 'Open'.
 	self assert: command iconName equals: #error.
 	self assert: command shortcutKey equals: 'O' asKeyCombination.
-	self assert: (command canBeExecutedIn: Object new).
+	self assert: (command canBeRunOn: Object new).
  
 ]

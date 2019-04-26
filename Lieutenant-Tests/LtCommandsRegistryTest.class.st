@@ -1,0 +1,64 @@
+"
+A LtCommandsRegistryTest is a test class for testing the behavior of LtCommandsRegistry
+"
+Class {
+	#name : #LtCommandsRegistryTest,
+	#superclass : #TestCase,
+	#instVars : [
+		'registry'
+	],
+	#category : #'Lieutenant-Tests'
+}
+
+{ #category : #running }
+LtCommandsRegistryTest >> setUp [
+	super setUp.
+	registry := LtCommandsRegistry new
+]
+
+{ #category : #test }
+LtCommandsRegistryTest >> testAllCommands [
+	self assert: registry allCommands isEmpty.
+	
+	registry registerCommand: LtSimpleRenameContactCommand underCategory: #tests withContextBlock: [ { Contact new . 'John' } ].
+	
+	self assert: registry allCommands size equals: 1.
+	self assert: registry allCommands anyOne equals: LtSimpleRenameContactCommand
+]
+
+{ #category : #test }
+LtCommandsRegistryTest >> testHasCommand [
+	self deny: (registry hasCommand: LtSimpleRenameContactCommand).
+	
+	registry registerCommand: LtSimpleRenameContactCommand underCategory: #tests withContextBlock: [ { Contact new . 'John' } ].
+	
+	self assert: (registry hasCommand: LtSimpleRenameContactCommand).
+]
+
+{ #category : #test }
+LtCommandsRegistryTest >> testRegisterCommandUnderCategoryWithContextBlock [
+	| dict |
+	self assert: registry categoriesToCommands isEmpty.
+	
+	registry registerCommand: LtSimpleRenameContactCommand underCategory: #tests withContextBlock: [ { Contact new . 'John' } ].
+	
+	dict := registry categoriesToCommands.
+	self assert: dict size equals: 1.
+	self assert: (dict at: #tests) size equals: 1.
+	self assert: (dict at: #tests) anyOne equals: LtSimpleRenameContactCommand.
+	
+	self should: [ registry registerCommand: LtSimpleRenameContactCommand underCategory: #tests. ] raise: Error.
+	
+	self should: [ registry registerCommand: LtSimpleRenameContactCommand underCategory: #foo. ] raise: Error.
+]
+
+{ #category : #test }
+LtCommandsRegistryTest >> testUnregisterCommand [
+	registry registerCommand: LtSimpleRenameContactCommand underCategory: #tests withContextBlock: [ { Contact new . 'John' } ].
+	
+	self assert: registry allCommands size equals: 1.
+	
+	registry unregisterCommand: LtSimpleRenameContactCommand.
+	
+	self assert: registry allCommands size equals: 0
+]

@@ -11,5 +11,7 @@ LtRenameContactCommandTest >> testRenameCommand [
 	contact := Contact new.
 	command := LtSimpleRenameContactCommand contact: contact to: 'John Smith'.
 	command execute.
-	self assert: contact name equals: 'John Smith'
+	self assert: contact name equals: 'John Smith'.
+	
+	self fail: 'To update!'
 ]

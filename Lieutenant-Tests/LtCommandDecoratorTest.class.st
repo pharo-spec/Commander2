@@ -25,11 +25,6 @@ LtCommandDecoratorTest >> setUp [
 ]
 
 { #category : #test }
-LtCommandDecoratorTest >> testCanBeExecutedIn [
-	self assert: (decorator canBeExecutedIn: Object new) equals: (commandToBeDecorated canBeExecutedIn: Object new)
-]
-
-{ #category : #test }
 LtCommandDecoratorTest >> testContext [
 	self assert: decorator context equals: commandToBeDecorated context
 ]
