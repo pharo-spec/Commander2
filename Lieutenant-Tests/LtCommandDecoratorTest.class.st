@@ -18,7 +18,8 @@ LtCommandDecoratorTest >> setUp [
 	
 	commandToBeDecorated
 		name: 'command for test';
-		description: 'This command is only cerated for the purpose of unit tests.'.
+		description: 'This command is only cerated for the purpose of unit tests.';
+		context: Object new.
 		
 	decorator := LtCommandDecorator decorate: commandToBeDecorated
 ]
@@ -26,6 +27,11 @@ LtCommandDecoratorTest >> setUp [
 { #category : #test }
 LtCommandDecoratorTest >> testCanBeExecutedIn [
 	self assert: (decorator canBeExecutedIn: Object new) equals: (commandToBeDecorated canBeExecutedIn: Object new)
+]
+
+{ #category : #test }
+LtCommandDecoratorTest >> testContext [
+	self assert: decorator context equals: commandToBeDecorated context
 ]
 
 { #category : #tests }

@@ -10,7 +10,8 @@ Class {
 	#superclass : #LtCommandDecorator,
 	#instVars : [
 		'iconName',
-		'shortcutKey'
+		'shortcutKey',
+		'alwaysVisible'
 	],
 	#category : #Lieutenant
 }
@@ -20,6 +21,21 @@ LtSpecCommand class >> defaultIconName [
 	"nil is not really nice but it indicates that by default the command does not have an icon."
 
 	^ #blank
+]
+
+{ #category : #accessing }
+LtSpecCommand >> alwaysVisible [
+	"If #alwaysVisible is true, the command will always be visible in the UI.
+	 In this case, when #canBeRunOn: returns false it will be shown in disabled mode.
+	
+	 If #alwaysVisible is false, the command will not be visible in the ui when canBeRunOn: returns false.
+	"
+	^ alwaysVisible
+]
+
+{ #category : #accessing }
+LtSpecCommand >> alwaysVisible: anObject [
+	alwaysVisible := anObject
 ]
 
 { #category : #testing }
@@ -49,7 +65,8 @@ LtSpecCommand >> iconName: aSymbol [
 { #category : #initialization }
 LtSpecCommand >> initialize [ 
 	super initialize.
-	self iconName: self class defaultIconName
+	self iconName: self class defaultIconName.
+	self alwaysVisible: true
 ]
 
 { #category : #accessing }

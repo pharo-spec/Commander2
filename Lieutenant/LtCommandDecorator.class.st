@@ -18,14 +18,19 @@ LtCommandDecorator class >> decorate: aLtCommand [
 		yourself
 ]
 
-{ #category : #testing }
-LtCommandDecorator >> canBeExecutedIn: anObject [
-	^ self decoratedCommand canBeExecutedIn: anObject
+{ #category : #hooks }
+LtCommandDecorator >> canBeRunOn: anObject [
+	^ self decoratedCommand canBeRunOn: anObject
 ]
 
 { #category : #accessing }
 LtCommandDecorator >> context [
 	^ self decoratedCommand context
+]
+
+{ #category : #accessing }
+LtCommandDecorator >> context: anObject [
+	self decoratedCommand context: anObject
 ]
 
 { #category : #accessing }
@@ -48,7 +53,7 @@ LtCommandDecorator >> description: aString [
 	self decoratedCommand description: aString
 ]
 
-{ #category : #execute }
+{ #category : #hooks }
 LtCommandDecorator >> execute [
 	self decoratedCommand execute
 ]

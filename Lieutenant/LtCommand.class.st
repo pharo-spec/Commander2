@@ -42,6 +42,11 @@ LtCommand class >> defaultDescription [
 	^ 'I''m a little command and I should provide a nice description for my user.'
 ]
 
+{ #category : #running }
+LtCommand class >> runWith: anObject [
+	self new runWith: anObject
+]
+
 { #category : #decorating }
 LtCommand >> asSpecCommand [
 	^ self decorateWith: LtSpecCommand
@@ -59,10 +64,11 @@ LtCommand >> asSpecCommandWithIconNamed: aSymbol shortcutKey: aKMKeyCombination 
 		shortcutKey: aKMKeyCombination
 ]
 
-{ #category : #testing }
-LtCommand >> canBeExecutedIn: anObject [
-	"Specify whether the command can be executed. Usually a presenter will invoke this method with itself or an object representing a selection context"
-	
+{ #category : #hooks }
+LtCommand >> canBeRunOn: anObject [
+	"This hook allows the command decide if it can be run on anObject or not.
+	 It should return a boolean. By default, returns true.
+	"
 	^ true
 ]
 
@@ -115,7 +121,7 @@ LtCommand >> hasContext [
 
 { #category : #accessing }
 LtCommand >> name [
-	^name ifNil: [ name := self class defaultCommandName ]
+	^ name ifNil: [ name := self class defaultCommandName ]
 ]
 
 { #category : #accessing }
@@ -125,7 +131,12 @@ LtCommand >> name: aString [
 ]
 
 { #category : #'public-api' }
-LtCommand >> run: anObject [
+LtCommand >> run [
+	self runWith: self context
+]
+
+{ #category : #'public-api' }
+LtCommand >> runWith: anObject [
 	self context: anObject.
 	self extractInformationFromContext: self context.
 	self execute
