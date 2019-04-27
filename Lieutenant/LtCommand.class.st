@@ -42,6 +42,23 @@ LtCommand class >> defaultDescription [
 	^ 'I''m a little command and I should provide a nice description for my user.'
 ]
 
+{ #category : #'instance creation' }
+LtCommand class >> forSpec [
+	^ self new
+		asSpecCommand
+]
+
+{ #category : #'instance creation' }
+LtCommand class >> forSpecWithIconNamed: aSymbol [
+	^ self new asSpecCommandWithIconNamed: aSymbol
+]
+
+{ #category : #'instance creation' }
+LtCommand class >> forSpecWithIconNamed: aSymbol shortcutKey: aKMKeyCombination [
+	^ self new
+		asSpecCommandWithIconNamed: aSymbol shortcutKey: aKMKeyCombination
+]
+
 { #category : #running }
 LtCommand class >> runWith: anObject [
 	self new runWith: anObject
