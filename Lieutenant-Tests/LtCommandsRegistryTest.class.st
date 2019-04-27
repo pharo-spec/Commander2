@@ -18,47 +18,52 @@ LtCommandsRegistryTest >> setUp [
 
 { #category : #test }
 LtCommandsRegistryTest >> testAllCommands [
+	| command |
 	self assert: registry allCommands isEmpty.
-	
-	registry registerCommand: LtSimpleRenameContactCommand underCategory: #tests withContextBlock: [ { Contact new . 'John' } ].
+	command := LtSimpleRenameContactCommand new.
+	registry registerCommand: command underCategory: #tests withContextBlock: [ { Contact new . 'John' } ].
 	
 	self assert: registry allCommands size equals: 1.
-	self assert: registry allCommands anyOne equals: LtSimpleRenameContactCommand
+	self assert: registry allCommands anyOne equals: command
 ]
 
 { #category : #test }
 LtCommandsRegistryTest >> testHasCommand [
-	self deny: (registry hasCommand: LtSimpleRenameContactCommand).
+	| command |
+	command := LtSimpleRenameContactCommand new.
+	self deny: (registry hasCommand: command).
 	
-	registry registerCommand: LtSimpleRenameContactCommand underCategory: #tests withContextBlock: [ { Contact new . 'John' } ].
+	registry registerCommand: command underCategory: #tests withContextBlock: [ { Contact new . 'John' } ].
 	
-	self assert: (registry hasCommand: LtSimpleRenameContactCommand).
+	self assert: (registry hasCommand: command).
 ]
 
 { #category : #test }
 LtCommandsRegistryTest >> testRegisterCommandUnderCategoryWithContextBlock [
-	| dict |
+	| dict command |
 	self assert: registry categoriesToCommands isEmpty.
-	
-	registry registerCommand: LtSimpleRenameContactCommand underCategory: #tests withContextBlock: [ { Contact new . 'John' } ].
+	command := LtSimpleRenameContactCommand new.
+	registry registerCommand: command underCategory: #tests withContextBlock: [ { Contact new . 'John' } ].
 	
 	dict := registry categoriesToCommands.
 	self assert: dict size equals: 1.
 	self assert: (dict at: #tests) size equals: 1.
-	self assert: (dict at: #tests) anyOne equals: LtSimpleRenameContactCommand.
+	self assert: (dict at: #tests) anyOne equals: command.
 	
-	self should: [ registry registerCommand: LtSimpleRenameContactCommand underCategory: #tests. ] raise: Error.
+	self should: [ registry registerCommand: command underCategory: #tests. ] raise: Error.
 	
-	self should: [ registry registerCommand: LtSimpleRenameContactCommand underCategory: #foo. ] raise: Error.
+	self should: [ registry registerCommand: command underCategory: #foo. ] raise: Error.
 ]
 
 { #category : #test }
 LtCommandsRegistryTest >> testUnregisterCommand [
-	registry registerCommand: LtSimpleRenameContactCommand underCategory: #tests withContextBlock: [ { Contact new . 'John' } ].
+	| command |
+	command := LtSimpleRenameContactCommand new.
+	registry registerCommand: command underCategory: #tests withContextBlock: [ { Contact new . 'John' } ].
 	
 	self assert: registry allCommands size equals: 1.
 	
-	registry unregisterCommand: LtSimpleRenameContactCommand.
+	registry unregisterCommand: command.
 	
 	self assert: registry allCommands size equals: 0
 ]

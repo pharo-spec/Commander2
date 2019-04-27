@@ -21,7 +21,7 @@ LtCommandsRegistry >> buildSpecMenuOn: aMenuBuilder [
 			commands
 				do: [ :commandClassToContextBlock | 
 					|command|
-					command := commandClassToContextBlock key new.
+					command := commandClassToContextBlock key.
 					aMenuBuilder
 						add: command name target: [ command runWith: commandClassToContextBlock value value ] selector: #value ] ].
 
@@ -34,7 +34,7 @@ LtCommandsRegistry >> buildSpecMenuOn: aMenuBuilder [
 			assoc value
 				do: [ :commandClassToContextBlock | 
 					|command|
-					command := commandClassToContextBlock key new asSpecCommand.
+					command := commandClassToContextBlock key asSpecCommand.
 					subMenu
 						add: command name target: [ command runWith: commandClassToContextBlock value value ] selector: #value ].
 			aMenuBuilder
