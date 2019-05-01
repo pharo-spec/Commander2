@@ -17,7 +17,7 @@ Class {
 	#instVars : [
 		'block'
 	],
-	#category : #Lieutenant
+	#category : #'Lieutenant-Commands'
 }
 
 { #category : #accessing }

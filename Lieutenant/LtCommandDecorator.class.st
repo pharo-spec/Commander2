@@ -7,7 +7,7 @@ Class {
 	#instVars : [
 		'decoratedCommand'
 	],
-	#category : #Lieutenant
+	#category : #'Lieutenant-Commands'
 }
 
 { #category : #'instance creation' }

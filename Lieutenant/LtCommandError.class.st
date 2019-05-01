@@ -19,7 +19,7 @@ Class {
 	#instVars : [
 		'command'
 	],
-	#category : #Lieutenant
+	#category : #'Lieutenant-Errors'
 }
 
 { #category : #'instance creation' }

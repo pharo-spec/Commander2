@@ -28,7 +28,7 @@ Class {
 		'description',
 		'context'
 	],
-	#category : #Lieutenant
+	#category : #'Lieutenant-Commands'
 }
 
 { #category : #default }

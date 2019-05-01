@@ -14,7 +14,7 @@ Class {
 		'alwaysVisible',
 		'weight'
 	],
-	#category : #Lieutenant
+	#category : #'Lieutenant-Commands'
 }
 
 { #category : #default }
