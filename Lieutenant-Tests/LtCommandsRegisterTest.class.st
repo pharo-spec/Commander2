@@ -67,6 +67,12 @@ LtCommandsRegisterTest >> testCommands [
 ]
 
 { #category : #test }
+LtCommandsRegisterTest >> testEntries [
+	self assert: (register entries allSatisfy: [ :e | e isKindOf: LtEntry ]).
+	self assertCollection: (register entries collect: #wrappedObject) equals: { firstCommand . subRegister1 . subRegister2 } asOrderedCollection
+]
+
+{ #category : #test }
 LtCommandsRegisterTest >> testHasCommand [
 	self deny: (register hasCommand: LtCommand new).
 	
