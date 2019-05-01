@@ -66,6 +66,7 @@ LtCommand class >> runWith: anObject [
 
 { #category : #decorating }
 LtCommand >> asSpecCommand [
+	"Subclasses might override this method to define default icon and shortcut."
 	^ self decorateWith: LtSpecCommand
 ]
 
