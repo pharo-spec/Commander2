@@ -21,9 +21,17 @@ LtCommandsRegister >> / aString [
 	^ self commandOrRegisterNamed: aString
 ]
 
+{ #category : #visiting }
+LtCommandsRegister >> acceptVisitor: aLtCommandsRegisterVisitor [
+	^ aLtCommandsRegisterVisitor visitLtCommandsRegister: self
+]
+
 { #category : #accessing }
 LtCommandsRegister >> allCommands [
-	^ self halt; flag: #TODO
+	| visitor |
+	visitor := LtCommandsCollector new.
+	self acceptVisitor: visitor.
+	^ visitor commandsCollected
 ]
 
 { #category : #'private - utilities' }
@@ -64,6 +72,11 @@ LtCommandsRegister >> commandOrRegisterNamed: aString [
 { #category : #'public-api' }
 LtCommandsRegister >> commands [
 	^ entries select: [ :entry | entry isCommand ] thenCollect: #command
+]
+
+{ #category : #'public-api' }
+LtCommandsRegister >> entries [
+	^ entries
 ]
 
 { #category : #testing }

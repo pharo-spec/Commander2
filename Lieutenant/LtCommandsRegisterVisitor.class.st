@@ -11,10 +11,11 @@ LtCommandsRegisterVisitor >> visitLtCommandEntry: aLtCommandEntry [
 
 { #category : #visiting }
 LtCommandsRegisterVisitor >> visitLtCommandsRegister: aLtCommandsRegister [
-	^ self subclassResponsibility
+	^ aLtCommandsRegister entries collect: [ :entry |
+		entry acceptVisitor: self ]
 ]
 
 { #category : #visiting }
 LtCommandsRegisterVisitor >> visitLtRegisterEntry: aLtRegisterEntry [
-	^ self subclassResponsibility
+	^ aLtRegisterEntry register acceptVisitor: self
 ]

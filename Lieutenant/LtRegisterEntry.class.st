@@ -14,6 +14,11 @@ LtRegisterEntry class >> register: aLtCommandsRegister [
 		yourself
 ]
 
+{ #category : #visiting }
+LtRegisterEntry >> acceptVisitor: aLtCommandsRegisterVisitor [
+	^ aLtCommandsRegisterVisitor visitLtRegisterEntry: self
+]
+
 { #category : #testing }
 LtRegisterEntry >> isRegister [
 	^ true

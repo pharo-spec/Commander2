@@ -47,14 +47,7 @@ LtCommandsRegisterTest >> setUp [
 
 { #category : #test }
 LtCommandsRegisterTest >> testAllCommands [
-	"| command |
-	self assert: register allCommands isEmpty.
-	command := LtSimpleRenameContactCommand new.
-	register registerCommand: command underCategory: #tests withContextBlock: [ { Contact new . 'John' } ].
-	
-	self assert: register allCommands size equals: 1.
-	self assert: register allCommands anyOne equals: command"
-	self fail
+	self assertCollection: register allCommands equals: { firstCommand . subCommand1 } asOrderedCollection
 ]
 
 { #category : #test }

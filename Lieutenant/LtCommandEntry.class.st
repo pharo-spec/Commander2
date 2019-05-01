@@ -16,6 +16,11 @@ LtCommandEntry class >> command: aLtCommand contextBlock: aBlock [
 		yourself
 ]
 
+{ #category : #visiting }
+LtCommandEntry >> acceptVisitor: aLtCommandsRegisterVisitor [
+	^ aLtCommandsRegisterVisitor visitLtCommandEntry: self
+]
+
 { #category : #accessing }
 LtCommandEntry >> command [
 	^ command
