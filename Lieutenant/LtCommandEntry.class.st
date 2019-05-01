@@ -37,6 +37,11 @@ LtCommandEntry >> command: aLtCommand [
 ]
 
 { #category : #accessing }
+LtCommandEntry >> context [
+	^ self contextBlock value
+]
+
+{ #category : #accessing }
 LtCommandEntry >> contextBlock [
 	^ contextBlock
 ]

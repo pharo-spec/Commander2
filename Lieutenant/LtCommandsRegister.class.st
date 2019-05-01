@@ -116,6 +116,11 @@ LtCommandsRegister >> name: aString [
 ]
 
 { #category : #'public-api' }
+LtCommandsRegister >> registerCommand: aLtCommand withContext: anObject [
+	self registerCommand: aLtCommand withContextBlock: [ anObject ]
+]
+
+{ #category : #'public-api' }
 LtCommandsRegister >> registerCommand: aLtCommand withContextBlock: aBlock [
 	(self hasEntryNamed: aLtCommand name)
 		ifTrue: [ LtDuplicatedEntryName signalEntryNamed: aLtCommand name ].

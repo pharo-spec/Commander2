@@ -98,6 +98,22 @@ LtCommandsRegisterTest >> testInitialize [
 ]
 
 { #category : #test }
+LtCommandsRegisterTest >> testRegisterCommandWithContext [
+	| secondCommand |
+	self deny: (register hasEntryNamed: 'second command').
+	
+	secondCommand := LtBlockCommand new 
+							name: 'second command';
+							block: [ :x | x ];
+							yourself.
+	register registerCommand: secondCommand withContext: 42.
+	
+	self assert: (register hasEntryNamed: 'second command').
+	self assert: (register commandOrRegisterNamed: 'second command') equals: secondCommand.
+	self assert: register entries last context equals: 42
+]
+
+{ #category : #test }
 LtCommandsRegisterTest >> testRegisterCommandWithContextBlock [
 	| secondCommand secondCommandWithSameName |
 	self deny: (register hasEntryNamed: 'second command').
@@ -106,7 +122,7 @@ LtCommandsRegisterTest >> testRegisterCommandWithContextBlock [
 							name: 'second command';
 							block: [ :x | x ];
 							yourself.
-	register registerCommand: secondCommand withContextBlock: [ ].
+	register registerCommand: secondCommand withContextBlock: [ 42 ].
 	
 	self assert: (register hasEntryNamed: 'second command').
 	self assert: (register commandOrRegisterNamed: 'second command') equals: secondCommand.
