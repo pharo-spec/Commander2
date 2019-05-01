@@ -8,6 +8,11 @@ Class {
 	#category : #'Lieutenant-Register'
 }
 
+{ #category : #accessing }
+LtCommandsRegister class >> defaultName [
+	^ 'Unnamed register'
+]
+
 { #category : #'instance creation' }
 LtCommandsRegister class >> named: aString [
 	^ self new
@@ -95,6 +100,7 @@ LtCommandsRegister >> hasEntryNamed: aString [
 { #category : #initialization }
 LtCommandsRegister >> initialize [
 	super initialize.
+	self name: self class defaultName.
 	entries := OrderedCollection new
 ]
 

@@ -83,6 +83,15 @@ LtCommandsRegisterTest >> testHasEntryNamed [
 ]
 
 { #category : #test }
+LtCommandsRegisterTest >> testInitialize [
+	| newRegister |
+	newRegister := LtCommandsRegister new.
+	
+	self assert: newRegister name equals: LtCommandsRegister defaultName.
+	self assert: newRegister entries isEmpty
+]
+
+{ #category : #test }
 LtCommandsRegisterTest >> testRegisterCommandWithContextBlock [
 	| secondCommand |
 	self deny: (register hasEntryNamed: 'second command').
