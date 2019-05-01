@@ -1,3 +1,8 @@
+"
+I am an entry in the register that stores a sub-register.
+
+One can access the sub-register through my accessor #register.
+"
 Class {
 	#name : #LtRegisterEntry,
 	#superclass : #LtEntry,

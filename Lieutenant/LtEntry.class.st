@@ -1,3 +1,10 @@
+"
+I am an abstract entry for an object that can be stored in a command registry.
+
+I only define the interface any entry should understand.
+
+My concrete subclasses should implement all my abstract methods.
+"
 Class {
 	#name : #LtEntry,
 	#superclass : #Object,

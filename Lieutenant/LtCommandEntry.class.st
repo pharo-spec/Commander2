@@ -1,3 +1,8 @@
+"
+I am an entry in the register that stores a command.
+
+Additionally to the command, I store a block that returns the context to use when the command is run.
+"
 Class {
 	#name : #LtCommandEntry,
 	#superclass : #LtEntry,
