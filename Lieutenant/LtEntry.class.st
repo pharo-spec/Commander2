@@ -23,10 +23,12 @@ LtEntry >> isRegister [
 
 { #category : #accessing }
 LtEntry >> name [
+	"Returns the name that allows to identify this entry uniquely in the register."
 	^ self subclassResponsibility
 ]
 
 { #category : #accessing }
 LtEntry >> wrappedObject [
+	"Returns the object that is wrapped by myself."
 	^ self subclassResponsibility
 ]
