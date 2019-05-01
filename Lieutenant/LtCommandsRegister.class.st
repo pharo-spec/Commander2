@@ -41,6 +41,7 @@ LtCommandsRegister >> allCommands [
 
 { #category : #'private - utilities' }
 LtCommandsRegister >> buildSpecMenuOn: aMenuBuilder [
+	self flag: #TODO. "Should be moved in a visitor."
 	self flag: #TODO. "Can not set the icon in menu because of shitty API of Morphic menu stuff..."
 	"categoryToCommandsDict
 		at: #root
