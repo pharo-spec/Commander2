@@ -1,6 +1,16 @@
 Extension { #name : #EpLogBrowserPresenter }
 
 { #category : #'*Lieutenant-Epicea' }
+EpLogBrowserPresenter >> codeChangesRegister [
+	"Lieutenant version of #codeChangesMenuActions"
+	^ LtCommandsRegister new
+		registerCommand: EpOpenPreviewToApplySelectedChanges forSpec withContext: self;
+		registerCommand: EpOpenPreviewToRevertSelectedChanges forSpec withContext: self;
+		registerCommand: EpBrowseSelection forSpec withContext: self;
+		yourself
+]
+
+{ #category : #'*Lieutenant-Epicea' }
 EpLogBrowserPresenter >> eventsRegister [
 	"Lieutenant version of #eventMenuActions."
 	^ (LtCommandsRegister named: 'Event')
