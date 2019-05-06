@@ -67,3 +67,8 @@ LtCommandDecorator >> description: aString [
 LtCommandDecorator >> execute [
 	self decoratedCommand execute
 ]
+
+{ #category : #accessing }
+LtCommandDecorator >> name [
+	^ self decoratedCommand name
+]

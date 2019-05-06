@@ -25,6 +25,11 @@ LtCommandDecoratorTest >> setUp [
 ]
 
 { #category : #test }
+LtCommandDecoratorTest >> testBasicName [
+	self assert: decorator basicName equals: commandToBeDecorated basicName
+]
+
+{ #category : #test }
 LtCommandDecoratorTest >> testContext [
 	self assert: decorator context equals: commandToBeDecorated context
 ]
@@ -47,5 +52,5 @@ LtCommandDecoratorTest >> testDescription [
 
 { #category : #test }
 LtCommandDecoratorTest >> testName [
-	self assert: decorator basicName equals: commandToBeDecorated basicName
+	self assert: decorator name equals: commandToBeDecorated name
 ]
