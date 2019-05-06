@@ -37,6 +37,6 @@ EpApplyPropagateRefactoringInSelection >> execute [
 EpApplyPropagateRefactoringInSelection >> initialize [
 	super initialize.
 	self
-		name: 'Apply secondary effects of refactoring';
+		basicName: 'Apply secondary effects of refactoring';
 		description: 'Apply only the secondary effects of the selected refactoring'
 ]

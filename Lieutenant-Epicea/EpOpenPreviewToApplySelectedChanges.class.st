@@ -39,6 +39,6 @@ EpOpenPreviewToApplySelectedChanges >> execute [
 EpOpenPreviewToApplySelectedChanges >> initialize [
 	super initialize.
 	self
-		name: 'Apply...';
+		basicName: 'Apply...';
 		description: 'Preview the application of selected code changes (open a new window to show the effect of re-applying the changes in current image)'
 ]

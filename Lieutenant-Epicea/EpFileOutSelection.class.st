@@ -30,6 +30,6 @@ EpFileOutSelection >> execute [
 EpFileOutSelection >> initialize [
 	super initialize.
 	self
-		name: 'File Out';
+		basicName: 'File Out';
 		description: 'Write selected entries to an Ombu file'
 ]

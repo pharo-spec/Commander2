@@ -43,6 +43,6 @@ EpCommentSelection >> execute [
 EpCommentSelection >> initialize [
 	super initialize.
 	self
-		name: 'Comment';
+		basicName: 'Comment';
 		description: 'Edit comment of selected entries'
 ]

@@ -11,18 +11,18 @@ Class {
 { #category : #'instance creation' }
 Contact class >> named: aString phone: aString2 [
   ^ self new
-    name: aString;
+    basicName: aString;
     phone: aString2;
     yourself
 ]
 
 { #category : #accessing }
-Contact >> name [
+Contact >> basicName [
 	^ name
 ]
 
 { #category : #accessing }
-Contact >> name: anObject [
+Contact >> basicName: anObject [
 	name := anObject
 ]
 

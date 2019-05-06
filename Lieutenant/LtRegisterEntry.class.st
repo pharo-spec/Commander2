@@ -24,14 +24,14 @@ LtRegisterEntry >> acceptVisitor: aLtCommandsRegisterVisitor [
 	^ aLtCommandsRegisterVisitor visitLtRegisterEntry: self
 ]
 
+{ #category : #accessing }
+LtRegisterEntry >> basicName [
+	^ self register basicName
+]
+
 { #category : #testing }
 LtRegisterEntry >> isRegister [
 	^ true
-]
-
-{ #category : #accessing }
-LtRegisterEntry >> name [
-	^ self register name
 ]
 
 { #category : #accessing }

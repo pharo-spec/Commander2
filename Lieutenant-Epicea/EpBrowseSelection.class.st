@@ -35,6 +35,6 @@ EpBrowseSelection >> execute [
 EpBrowseSelection >> initialize [
 	super initialize.
 	self
-		name: 'Browse current';
+		basicName: 'Browse current';
 		description: 'Browse working copy of entity affected in the selected event(s)'
 ]

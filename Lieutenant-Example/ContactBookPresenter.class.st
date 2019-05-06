@@ -37,7 +37,7 @@ ContactBookPresenter >> initializeWidgets [
 	table numberOfColumns: 2 withWidths: #(250 250).
 	table
 		displayBlock: [ :contact | 
-			{contact name.
+			{contact basicName.
 			contact phone} ].
 	table items: contactBook contents.
 	table menu:
@@ -52,7 +52,7 @@ ContactBookPresenter >> menuForContactBook [
 							aGroup 
 								addItem:
 									[ :anItem | 
-									anItem name: 'Rename';
+									anItem basicName: 'Rename';
 									icon: (self iconNamed: #smallFindIcon);
 									action: self rename
 									];
@@ -71,11 +71,11 @@ ContactBookPresenter >> rename [
 	| newName |
 	newName := UIManager default
     request: 'New name of the contact'
-    initialAnswer: self selectedContact name
+    initialAnswer: self selectedContact basicName
     title: 'Rename a contact'.
-	newName isEmptyOrNil | (newName = self selectedContact name) 
+	newName isEmptyOrNil | (newName = self selectedContact basicName) 
 		ifTrue: [ ^ self ].
-	self selectedContact name: newName.
+	self selectedContact basicName: newName.
 ]
 
 { #category : #commandish }
@@ -84,11 +84,11 @@ ContactBookPresenter >> renameWithFullLogic [
 	| newName |
 	newName := UIManager default
     request: 'New name of the contact'
-    initialAnswer: self selectedContact name
+    initialAnswer: self selectedContact basicName
     title: 'Rename a contact'.
-	newName isEmptyOrNil | (newName = self selectedContact name) 
+	newName isEmptyOrNil | (newName = self selectedContact basicName) 
 		ifTrue: [ ^ LtCommandAborted signal ].
-	self selectedContact name: newName.
+	self selectedContact basicName: newName.
 ]
 
 { #category : #accessing }

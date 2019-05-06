@@ -31,7 +31,7 @@ LtCommandTest >> testOpenSimpleDefaultValues [
 
 	| command |
 	command := LtOpenCommandForTest new asSpecCommandWithIconNamed: #error shortcutKey: 'O' asKeyCombination.
-	self assert: command name equals: 'Open'.
+	self assert: command basicName equals: 'Open'.
 	self assert: command iconName equals: #error.
 	self assert: command shortcutKey equals: 'O' asKeyCombination.
 	self assert: (command canBeRunOn: Object new).

@@ -18,6 +18,16 @@ LtCommandDecorator class >> decorate: aLtCommand [
 		yourself
 ]
 
+{ #category : #accessing }
+LtCommandDecorator >> basicName [
+	^ self decoratedCommand basicName
+]
+
+{ #category : #accessing }
+LtCommandDecorator >> basicName: aString [
+	self decoratedCommand basicName: aString
+]
+
 { #category : #hooks }
 LtCommandDecorator >> canBeRunOn: anObject [
 	^ self decoratedCommand canBeRunOn: anObject
@@ -56,14 +66,4 @@ LtCommandDecorator >> description: aString [
 { #category : #hooks }
 LtCommandDecorator >> execute [
 	self decoratedCommand execute
-]
-
-{ #category : #accessing }
-LtCommandDecorator >> name [
-	^ self decoratedCommand name
-]
-
-{ #category : #accessing }
-LtCommandDecorator >> name: aString [
-	self decoratedCommand name: aString
 ]

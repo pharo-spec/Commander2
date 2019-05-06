@@ -22,6 +22,16 @@ LtAbstractCommand >> asSpecCommandWithIconNamed: aSymbol shortcutKey: aKMKeyComb
 		shortcutKey: aKMKeyCombination
 ]
 
+{ #category : #accessing }
+LtAbstractCommand >> basicName [
+	^ self subclassResponsibility
+]
+
+{ #category : #accessing }
+LtAbstractCommand >> basicName: aString [
+	^ self subclassResponsibility
+]
+
 { #category : #testing }
 LtAbstractCommand >> canBeRunOn: anObject [
 	"This hook allows the command decide if it can be run on anObject or not.
@@ -60,14 +70,4 @@ LtAbstractCommand >> execute [
 	"Execute the actions that should be done by the command.
 	 This method expect that the context has been put in #context inst. var. if any context is relevant."
 	self subclassResponsibility
-]
-
-{ #category : #accessing }
-LtAbstractCommand >> name [
-	^ self subclassResponsibility
-]
-
-{ #category : #accessing }
-LtAbstractCommand >> name: aString [
-	^ self subclassResponsibility
 ]

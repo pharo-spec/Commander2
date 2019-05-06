@@ -27,6 +27,11 @@ LtCommandEntry >> acceptVisitor: aLtCommandsRegisterVisitor [
 ]
 
 { #category : #accessing }
+LtCommandEntry >> basicName [
+	^ self command basicName
+]
+
+{ #category : #accessing }
 LtCommandEntry >> command [
 	^ command
 ]
@@ -54,11 +59,6 @@ LtCommandEntry >> contextBlock: aBlock [
 { #category : #testing }
 LtCommandEntry >> isCommand [
 	^ true
-]
-
-{ #category : #accessing }
-LtCommandEntry >> name [
-	^ self command name
 ]
 
 { #category : #accessing }

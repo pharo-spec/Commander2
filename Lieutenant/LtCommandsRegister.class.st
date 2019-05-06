@@ -16,7 +16,7 @@ LtCommandsRegister class >> defaultName [
 { #category : #'instance creation' }
 LtCommandsRegister class >> named: aString [
 	^ self new
-		name: aString;
+		basicName: aString;
 		yourself
 ]
 
@@ -37,6 +37,16 @@ LtCommandsRegister >> allCommands [
 	visitor := LtCommandsCollector new.
 	self acceptVisitor: visitor.
 	^ visitor commandsCollected
+]
+
+{ #category : #accessing }
+LtCommandsRegister >> basicName [
+	^ name
+]
+
+{ #category : #accessing }
+LtCommandsRegister >> basicName: aString [
+	name := aString
 ]
 
 { #category : #'private - utilities' }
@@ -72,7 +82,7 @@ LtCommandsRegister >> buildSpecMenuOn: aMenuBuilder [
 
 { #category : #'public-api' }
 LtCommandsRegister >> commandOrRegisterNamed: aString [
-	^ (entries detect: [ :commandOrRegister | commandOrRegister name = aString ]) wrappedObject
+	^ (entries detect: [ :commandOrRegister | commandOrRegister basicName = aString ]) wrappedObject
 ]
 
 { #category : #'public-api' }
@@ -95,24 +105,14 @@ LtCommandsRegister >> hasEntryNamed: aString [
 	"Returns true if one of my entries (command, registry, ...) is named aString.
 	 Else returns false.
 	"
-	^ entries anySatisfy: [ :any | any name = aString ]
+	^ entries anySatisfy: [ :any | any basicName = aString ]
 ]
 
 { #category : #initialization }
 LtCommandsRegister >> initialize [
 	super initialize.
-	self name: self class defaultName.
+	self basicName: self class defaultName.
 	entries := OrderedCollection new
-]
-
-{ #category : #accessing }
-LtCommandsRegister >> name [
-	^ name
-]
-
-{ #category : #accessing }
-LtCommandsRegister >> name: aString [
-	name := aString
 ]
 
 { #category : #'public-api' }
@@ -122,16 +122,16 @@ LtCommandsRegister >> registerCommand: aLtCommand withContext: anObject [
 
 { #category : #'public-api' }
 LtCommandsRegister >> registerCommand: aLtCommand withContextBlock: aBlock [
-	(self hasEntryNamed: aLtCommand name)
-		ifTrue: [ LtDuplicatedEntryName signalEntryNamed: aLtCommand name ].
+	(self hasEntryNamed: aLtCommand basicName)
+		ifTrue: [ LtDuplicatedEntryName signalEntryNamed: aLtCommand basicName ].
 	
 	entries add: (LtCommandEntry command: aLtCommand contextBlock: aBlock)
 ]
 
 { #category : #'public-api' }
 LtCommandsRegister >> registerSubRegister: aLtCommandsRegister [
-	(self hasEntryNamed: aLtCommandsRegister name)
-		ifTrue: [ LtDuplicatedEntryName signalEntryNamed: aLtCommandsRegister name ].
+	(self hasEntryNamed: aLtCommandsRegister basicName)
+		ifTrue: [ LtDuplicatedEntryName signalEntryNamed: aLtCommandsRegister basicName ].
 	
 	entries add: (LtRegisterEntry register: aLtCommandsRegister)
 ]

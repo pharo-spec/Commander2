@@ -11,10 +11,10 @@ Class {
 }
 
 { #category : #api }
-MenuItemPresenter2 >> name [ 
+MenuItemPresenter2 >> basicName [ 
 	^ command 
 		ifNil: [ name value "could be super shortcut" ] 
-		ifNotNil: [ command name ]
+		ifNotNil: [ command basicName ]
 ]
 
 { #category : #api }

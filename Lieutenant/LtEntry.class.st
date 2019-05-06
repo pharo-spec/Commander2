@@ -11,6 +11,12 @@ Class {
 	#category : #'Lieutenant-Register'
 }
 
+{ #category : #accessing }
+LtEntry >> basicName [
+	"Returns the name that allows to identify this entry uniquely in the register."
+	^ self subclassResponsibility
+]
+
 { #category : #testing }
 LtEntry >> isCommand [
 	^ false
@@ -19,12 +25,6 @@ LtEntry >> isCommand [
 { #category : #testing }
 LtEntry >> isRegister [
 	^ false
-]
-
-{ #category : #accessing }
-LtEntry >> name [
-	"Returns the name that allows to identify this entry uniquely in the register."
-	^ self subclassResponsibility
 ]
 
 { #category : #accessing }

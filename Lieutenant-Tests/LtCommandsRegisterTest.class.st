@@ -21,14 +21,14 @@ LtCommandsRegisterTest >> setUp [
 	super setUp.
 	register := LtCommandsRegister named: 'main register'.
 	firstCommand := LtBlockCommand new
-							name: 'first command';
+							basicName: 'first command';
 							block: [ :x | x ];
 							yourself.
 	firstCommandContextBlock := [ 1 ].
 	
 	
 	subCommand1 :=  LtBlockCommand new
-							name: 'sub command 1';
+							basicName: 'sub command 1';
 							block: [ :x | x ];
 							yourself.
 	subCommand1ContextBlock := [ 11 ].
@@ -93,7 +93,7 @@ LtCommandsRegisterTest >> testInitialize [
 	| newRegister |
 	newRegister := LtCommandsRegister new.
 	
-	self assert: newRegister name equals: LtCommandsRegister defaultName.
+	self assert: newRegister basicName equals: LtCommandsRegister defaultName.
 	self assert: newRegister entries isEmpty
 ]
 
@@ -103,7 +103,7 @@ LtCommandsRegisterTest >> testRegisterCommandWithContext [
 	self deny: (register hasEntryNamed: 'second command').
 	
 	secondCommand := LtBlockCommand new 
-							name: 'second command';
+							basicName: 'second command';
 							block: [ :x | x ];
 							yourself.
 	register registerCommand: secondCommand withContext: 42.
@@ -119,7 +119,7 @@ LtCommandsRegisterTest >> testRegisterCommandWithContextBlock [
 	self deny: (register hasEntryNamed: 'second command').
 	
 	secondCommand := LtBlockCommand new 
-							name: 'second command';
+							basicName: 'second command';
 							block: [ :x | x ];
 							yourself.
 	register registerCommand: secondCommand withContextBlock: [ 42 ].
@@ -128,7 +128,7 @@ LtCommandsRegisterTest >> testRegisterCommandWithContextBlock [
 	self assert: (register commandOrRegisterNamed: 'second command') equals: secondCommand.
 	
 	secondCommandWithSameName := LtBlockCommand new 
-											name: 'second command';
+											basicName: 'second command';
 											block: [ :x | x ];
 											yourself.
 	

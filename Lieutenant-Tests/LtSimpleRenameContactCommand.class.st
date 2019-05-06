@@ -28,7 +28,7 @@ LtSimpleRenameContactCommand >> contact: anObject [
 
 { #category : #execution }
 LtSimpleRenameContactCommand >> execute [
-	contact name: newName
+	contact basicName: newName
 ]
 
 { #category : #accessing }

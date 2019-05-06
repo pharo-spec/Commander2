@@ -24,9 +24,9 @@ Class {
 	#name : #LtCommand,
 	#superclass : #LtAbstractCommand,
 	#instVars : [
-		'name',
 		'description',
-		'context'
+		'context',
+		'basicName'
 	],
 	#category : #'Lieutenant-Commands'
 }
@@ -64,6 +64,17 @@ LtCommand class >> runWith: anObject [
 	self new runWith: anObject
 ]
 
+{ #category : #accessing }
+LtCommand >> basicName [
+	^ basicName
+]
+
+{ #category : #accessing }
+LtCommand >> basicName: aString [
+
+	basicName := aString
+]
+
 { #category : #hooks }
 LtCommand >> canBeRunOn: anObject [
 	"This hook allows the command decide if it can be run on anObject or not.
@@ -74,7 +85,7 @@ LtCommand >> canBeRunOn: anObject [
 
 { #category : #accessing }
 LtCommand >> context [
-	^ context
+	^ context value
 ]
 
 { #category : #accessing }
@@ -85,7 +96,7 @@ LtCommand >> context: anObject [
 { #category : #accessing }
 LtCommand >> description [
 
-	^ description ifNil: [ description := self class defaultDescription ]
+	^ description
 ]
 
 { #category : #accessing }
@@ -99,15 +110,21 @@ LtCommand >> hasContext [
 	^ self context isNotNil
 ]
 
-{ #category : #accessing }
-LtCommand >> name [
-	^ name ifNil: [ name := self class defaultCommandName ]
+{ #category : #initialization }
+LtCommand >> initialize [
+	super initialize.
+	self basicName: self class defaultCommandName.
+	self description: self class defaultDescription
 ]
 
-{ #category : #accessing }
-LtCommand >> name: aString [
-
-	name := aString
+{ #category : #hooks }
+LtCommand >> name [
+	"This hook is called to generate a name that depends on the context.
+	 When entering this method, one can expect that the context can be accessed
+	 through a call to #context method.
+	 By default, my #basicName is returned.
+	"
+	^ self basicName
 ]
 
 { #category : #'public-api' }
