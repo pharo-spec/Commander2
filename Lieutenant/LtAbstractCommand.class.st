@@ -9,28 +9,10 @@ LtAbstractCommand >> acceptVisitor: aLtCommandsRegisterVisitor [
 	^ self subclassResponsibility
 ]
 
-{ #category : #decorating }
-LtAbstractCommand >> asSpecCommand [
-	"Subclasses might override this method to define default icon and shortcut."
-	^ self decorateWith: LtSpecCommand
-]
-
-{ #category : #decorating }
-LtAbstractCommand >> asSpecCommandWithIconNamed: aSymbol [
-	^ self asSpecCommandWithIconNamed: aSymbol shortcutKey: nil
-]
-
-{ #category : #decorating }
-LtAbstractCommand >> asSpecCommandWithIconNamed: aSymbol shortcutKey: aKMKeyCombination [
-	^ (self decorateWith: LtSpecCommand)
-		iconName: aSymbol;
-		shortcutKey: aKMKeyCombination
-]
-
 { #category : #testing }
 LtAbstractCommand >> canBeRunOn: anObject [
 	"This hook allows the command decide if it can be run on anObject or not.
-	 It should return a boolean. By default, returns true.
+	 It should return a boolean.
 	"
 	^ self subclassResponsibility
 ]
@@ -43,11 +25,6 @@ LtAbstractCommand >> context [
 { #category : #accessing }
 LtAbstractCommand >> context: anObject [
 	^ self subclassResponsibility
-]
-
-{ #category : #decorating }
-LtAbstractCommand >> decorateWith: aLtCommandDecoratorClass [
-	^ aLtCommandDecoratorClass decorate: self
 ]
 
 { #category : #hooks }

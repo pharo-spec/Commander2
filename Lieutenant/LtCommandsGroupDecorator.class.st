@@ -1,6 +1,8 @@
 Class {
 	#name : #LtCommandsGroupDecorator,
 	#superclass : #LtAbstractCommandsGroup,
+	#traits : 'LtTDecorator',
+	#classTraits : 'LtTDecorator classTrait',
 	#instVars : [
 		'decoratedGroup'
 	],
@@ -40,6 +42,11 @@ LtCommandsGroupDecorator >> commandOrGroupNamed: aString [
 { #category : #'public-api' }
 LtCommandsGroupDecorator >> commands [
 	^ self decoratedGroup commands
+]
+
+{ #category : #decorating }
+LtCommandsGroupDecorator >> decorate: aLtCommandsGroup [
+	self decoratedGroup: aLtCommandsGroup
 ]
 
 { #category : #accessing }

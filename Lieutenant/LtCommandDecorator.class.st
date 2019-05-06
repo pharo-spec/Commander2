@@ -4,19 +4,13 @@ I am the implementation of the decorator design pattern for commands.
 Class {
 	#name : #LtCommandDecorator,
 	#superclass : #LtAbstractCommand,
+	#traits : 'LtTDecorator',
+	#classTraits : 'LtTDecorator classTrait',
 	#instVars : [
 		'decoratedCommand'
 	],
 	#category : #'Lieutenant-Commands'
 }
-
-{ #category : #'instance creation' }
-LtCommandDecorator class >> decorate: aLtCommand [
-	"Created a command decorator decorating aLtCommand."
-	^ self new
-		decoratedCommand: aLtCommand;
-		yourself
-]
 
 { #category : #visiting }
 LtCommandDecorator >> acceptVisitor: aLtCommandsRegisterVisitor [
@@ -56,6 +50,11 @@ LtCommandDecorator >> context [
 { #category : #accessing }
 LtCommandDecorator >> context: anObject [
 	self decoratedCommand context: anObject
+]
+
+{ #category : #decorating }
+LtCommandDecorator >> decorate: aLtCommand [
+	self decoratedCommand: aLtCommand
 ]
 
 { #category : #accessing }

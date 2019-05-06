@@ -1,8 +1,8 @@
 Class {
 	#name : #LtCommandsGroup,
 	#superclass : #LtAbstractCommandsGroup,
-	#traits : 'LtTWithBasicNameAndDescription',
-	#classTraits : 'LtTWithBasicNameAndDescription classTrait',
+	#traits : 'LtTWithBasicNameAndDescription + LtTDecorable',
+	#classTraits : 'LtTWithBasicNameAndDescription classTrait + LtTDecorable classTrait',
 	#instVars : [
 		'entries'
 	],

@@ -23,8 +23,8 @@ Questions:
 Class {
 	#name : #LtCommand,
 	#superclass : #LtAbstractCommand,
-	#traits : 'LtTWithBasicNameAndDescription',
-	#classTraits : 'LtTWithBasicNameAndDescription classTrait',
+	#traits : 'LtTWithBasicNameAndDescription + LtTDecorable',
+	#classTraits : 'LtTWithBasicNameAndDescription classTrait + LtTDecorable classTrait',
 	#instVars : [
 		'context'
 	],
@@ -67,6 +67,24 @@ LtCommand class >> runWith: anObject [
 { #category : #visiting }
 LtCommand >> acceptVisitor: aLtCommandsRegisterVisitor [
 	^ aLtCommandsRegisterVisitor visitLtCommand: self
+]
+
+{ #category : #decorating }
+LtCommand >> asSpecCommand [
+	"Subclasses might override this method to define default icon and shortcut."
+	^ self decorateWith: LtSpecCommand
+]
+
+{ #category : #decorating }
+LtCommand >> asSpecCommandWithIconNamed: aSymbol [
+	^ self asSpecCommandWithIconNamed: aSymbol shortcutKey: nil
+]
+
+{ #category : #decorating }
+LtCommand >> asSpecCommandWithIconNamed: aSymbol shortcutKey: aKMKeyCombination [
+	^ (self decorateWith: LtSpecCommand)
+		iconName: aSymbol;
+		shortcutKey: aKMKeyCombination
 ]
 
 { #category : #hooks }
