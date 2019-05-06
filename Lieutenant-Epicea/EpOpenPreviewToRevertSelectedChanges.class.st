@@ -40,5 +40,5 @@ EpOpenPreviewToRevertSelectedChanges >> initialize [
 	super initialize.
 	self
 		basicName: 'Revert...';
-		description: 'Preview the reversion of selected code changes (open a new window to show the effect of reverting the changes in current image)'
+		basicDescription: 'Preview the reversion of selected code changes (open a new window to show the effect of reverting the changes in current image)'
 ]

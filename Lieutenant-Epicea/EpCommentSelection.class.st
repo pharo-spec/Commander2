@@ -44,5 +44,5 @@ EpCommentSelection >> initialize [
 	super initialize.
 	self
 		basicName: 'Comment';
-		description: 'Edit comment of selected entries'
+		basicDescription: 'Edit comment of selected entries'
 ]

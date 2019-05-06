@@ -1,6 +1,6 @@
 Class {
 	#name : #LtAbstractCommand,
-	#superclass : #Object,
+	#superclass : #LtObject,
 	#category : #'Lieutenant-Commands'
 }
 
@@ -20,16 +20,6 @@ LtAbstractCommand >> asSpecCommandWithIconNamed: aSymbol shortcutKey: aKMKeyComb
 	^ (self decorateWith: LtSpecCommand)
 		iconName: aSymbol;
 		shortcutKey: aKMKeyCombination
-]
-
-{ #category : #accessing }
-LtAbstractCommand >> basicName [
-	^ self subclassResponsibility
-]
-
-{ #category : #accessing }
-LtAbstractCommand >> basicName: aString [
-	^ self subclassResponsibility
 ]
 
 { #category : #testing }
@@ -55,16 +45,6 @@ LtAbstractCommand >> decorateWith: aLtCommandDecoratorClass [
 	^ aLtCommandDecoratorClass decorate: self
 ]
 
-{ #category : #accessing }
-LtAbstractCommand >> description [
-	^ self subclassResponsibility
-]
-
-{ #category : #accessing }
-LtAbstractCommand >> description: aString [
-	^ self subclassResponsibility
-]
-
 { #category : #hooks }
 LtAbstractCommand >> execute [
 	"Execute the actions that should be done by the command.
@@ -75,14 +55,4 @@ LtAbstractCommand >> execute [
 { #category : #testing }
 LtAbstractCommand >> isCommand [
 	^ true
-]
-
-{ #category : #testing }
-LtAbstractCommand >> isRegister [
-	^ false
-]
-
-{ #category : #accessing }
-LtAbstractCommand >> name [
-	^ self decoratedCommand name
 ]

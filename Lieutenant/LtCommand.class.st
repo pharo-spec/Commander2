@@ -23,9 +23,9 @@ Questions:
 Class {
 	#name : #LtCommand,
 	#superclass : #LtAbstractCommand,
+	#traits : 'LtTWithBasicNameAndDescription',
+	#classTraits : 'LtTWithBasicNameAndDescription classTrait',
 	#instVars : [
-		'description',
-		'basicName',
 		'context'
 	],
 	#category : #'Lieutenant-Commands'
@@ -69,17 +69,6 @@ LtCommand >> acceptVisitor: aLtCommandsRegisterVisitor [
 	^ aLtCommandsRegisterVisitor visitLtCommand: self
 ]
 
-{ #category : #accessing }
-LtCommand >> basicName [
-	^ basicName
-]
-
-{ #category : #accessing }
-LtCommand >> basicName: aString [
-
-	basicName := aString
-]
-
 { #category : #hooks }
 LtCommand >> canBeRunOn: anObject [
 	"This hook allows the command decide if it can be run on anObject or not.
@@ -102,18 +91,6 @@ LtCommand >> context: anObject [
 	context := anObject
 ]
 
-{ #category : #accessing }
-LtCommand >> description [
-
-	^ description
-]
-
-{ #category : #accessing }
-LtCommand >> description: aString [
-
-	description := aString 
-]
-
 { #category : #testing }
 LtCommand >> hasContext [
 	^ self context isNotNil
@@ -123,7 +100,7 @@ LtCommand >> hasContext [
 LtCommand >> initialize [
 	super initialize.
 	self basicName: self class defaultCommandName.
-	self description: self class defaultDescription
+	self basicDescription: self class defaultDescription
 ]
 
 { #category : #hooks }

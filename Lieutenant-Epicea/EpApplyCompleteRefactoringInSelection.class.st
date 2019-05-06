@@ -37,5 +37,5 @@ EpApplyCompleteRefactoringInSelection >> initialize [
 	super initialize.
 	self
 		basicName: 'Apply refactoring';
-		description: 'Apply selected refactoring'
+		basicDescription: 'Apply selected refactoring'
 ]

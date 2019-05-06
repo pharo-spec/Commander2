@@ -1,8 +1,9 @@
 Class {
 	#name : #LtCommandsRegister,
-	#superclass : #Object,
+	#superclass : #LtObject,
+	#traits : 'LtTWithBasicNameAndDescription',
+	#classTraits : 'LtTWithBasicNameAndDescription classTrait',
 	#instVars : [
-		'name',
 		'entries'
 	],
 	#category : #'Lieutenant-Register'
@@ -37,16 +38,6 @@ LtCommandsRegister >> allCommands [
 	visitor := LtCommandsCollector new.
 	self acceptVisitor: visitor.
 	^ visitor commandsCollected
-]
-
-{ #category : #accessing }
-LtCommandsRegister >> basicName [
-	^ name
-]
-
-{ #category : #accessing }
-LtCommandsRegister >> basicName: aString [
-	name := aString
 ]
 
 { #category : #'private - utilities' }
@@ -113,11 +104,6 @@ LtCommandsRegister >> initialize [
 	super initialize.
 	self basicName: self class defaultName.
 	entries := OrderedCollection new
-]
-
-{ #category : #testing }
-LtCommandsRegister >> isCommand [
-	^ false
 ]
 
 { #category : #testing }

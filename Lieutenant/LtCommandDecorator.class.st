@@ -24,6 +24,16 @@ LtCommandDecorator >> acceptVisitor: aLtCommandsRegisterVisitor [
 ]
 
 { #category : #accessing }
+LtCommandDecorator >> basicDescription [
+	^ self decoratedCommand basicDescription
+]
+
+{ #category : #accessing }
+LtCommandDecorator >> basicDescription: aString [
+	self decoratedCommand basicDescription: aString
+]
+
+{ #category : #accessing }
 LtCommandDecorator >> basicName [
 	^ self decoratedCommand basicName
 ]
@@ -58,17 +68,12 @@ LtCommandDecorator >> decoratedCommand: anObject [
 	decoratedCommand := anObject
 ]
 
-{ #category : #accessing }
-LtCommandDecorator >> description [
-	^ self decoratedCommand description
-]
-
-{ #category : #accessing }
-LtCommandDecorator >> description: aString [
-	self decoratedCommand description: aString
-]
-
 { #category : #hooks }
 LtCommandDecorator >> execute [
 	self decoratedCommand execute
+]
+
+{ #category : #accessing }
+LtCommandDecorator >> name [
+	^ self decoratedCommand name
 ]
