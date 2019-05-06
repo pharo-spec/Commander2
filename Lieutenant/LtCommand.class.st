@@ -22,7 +22,7 @@ Questions:
 "
 Class {
 	#name : #LtCommand,
-	#superclass : #Object,
+	#superclass : #LtAbstractCommand,
 	#instVars : [
 		'name',
 		'description',
@@ -64,24 +64,6 @@ LtCommand class >> runWith: anObject [
 	self new runWith: anObject
 ]
 
-{ #category : #decorating }
-LtCommand >> asSpecCommand [
-	"Subclasses might override this method to define default icon and shortcut."
-	^ self decorateWith: LtSpecCommand
-]
-
-{ #category : #decorating }
-LtCommand >> asSpecCommandWithIconNamed: aSymbol [
-	^ self asSpecCommandWithIconNamed: aSymbol shortcutKey: nil
-]
-
-{ #category : #decorating }
-LtCommand >> asSpecCommandWithIconNamed: aSymbol shortcutKey: aKMKeyCombination [
-	^ (self decorateWith: LtSpecCommand)
-		iconName: aSymbol;
-		shortcutKey: aKMKeyCombination
-]
-
 { #category : #hooks }
 LtCommand >> canBeRunOn: anObject [
 	"This hook allows the command decide if it can be run on anObject or not.
@@ -100,11 +82,6 @@ LtCommand >> context: anObject [
 	context := anObject
 ]
 
-{ #category : #decorating }
-LtCommand >> decorateWith: aLtCommandDecoratorClass [
-	^ aLtCommandDecoratorClass decorate: self
-]
-
 { #category : #accessing }
 LtCommand >> description [
 
@@ -115,21 +92,6 @@ LtCommand >> description [
 LtCommand >> description: aString [
 
 	description := aString 
-]
-
-{ #category : #hooks }
-LtCommand >> execute [
-	"Execute the actions that should be done by the command.
-	 This method expect that the context has been put in #context inst. var. if any context is relevant."
-	self subclassResponsibility
-]
-
-{ #category : #hooks }
-LtCommand >> extractInformationFromContext: anObject [
-	"This hook allows the command to extract information from anObject into its instance variables.
-	 It is called before the call to #execute.
-	 The overriding of this method in subclasses is optional but it is usually more convenient to do it.
-	"
 ]
 
 { #category : #testing }
@@ -156,6 +118,5 @@ LtCommand >> run [
 { #category : #'public-api' }
 LtCommand >> runWith: anObject [
 	self context: anObject.
-	self extractInformationFromContext: self context.
 	self execute
 ]

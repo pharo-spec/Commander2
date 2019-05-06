@@ -3,7 +3,7 @@ I am the implementation of the decorator design pattern for commands.
 "
 Class {
 	#name : #LtCommandDecorator,
-	#superclass : #LtCommand,
+	#superclass : #LtAbstractCommand,
 	#instVars : [
 		'decoratedCommand'
 	],
@@ -56,11 +56,6 @@ LtCommandDecorator >> description: aString [
 { #category : #hooks }
 LtCommandDecorator >> execute [
 	self decoratedCommand execute
-]
-
-{ #category : #hooks }
-LtCommandDecorator >> extractInformationFromContext: anObject [
-	self decoratedCommand extractInformationFromContext: anObject
 ]
 
 { #category : #accessing }
