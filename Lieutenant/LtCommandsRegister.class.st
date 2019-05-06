@@ -82,12 +82,12 @@ LtCommandsRegister >> buildSpecMenuOn: aMenuBuilder [
 
 { #category : #'public-api' }
 LtCommandsRegister >> commandOrRegisterNamed: aString [
-	^ (entries detect: [ :commandOrRegister | commandOrRegister basicName = aString ]) wrappedObject
+	^ (entries detect: [ :commandOrRegister | commandOrRegister basicName = aString ])
 ]
 
 { #category : #'public-api' }
 LtCommandsRegister >> commands [
-	^ entries select: [ :entry | entry isCommand ] thenCollect: #command
+	^ entries select: [ :entry | entry isCommand ]
 ]
 
 { #category : #'public-api' }
@@ -115,6 +115,16 @@ LtCommandsRegister >> initialize [
 	entries := OrderedCollection new
 ]
 
+{ #category : #testing }
+LtCommandsRegister >> isCommand [
+	^ false
+]
+
+{ #category : #testing }
+LtCommandsRegister >> isRegister [
+	^ true
+]
+
 { #category : #'public-api' }
 LtCommandsRegister >> registerCommand: aLtCommand withContext: anObject [
 	self registerCommand: aLtCommand withContextBlock: [ anObject ]
@@ -125,7 +135,7 @@ LtCommandsRegister >> registerCommand: aLtCommand withContextBlock: aBlock [
 	(self hasEntryNamed: aLtCommand basicName)
 		ifTrue: [ LtDuplicatedEntryName signalEntryNamed: aLtCommand basicName ].
 	
-	entries add: (LtCommandEntry command: aLtCommand contextBlock: aBlock)
+	entries add: (aLtCommand context: aBlock)
 ]
 
 { #category : #'public-api' }
@@ -133,15 +143,15 @@ LtCommandsRegister >> registerSubRegister: aLtCommandsRegister [
 	(self hasEntryNamed: aLtCommandsRegister basicName)
 		ifTrue: [ LtDuplicatedEntryName signalEntryNamed: aLtCommandsRegister basicName ].
 	
-	entries add: (LtRegisterEntry register: aLtCommandsRegister)
+	entries add: aLtCommandsRegister
 ]
 
 { #category : #'public-api' }
 LtCommandsRegister >> registry [
-	^ entries select: [ :entry | entry isRegister ] thenCollect: #register
+	^ entries select: [ :entry | entry isRegister ]
 ]
 
 { #category : #'public-api' }
 LtCommandsRegister >> unregister: aLtCommandOrRegister [
-	entries remove: (entries detect: [ :e | e wrappedObject = aLtCommandOrRegister ])
+	entries remove: (entries detect: [ :e | e = aLtCommandOrRegister ])
 ]

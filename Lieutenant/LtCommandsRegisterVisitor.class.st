@@ -12,7 +12,7 @@ Class {
 }
 
 { #category : #visiting }
-LtCommandsRegisterVisitor >> visitLtCommandEntry: aLtCommandEntry [
+LtCommandsRegisterVisitor >> visitLtCommand: aLtCommandEntry [
 	^ self subclassResponsibility
 ]
 
@@ -23,6 +23,6 @@ LtCommandsRegisterVisitor >> visitLtCommandsRegister: aLtCommandsRegister [
 ]
 
 { #category : #visiting }
-LtCommandsRegisterVisitor >> visitLtRegisterEntry: aLtRegisterEntry [
+LtCommandsRegisterVisitor >> visitLtRegister: aLtRegisterEntry [
 	^ aLtRegisterEntry register acceptVisitor: self
 ]

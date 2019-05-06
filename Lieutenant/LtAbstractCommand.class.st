@@ -72,6 +72,16 @@ LtAbstractCommand >> execute [
 	self subclassResponsibility
 ]
 
+{ #category : #testing }
+LtAbstractCommand >> isCommand [
+	^ true
+]
+
+{ #category : #testing }
+LtAbstractCommand >> isRegister [
+	^ false
+]
+
 { #category : #accessing }
 LtAbstractCommand >> name [
 	^ self decoratedCommand name

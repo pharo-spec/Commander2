@@ -18,6 +18,11 @@ LtCommandDecorator class >> decorate: aLtCommand [
 		yourself
 ]
 
+{ #category : #visiting }
+LtCommandDecorator >> acceptVisitor: aLtCommandsRegisterVisitor [
+	^ aLtCommandsRegisterVisitor visitLtCommand: self decoratedCommand
+]
+
 { #category : #accessing }
 LtCommandDecorator >> basicName [
 	^ self decoratedCommand basicName

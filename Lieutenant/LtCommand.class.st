@@ -64,6 +64,11 @@ LtCommand class >> runWith: anObject [
 	self new runWith: anObject
 ]
 
+{ #category : #visiting }
+LtCommand >> acceptVisitor: aLtCommandsRegisterVisitor [
+	^ aLtCommandsRegisterVisitor visitLtCommand: self
+]
+
 { #category : #accessing }
 LtCommand >> basicName [
 	^ basicName

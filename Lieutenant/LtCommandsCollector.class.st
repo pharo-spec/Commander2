@@ -22,7 +22,7 @@ LtCommandsCollector >> initialize [
 ]
 
 { #category : #visiting }
-LtCommandsCollector >> visitLtCommandEntry: aLtCommandEntry [
-	commandsCollected add: aLtCommandEntry command.
+LtCommandsCollector >> visitLtCommand: aLtCommandEntry [
+	commandsCollected add: aLtCommandEntry.
 	^ aLtCommandEntry
 ]
