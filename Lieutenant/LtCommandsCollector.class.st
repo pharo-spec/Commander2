@@ -3,7 +3,7 @@ I am a concrete visitor that revursively collect all the commands of a commands 
 "
 Class {
 	#name : #LtCommandsCollector,
-	#superclass : #LtCommandsRegisterVisitor,
+	#superclass : #LtCommandsGroupVisitor,
 	#instVars : [
 		'commandsCollected'
 	],
@@ -22,7 +22,7 @@ LtCommandsCollector >> initialize [
 ]
 
 { #category : #visiting }
-LtCommandsCollector >> visitLtCommand: aLtCommandEntry [
-	commandsCollected add: aLtCommandEntry.
-	^ aLtCommandEntry
+LtCommandsCollector >> visitLtCommand: aLtCommand [
+	commandsCollected add: aLtCommand.
+	^ aLtCommand
 ]

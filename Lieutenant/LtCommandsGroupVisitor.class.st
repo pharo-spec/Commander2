@@ -6,23 +6,23 @@ I am abstract, my subclasses should implement #visitLtCommandEntry:.
 I define default behaviour for visiting a commands register and a register entry.
 "
 Class {
-	#name : #LtCommandsRegisterVisitor,
+	#name : #LtCommandsGroupVisitor,
 	#superclass : #Object,
 	#category : #'Lieutenant-Register'
 }
 
 { #category : #visiting }
-LtCommandsRegisterVisitor >> visitLtCommand: aLtCommandEntry [
+LtCommandsGroupVisitor >> visitLtCommand: aLtCommandEntry [
 	^ self subclassResponsibility
 ]
 
 { #category : #visiting }
-LtCommandsRegisterVisitor >> visitLtCommandsRegister: aLtCommandsRegister [
-	^ aLtCommandsRegister entries collect: [ :entry |
+LtCommandsGroupVisitor >> visitLtCommandsGroup: aLtCommandsGroup [
+	^ aLtCommandsGroup entries collect: [ :entry |
 		entry acceptVisitor: self ]
 ]
 
 { #category : #visiting }
-LtCommandsRegisterVisitor >> visitLtRegister: aLtRegisterEntry [
-	^ aLtRegisterEntry register acceptVisitor: self
+LtCommandsGroupVisitor >> visitLtRegister: aLtRegister [
+	^ aLtRegister acceptVisitor: self
 ]

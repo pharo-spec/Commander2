@@ -1,5 +1,5 @@
 Class {
-	#name : #LtCommandsRegister,
+	#name : #LtCommandsGroup,
 	#superclass : #LtObject,
 	#traits : 'LtTWithBasicNameAndDescription',
 	#classTraits : 'LtTWithBasicNameAndDescription classTrait',
@@ -10,30 +10,30 @@ Class {
 }
 
 { #category : #accessing }
-LtCommandsRegister class >> defaultName [
+LtCommandsGroup class >> defaultName [
 	^ 'Unnamed register'
 ]
 
 { #category : #'instance creation' }
-LtCommandsRegister class >> named: aString [
+LtCommandsGroup class >> named: aString [
 	^ self new
 		basicName: aString;
 		yourself
 ]
 
 { #category : #'public-api' }
-LtCommandsRegister >> / aString [
+LtCommandsGroup >> / aString [
 	"Alias for #commandOrRegisterNamed:."
-	^ self commandOrRegisterNamed: aString
+	^ self commandOrGroupNamed: aString
 ]
 
 { #category : #visiting }
-LtCommandsRegister >> acceptVisitor: aLtCommandsRegisterVisitor [
-	^ aLtCommandsRegisterVisitor visitLtCommandsRegister: self
+LtCommandsGroup >> acceptVisitor: aLtCommandsRegisterVisitor [
+	^ aLtCommandsRegisterVisitor visitLtCommandsGroup: self
 ]
 
 { #category : #accessing }
-LtCommandsRegister >> allCommands [
+LtCommandsGroup >> allCommands [
 	| visitor |
 	visitor := LtCommandsCollector new.
 	self acceptVisitor: visitor.
@@ -41,7 +41,7 @@ LtCommandsRegister >> allCommands [
 ]
 
 { #category : #'private - utilities' }
-LtCommandsRegister >> buildSpecMenuOn: aMenuBuilder [
+LtCommandsGroup >> buildSpecMenuOn: aMenuBuilder [
 	self flag: #TODO. "Should be moved in a visitor."
 	self flag: #TODO. "Can not set the icon in menu because of shitty API of Morphic menu stuff..."
 	"categoryToCommandsDict
@@ -72,27 +72,32 @@ LtCommandsRegister >> buildSpecMenuOn: aMenuBuilder [
 ]
 
 { #category : #'public-api' }
-LtCommandsRegister >> commandOrRegisterNamed: aString [
+LtCommandsGroup >> commandOrGroupNamed: aString [
 	^ (entries detect: [ :commandOrRegister | commandOrRegister basicName = aString ])
 ]
 
 { #category : #'public-api' }
-LtCommandsRegister >> commands [
+LtCommandsGroup >> commands [
 	^ entries select: [ :entry | entry isCommand ]
 ]
 
 { #category : #'public-api' }
-LtCommandsRegister >> entries [
+LtCommandsGroup >> entries [
 	^ entries
 ]
 
+{ #category : #'public-api' }
+LtCommandsGroup >> groups [
+	^ entries select: [ :entry | entry isGroup ]
+]
+
 { #category : #testing }
-LtCommandsRegister >> hasCommand: aLtCommand [
+LtCommandsGroup >> hasCommand: aLtCommand [
 	^ self commands includes: aLtCommand
 ]
 
 { #category : #testing }
-LtCommandsRegister >> hasEntryNamed: aString [
+LtCommandsGroup >> hasEntryNamed: aString [
 	"Returns true if one of my entries (command, registry, ...) is named aString.
 	 Else returns false.
 	"
@@ -100,19 +105,19 @@ LtCommandsRegister >> hasEntryNamed: aString [
 ]
 
 { #category : #initialization }
-LtCommandsRegister >> initialize [
+LtCommandsGroup >> initialize [
 	super initialize.
 	self basicName: self class defaultName.
 	entries := OrderedCollection new
 ]
 
 { #category : #testing }
-LtCommandsRegister >> isRegister [
+LtCommandsGroup >> isGroup [
 	^ true
 ]
 
 { #category : #'public-api' }
-LtCommandsRegister >> register: aLtCommandsOrRegister [
+LtCommandsGroup >> register: aLtCommandsOrRegister [
 	(self hasEntryNamed: aLtCommandsOrRegister basicName)
 		ifTrue: [ LtDuplicatedEntryName signalEntryNamed: aLtCommandsOrRegister basicName ].
 	
@@ -120,11 +125,6 @@ LtCommandsRegister >> register: aLtCommandsOrRegister [
 ]
 
 { #category : #'public-api' }
-LtCommandsRegister >> registry [
-	^ entries select: [ :entry | entry isRegister ]
-]
-
-{ #category : #'public-api' }
-LtCommandsRegister >> unregister: aLtCommandOrRegister [
+LtCommandsGroup >> unregister: aLtCommandOrRegister [
 	entries remove: (entries detect: [ :e | e = aLtCommandOrRegister ])
 ]

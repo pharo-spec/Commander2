@@ -30,6 +30,6 @@ LtObject >> isCommand [
 ]
 
 { #category : #testing }
-LtObject >> isRegister [
+LtObject >> isGroup [
 	^ false
 ]
