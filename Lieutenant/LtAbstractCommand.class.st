@@ -71,3 +71,8 @@ LtAbstractCommand >> execute [
 	 This method expect that the context has been put in #context inst. var. if any context is relevant."
 	self subclassResponsibility
 ]
+
+{ #category : #accessing }
+LtAbstractCommand >> name [
+	^ self decoratedCommand name
+]
