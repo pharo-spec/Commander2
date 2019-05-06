@@ -8,7 +8,7 @@ I define default behaviour for visiting a commands register and a register entry
 Class {
 	#name : #LtCommandsGroupVisitor,
 	#superclass : #Object,
-	#category : #'Lieutenant-Register'
+	#category : #'Lieutenant-Visitors'
 }
 
 { #category : #visiting }

@@ -6,7 +6,7 @@ Class {
 	#instVars : [
 		'entries'
 	],
-	#category : #'Lieutenant-Register'
+	#category : #'Lieutenant-Groups'
 }
 
 { #category : #accessing }

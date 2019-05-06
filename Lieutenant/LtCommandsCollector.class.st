@@ -7,7 +7,7 @@ Class {
 	#instVars : [
 		'commandsCollected'
 	],
-	#category : #'Lieutenant-Register'
+	#category : #'Lieutenant-Visitors'
 }
 
 { #category : #accessing }
