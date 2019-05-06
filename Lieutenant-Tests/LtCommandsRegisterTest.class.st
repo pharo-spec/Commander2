@@ -6,9 +6,7 @@ Class {
 	#superclass : #TestCase,
 	#instVars : [
 		'firstCommand',
-		'firstCommandContextBlock',
 		'subCommand1',
-		'subCommand1ContextBlock',
 		'subRegister1',
 		'subRegister2',
 		'register'
@@ -23,26 +21,26 @@ LtCommandsRegisterTest >> setUp [
 	firstCommand := LtBlockCommand new
 							basicName: 'first command';
 							block: [ :x | x ];
+							context: [ 1 ];
 							yourself.
-	firstCommandContextBlock := [ 1 ].
 	
 	
 	subCommand1 :=  LtBlockCommand new
 							basicName: 'sub command 1';
 							block: [ :x | x ];
+							context: [ 11 ];
 							yourself.
-	subCommand1ContextBlock := [ 11 ].
 	
 	subRegister1 := (LtCommandsRegister named: 'sub register 1')
-							registerCommand: subCommand1 withContextBlock: subCommand1ContextBlock;
+							register: subCommand1;
 							yourself.
 	
 	subRegister2 := LtCommandsRegister named: 'sub register 2'. "Empty on purpose."
 	
 	register
-		registerCommand: firstCommand withContextBlock: firstCommandContextBlock;
-		registerSubRegister: subRegister1;
-		registerSubRegister: subRegister2
+		register: firstCommand;
+		register: subRegister1;
+		register: subRegister2
 ]
 
 { #category : #test }
@@ -105,8 +103,9 @@ LtCommandsRegisterTest >> testRegisterCommandWithContext [
 	secondCommand := LtBlockCommand new 
 							basicName: 'second command';
 							block: [ :x | x ];
+							context: 42;
 							yourself.
-	register registerCommand: secondCommand withContext: 42.
+	register register: secondCommand.
 	
 	self assert: (register hasEntryNamed: 'second command').
 	self assert: (register commandOrRegisterNamed: 'second command') equals: secondCommand.
@@ -121,8 +120,9 @@ LtCommandsRegisterTest >> testRegisterCommandWithContextBlock [
 	secondCommand := LtBlockCommand new 
 							basicName: 'second command';
 							block: [ :x | x ];
+							context: [ 42 ];
 							yourself.
-	register registerCommand: secondCommand withContextBlock: [ 42 ].
+	register register: secondCommand.
 	
 	self assert: (register hasEntryNamed: 'second command').
 	self assert: (register commandOrRegisterNamed: 'second command') equals: secondCommand.
@@ -130,10 +130,11 @@ LtCommandsRegisterTest >> testRegisterCommandWithContextBlock [
 	secondCommandWithSameName := LtBlockCommand new 
 											basicName: 'second command';
 											block: [ :x | x ];
+											context: [ ];
 											yourself.
 	
 	self
-		should: [ register registerCommand: secondCommandWithSameName withContextBlock: [ ] ]
+		should: [ register register: secondCommandWithSameName]
 		raise: LtDuplicatedEntryName
 		withExceptionDo: [ :error |
 			self assert: error entryName equals: 'second command' ]
@@ -145,13 +146,13 @@ LtCommandsRegisterTest >> testRegisterSubRegister [
 	self deny: (register hasEntryNamed: 'sub register 3').
 	
 	subRegister3 := LtCommandsRegister named: 'sub register 3'.
-	register registerSubRegister: subRegister3.
+	register register: subRegister3.
 	
 	self assert: (register hasEntryNamed: 'sub register 3').
 	self assert: (register commandOrRegisterNamed: 'sub register 3') equals: subRegister3.
 	
 	self
-		should: [ register registerSubRegister: (LtCommandsRegister named: 'sub register 3') ]
+		should: [ register register: (LtCommandsRegister named: 'sub register 3') ]
 		raise: LtDuplicatedEntryName
 		withExceptionDo: [ :error |
 			self assert: error entryName equals: 'sub register 3' ]

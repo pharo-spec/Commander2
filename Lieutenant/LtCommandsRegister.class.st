@@ -126,24 +126,11 @@ LtCommandsRegister >> isRegister [
 ]
 
 { #category : #'public-api' }
-LtCommandsRegister >> registerCommand: aLtCommand withContext: anObject [
-	self registerCommand: aLtCommand withContextBlock: [ anObject ]
-]
-
-{ #category : #'public-api' }
-LtCommandsRegister >> registerCommand: aLtCommand withContextBlock: aBlock [
-	(self hasEntryNamed: aLtCommand basicName)
-		ifTrue: [ LtDuplicatedEntryName signalEntryNamed: aLtCommand basicName ].
+LtCommandsRegister >> register: aLtCommandsOrRegister [
+	(self hasEntryNamed: aLtCommandsOrRegister basicName)
+		ifTrue: [ LtDuplicatedEntryName signalEntryNamed: aLtCommandsOrRegister basicName ].
 	
-	entries add: (aLtCommand context: aBlock)
-]
-
-{ #category : #'public-api' }
-LtCommandsRegister >> registerSubRegister: aLtCommandsRegister [
-	(self hasEntryNamed: aLtCommandsRegister basicName)
-		ifTrue: [ LtDuplicatedEntryName signalEntryNamed: aLtCommandsRegister basicName ].
-	
-	entries add: aLtCommandsRegister
+	entries add: aLtCommandsOrRegister
 ]
 
 { #category : #'public-api' }
