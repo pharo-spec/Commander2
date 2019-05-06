@@ -25,8 +25,8 @@ Class {
 	#superclass : #LtAbstractCommand,
 	#instVars : [
 		'description',
-		'context',
-		'basicName'
+		'basicName',
+		'context'
 	],
 	#category : #'Lieutenant-Commands'
 }
@@ -85,6 +85,10 @@ LtCommand >> canBeRunOn: anObject [
 
 { #category : #accessing }
 LtCommand >> context [
+	"The #context might be a BlockClosure that computes the actual context object when needed.
+	 Thus, we send #value which in case of a BlockClosure evaluate it and in case of another
+	 Object, simply returns itself.
+	"
 	^ context value
 ]
 
