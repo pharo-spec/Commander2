@@ -1,6 +1,6 @@
 Class {
 	#name : #LtCommandsGroup,
-	#superclass : #LtObject,
+	#superclass : #LtAbstractCommandsGroup,
 	#traits : 'LtTWithBasicNameAndDescription',
 	#classTraits : 'LtTWithBasicNameAndDescription classTrait',
 	#instVars : [
@@ -109,11 +109,6 @@ LtCommandsGroup >> initialize [
 	super initialize.
 	self basicName: self class defaultName.
 	entries := OrderedCollection new
-]
-
-{ #category : #testing }
-LtCommandsGroup >> isGroup [
-	^ true
 ]
 
 { #category : #'public-api' }

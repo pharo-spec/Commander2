@@ -4,6 +4,11 @@ Class {
 	#category : #'Lieutenant-Commands'
 }
 
+{ #category : #visiting }
+LtAbstractCommand >> acceptVisitor: aLtCommandsRegisterVisitor [
+	^ self subclassResponsibility
+]
+
 { #category : #decorating }
 LtAbstractCommand >> asSpecCommand [
 	"Subclasses might override this method to define default icon and shortcut."
