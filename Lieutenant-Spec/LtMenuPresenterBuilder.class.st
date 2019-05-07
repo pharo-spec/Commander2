@@ -5,7 +5,7 @@ Class {
 		'menuPresenter',
 		'stack'
 	],
-	#category : #'Lieutenant-Visitors'
+	#category : #'Lieutenant-Spec'
 }
 
 { #category : #initialization }
@@ -39,14 +39,8 @@ LtMenuPresenterBuilder >> visitLtCommand: aLtCommand [
 
 { #category : #visiting }
 LtMenuPresenterBuilder >> visitLtCommandsGroup: aLtCommandsGroup [
-	stack top addItem: [ :item |
-		|subMenu|
-		item
-			name: aLtCommandsGroup name;
-			icon: (self iconNamed: aLtCommandsGroup iconName).
-		subMenu := MenuPresenter new.
-		stack push: subMenu.
+	aLtCommandsGroup displayIn: stack top do: [ :specGroupOrSubMenu |
+		stack push: specGroupOrSubMenu.
 		super visitLtCommandsGroup: aLtCommandsGroup.
-		stack pop.
-		item subMenu: subMenu ]
+		stack pop ]
 ]

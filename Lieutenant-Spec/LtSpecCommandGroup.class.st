@@ -2,14 +2,35 @@ Class {
 	#name : #LtSpecCommandGroup,
 	#superclass : #LtCommandsGroupDecorator,
 	#instVars : [
-		'iconName'
+		'iconName',
+		'displayStrategy'
 	],
 	#category : #'Lieutenant-Spec'
 }
 
-{ #category : #initialization }
+{ #category : #default }
+LtSpecCommandGroup class >> defaultDisplayStrategy [
+	^ LtSpecDisplayAsSubMenu new
+]
+
+{ #category : #default }
 LtSpecCommandGroup class >> defaultIconName [
 	^ #blank
+]
+
+{ #category : #displaying }
+LtSpecCommandGroup >> displayIn: aMenuPresenter do: aBlock [
+	self displayStrategy display: self in: aMenuPresenter do: aBlock
+]
+
+{ #category : #accessing }
+LtSpecCommandGroup >> displayStrategy [
+	^ displayStrategy
+]
+
+{ #category : #accessing }
+LtSpecCommandGroup >> displayStrategy: anObject [
+	displayStrategy := anObject
 ]
 
 { #category : #accessing }
@@ -25,5 +46,6 @@ LtSpecCommandGroup >> iconName: anObject [
 { #category : #initialization }
 LtSpecCommandGroup >> initialize [
 	super initialize.
-	self iconName: self class defaultIconName
+	self iconName: self class defaultIconName.
+	self displayStrategy: self class defaultDisplayStrategy
 ]
