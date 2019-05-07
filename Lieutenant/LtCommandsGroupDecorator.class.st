@@ -91,7 +91,7 @@ LtCommandsGroupDecorator >> name [
 
 { #category : #'public-api' }
 LtCommandsGroupDecorator >> register: aLtCommandsOrRegister [
-	^ self decoratedGroup register: aLtCommandsOrRegister
+	self decoratedGroup register: aLtCommandsOrRegister
 ]
 
 { #category : #'public-api' }
