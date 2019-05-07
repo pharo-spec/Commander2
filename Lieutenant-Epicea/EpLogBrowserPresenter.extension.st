@@ -1,9 +1,9 @@
 Extension { #name : #EpLogBrowserPresenter }
 
 { #category : #'*Lieutenant-Epicea' }
-EpLogBrowserPresenter >> codeChangesRegister [
+EpLogBrowserPresenter >> codeChangesGroup [
 	"Lieutenant version of #codeChangesMenuActions"
-	^ LtCommandsGroup forSpec
+	^ (LtCommandsGroup named: 'Code changes') asSpecGroup
 		register: (EpOpenPreviewToApplySelectedChanges forSpec context: self);
 		register: (EpOpenPreviewToRevertSelectedChanges forSpec context: self);
 		register: (EpBrowseSelection forSpec context: self);
@@ -11,17 +11,17 @@ EpLogBrowserPresenter >> codeChangesRegister [
 ]
 
 { #category : #'*Lieutenant-Epicea' }
-EpLogBrowserPresenter >> eventsRegister [
+EpLogBrowserPresenter >> eventsGroup [
 	"Lieutenant version of #eventMenuActions."
-	^ (LtCommandsGroup named: 'Event')
+	^ (LtCommandsGroup named: 'Event') asSpecGroup
 		register: (EpCommentSelection forSpec context: self);
 		yourself
 ]
 
 { #category : #'*Lieutenant-Epicea' }
-EpLogBrowserPresenter >> refactoringRegister [
+EpLogBrowserPresenter >> refactoringGroup [
 	"Lieutenant version of #refactoringMenuActions"
-	^ (LtCommandsGroup named: 'Refactoring')
+	^ (LtCommandsGroup named: 'Refactoring') asSpecGroup
 		register: (EpApplyCompleteRefactoringInSelection forSpec context: self);
 		register: (EpApplyPropagateRefactoringInSelection forSpec context: self);
 		yourself
