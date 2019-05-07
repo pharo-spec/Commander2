@@ -18,6 +18,16 @@ LtSpecCommandGroup class >> defaultIconName [
 	^ #blank
 ]
 
+{ #category : #configuring }
+LtSpecCommandGroup >> beDisplayedAsGroup [
+	self displayStrategy: LtSpecDisplayAsGroup new
+]
+
+{ #category : #configuring }
+LtSpecCommandGroup >> beDisplayedAsSubMeny [
+	self displayStrategy: LtSpecDisplayAsSubMenu new
+]
+
 { #category : #displaying }
 LtSpecCommandGroup >> displayIn: aMenuPresenter do: aBlock [
 	self displayStrategy display: self in: aMenuPresenter do: aBlock
