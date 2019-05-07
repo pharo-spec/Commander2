@@ -18,8 +18,6 @@ Class {
 
 { #category : #default }
 LtSpecCommand class >> defaultIconName [
-	"nil is not really nice but it indicates that by default the command does not have an icon."
-
 	^ #blank
 ]
 

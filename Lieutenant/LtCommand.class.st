@@ -39,7 +39,7 @@ LtCommand class >> defaultCommandName [
 
 { #category : #default }
 LtCommand class >> defaultDescription [
-	^ 'I''m a little command and I should provide a nice description for my user.'
+	^ 'I''m command and I should provide a nice description for my user.'
 ]
 
 { #category : #'instance creation' }
@@ -62,11 +62,6 @@ LtCommand class >> forSpecWithIconNamed: aSymbol shortcutKey: aKMKeyCombination 
 { #category : #running }
 LtCommand class >> runWith: anObject [
 	self new runWith: anObject
-]
-
-{ #category : #visiting }
-LtCommand >> acceptVisitor: aLtCommandsRegisterVisitor [
-	^ aLtCommandsRegisterVisitor visitLtCommand: self
 ]
 
 { #category : #hooks }
@@ -111,15 +106,4 @@ LtCommand >> name [
 	 By default, my #basicName is returned.
 	"
 	^ self basicName
-]
-
-{ #category : #'public-api' }
-LtCommand >> run [
-	self runWith: self context
-]
-
-{ #category : #'public-api' }
-LtCommand >> runWith: anObject [
-	self context: anObject.
-	self execute
 ]

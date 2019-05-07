@@ -59,6 +59,11 @@ LtCommandsGroupDecorator >> decoratedGroup: anObject [
 	decoratedGroup := anObject
 ]
 
+{ #category : #accessing }
+LtCommandsGroupDecorator >> description [
+	^ self decoratedGroup description
+]
+
 { #category : #'public-api' }
 LtCommandsGroupDecorator >> entries [
 	^ self decoratedGroup entries
@@ -77,6 +82,11 @@ LtCommandsGroupDecorator >> hasCommand: aLtCommand [
 { #category : #testing }
 LtCommandsGroupDecorator >> hasEntryNamed: aString [
 	^ self decoratedGroup hasEntryNamed: aString
+]
+
+{ #category : #accessing }
+LtCommandsGroupDecorator >> name [
+	^ self decoratedGroup name
 ]
 
 { #category : #'public-api' }

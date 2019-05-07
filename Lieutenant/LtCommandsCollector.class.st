@@ -3,7 +3,7 @@ I am a concrete visitor that revursively collect all the commands of a commands 
 "
 Class {
 	#name : #LtCommandsCollector,
-	#superclass : #LtCommandsGroupVisitor,
+	#superclass : #LtVisitor,
 	#instVars : [
 		'commandsCollected'
 	],

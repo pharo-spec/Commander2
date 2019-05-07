@@ -4,6 +4,11 @@ Class {
 	#category : #'Lieutenant-Groups'
 }
 
+{ #category : #visiting }
+LtAbstractCommandsGroup >> acceptVisitor: aLtCommandsRegisterVisitor [
+	^ aLtCommandsRegisterVisitor visitLtCommandsGroup: self
+]
+
 { #category : #accessing }
 LtAbstractCommandsGroup >> allCommands [
 	^ self subclassResponsibility

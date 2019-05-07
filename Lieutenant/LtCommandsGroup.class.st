@@ -9,9 +9,24 @@ Class {
 	#category : #'Lieutenant-Groups'
 }
 
-{ #category : #accessing }
+{ #category : #default }
+LtCommandsGroup class >> defaultDescription [
+	^ 'I''m group and I should provide a nice description for my user.'
+]
+
+{ #category : #default }
 LtCommandsGroup class >> defaultName [
-	^ 'Unnamed register'
+	^ 'Unnamed group'
+]
+
+{ #category : #'instance creation' }
+LtCommandsGroup class >> forSpec [
+	^ self new asSpecGroup
+]
+
+{ #category : #'instance creation' }
+LtCommandsGroup class >> forSpecWithIconNamed: aSymbol [
+	^ self new asSpecGroupWithIconNamed: aSymbol
 ]
 
 { #category : #'instance creation' }
@@ -25,11 +40,6 @@ LtCommandsGroup class >> named: aString [
 LtCommandsGroup >> / aString [
 	"Alias for #commandOrRegisterNamed:."
 	^ self commandOrGroupNamed: aString
-]
-
-{ #category : #visiting }
-LtCommandsGroup >> acceptVisitor: aLtCommandsRegisterVisitor [
-	^ aLtCommandsRegisterVisitor visitLtCommandsGroup: self
 ]
 
 { #category : #accessing }
@@ -108,6 +118,7 @@ LtCommandsGroup >> hasEntryNamed: aString [
 LtCommandsGroup >> initialize [
 	super initialize.
 	self basicName: self class defaultName.
+	self basicDescription: self class defaultDescription.
 	entries := OrderedCollection new
 ]
 

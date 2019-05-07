@@ -6,7 +6,7 @@ Class {
 
 { #category : #visiting }
 LtAbstractCommand >> acceptVisitor: aLtCommandsRegisterVisitor [
-	^ self subclassResponsibility
+	^ aLtCommandsRegisterVisitor visitLtCommand: self
 ]
 
 { #category : #testing }

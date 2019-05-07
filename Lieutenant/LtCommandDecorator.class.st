@@ -12,11 +12,6 @@ Class {
 	#category : #'Lieutenant-Commands'
 }
 
-{ #category : #visiting }
-LtCommandDecorator >> acceptVisitor: aLtCommandsRegisterVisitor [
-	^ aLtCommandsRegisterVisitor visitLtCommand: self decoratedCommand
-]
-
 { #category : #accessing }
 LtCommandDecorator >> basicDescription [
 	^ self decoratedCommand basicDescription
@@ -65,6 +60,11 @@ LtCommandDecorator >> decoratedCommand [
 { #category : #accessing }
 LtCommandDecorator >> decoratedCommand: anObject [
 	decoratedCommand := anObject
+]
+
+{ #category : #accessing }
+LtCommandDecorator >> description [
+	^ self decoratedCommand description
 ]
 
 { #category : #hooks }
