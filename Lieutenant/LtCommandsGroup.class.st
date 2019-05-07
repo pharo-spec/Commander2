@@ -50,37 +50,6 @@ LtCommandsGroup >> allCommands [
 	^ visitor commandsCollected
 ]
 
-{ #category : #'private - utilities' }
-LtCommandsGroup >> buildSpecMenuOn: aMenuBuilder [
-	self flag: #TODO. "Should be moved in a visitor."
-	self flag: #TODO. "Can not set the icon in menu because of shitty API of Morphic menu stuff..."
-	"categoryToCommandsDict
-		at: #root
-		ifPresent: [ :commands | 
-			commands
-				do: [ :commandClassToContextBlock | 
-					|command|
-					command := commandClassToContextBlock key.
-					aMenuBuilder
-						add: command name target: [ command runWith: commandClassToContextBlock value value ] selector: #value ] ].
-
-	((categoryToCommandsDict associations
-		reject: [ :assoc | assoc key = #root ])
-		sort: [ :a :b | a key < b key ])
-		do: [ :assoc | 
-			| subMenu |
-			subMenu := MenuMorph new.
-			assoc value
-				do: [ :commandClassToContextBlock | 
-					|command|
-					command := commandClassToContextBlock key asSpecCommand.
-					subMenu
-						add: command name target: [ command runWith: commandClassToContextBlock value value ] selector: #value ].
-			aMenuBuilder
-				add: assoc key asCamelCase
-				subMenu: subMenu ]"
-]
-
 { #category : #'public-api' }
 LtCommandsGroup >> commandOrGroupNamed: aString [
 	^ (entries detect: [ :commandOrRegister | commandOrRegister basicName = aString ])
