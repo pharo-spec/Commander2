@@ -34,7 +34,10 @@ LtMenuPresenterBuilder >> visitLtCommand: aLtCommand [
 			name: aLtCommand name;
 			description: aLtCommand description;
 			icon: (self iconNamed: aLtCommand iconName);
-			action: [ aLtCommand execute ] ]
+			action: [ aLtCommand execute ];
+			in: [ :i | 
+				aLtCommand hasShortcut
+					ifTrue: [ i shortcut: aLtCommand shortcutKey ] ] ]
 ]
 
 { #category : #visiting }

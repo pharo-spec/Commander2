@@ -1,6 +1,6 @@
 Class {
 	#name : #LtBrowseFull,
-	#superclass : #LtCommand,
+	#superclass : #AnObsoleteLtCommand,
 	#instVars : [
 		'class'
 	],

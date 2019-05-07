@@ -36,12 +36,6 @@ LtCommandsGroup class >> named: aString [
 		yourself
 ]
 
-{ #category : #'public-api' }
-LtCommandsGroup >> / aString [
-	"Alias for #commandOrRegisterNamed:."
-	^ self commandOrGroupNamed: aString
-]
-
 { #category : #accessing }
 LtCommandsGroup >> allCommands [
 	| visitor |

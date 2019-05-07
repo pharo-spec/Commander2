@@ -24,7 +24,7 @@ LtSpecCommandGroup >> beDisplayedAsGroup [
 ]
 
 { #category : #configuring }
-LtSpecCommandGroup >> beDisplayedAsSubMeny [
+LtSpecCommandGroup >> beDisplayedAsSubMenu [
 	self displayStrategy: LtSpecDisplayAsSubMenu new
 ]
 

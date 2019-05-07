@@ -4,6 +4,12 @@ Class {
 	#category : #'Lieutenant-Groups'
 }
 
+{ #category : #'public-api' }
+LtAbstractCommandsGroup >> / aString [
+	"Alias for #commandOrRegisterNamed:."
+	^ self commandOrGroupNamed: aString
+]
+
 { #category : #visiting }
 LtAbstractCommandsGroup >> acceptVisitor: aLtCommandsRegisterVisitor [
 	^ aLtCommandsRegisterVisitor visitLtCommandsGroup: self

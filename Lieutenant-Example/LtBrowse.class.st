@@ -1,6 +1,6 @@
 Class {
 	#name : #LtBrowse,
-	#superclass : #LtCommand,
+	#superclass : #AnObsoleteLtCommand,
 	#category : #'Lieutenant-Example'
 }
 
