@@ -1,3 +1,6 @@
+"
+I am a visitor that builds a Spec MenuPresenter from a commands and commands group.
+"
 Class {
 	#name : #LtMenuPresenterBuilder,
 	#superclass : #LtVisitor,

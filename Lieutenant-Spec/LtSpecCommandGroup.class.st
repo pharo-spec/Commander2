@@ -1,3 +1,10 @@
+"
+I am a command group decorator adding informations useful when for usage in context of a Spec application.
+
+Basically, I add:
+- an #icon (#blank by default)
+- the strategy to display commands group in a MenuPresenter
+"
 Class {
 	#name : #LtSpecCommandGroup,
 	#superclass : #LtCommandsGroupDecorator,
