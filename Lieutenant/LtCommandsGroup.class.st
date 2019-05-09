@@ -86,11 +86,11 @@ LtCommandsGroup >> initialize [
 ]
 
 { #category : #'public-api' }
-LtCommandsGroup >> register: aLtCommandsOrRegister [
-	(self hasEntryNamed: aLtCommandsOrRegister basicName)
-		ifTrue: [ LtDuplicatedEntryName signalEntryNamed: aLtCommandsOrRegister basicName ].
+LtCommandsGroup >> register: aLtCommandsOrGroup [
+	(self hasEntryNamed: aLtCommandsOrGroup basicName)
+		ifTrue: [ LtDuplicatedEntryName signalEntryNamed: aLtCommandsOrGroup basicName ].
 	
-	entries add: aLtCommandsOrRegister
+	entries add: aLtCommandsOrGroup
 ]
 
 { #category : #'public-api' }
