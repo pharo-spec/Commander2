@@ -1,14 +1,6 @@
 "
-While other commands actions should be defined by overriding #execute method, I''m a block command. 
-I  execute a block as my action. 
-
-[[[ 
-LtBlockCommand new 
-   name: 'on the fly';
-   shortkey: 'A' asKeyCombination;
-   block: [ Smalltalk beep ]
-]]]
-
+While other commands actions should be defined by overriding #execute method, I'm a block command. 
+I  execute a block as my action.
 
 "
 Class {

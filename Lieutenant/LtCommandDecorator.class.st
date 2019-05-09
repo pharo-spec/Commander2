@@ -1,5 +1,7 @@
 "
 I am the implementation of the decorator design pattern for commands.
+
+I just delegate everything to the #decoratedCommand. My subclasses probably do something more interesting.
 "
 Class {
 	#name : #LtCommandDecorator,
