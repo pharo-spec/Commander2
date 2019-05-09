@@ -25,6 +25,13 @@ LtSpecCommandGroup class >> defaultIconName [
 	^ #blank
 ]
 
+{ #category : #converting }
+LtSpecCommandGroup >> asMenuPresenter [
+	^ LtMenuPresenterBuilder new
+		visit: self;
+		menuPresenter
+]
+
 { #category : #configuring }
 LtSpecCommandGroup >> beDisplayedAsGroup [
 	self displayStrategy: LtSpecDisplayAsGroup new
