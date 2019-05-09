@@ -1,25 +1,3 @@
-"
-Contrary to Commander, a command can be customised at the moment of use.
-Hence even though the class describing a command define an iconName/name/shortcut, when creating the command such information can be overloaded. 
-
-A command may have an icon or not (message noIcon/useIcon)
-Then when it has an icon it can be defined statically as a class method, or customized on the spot.
-
-[[[
-LtOpenCommandForTest new
-]]]
-   
-[[[
-LtOpenCommandForTest new			
-	name: 'on the fly';
-   shortkey: 'A'
-]]]
-
-Questions: 
-
-- May be this logic can be simplified. For now make it works.
-- Why canBeExecutedInContext: aToolContext is a class method?
-"
 Class {
 	#name : #LtCommand,
 	#superclass : #LtAbstractCommand,
@@ -65,9 +43,9 @@ LtCommand class >> runWith: anObject [
 ]
 
 { #category : #hooks }
-LtCommand >> canBeRunOn: anObject [
-	"This hook allows the command decide if it can be run on anObject or not.
-	 It should return a boolean. By default, returns true.
+LtCommand >> canBeRun [
+	"See my super class comment for this method.
+	 By default I return true.
 	"
 	^ true
 ]

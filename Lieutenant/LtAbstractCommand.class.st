@@ -1,3 +1,8 @@
+"
+I am an abstract class defining the API a command should understand.
+
+See my subclasses for concrete examples.
+"
 Class {
 	#name : #LtAbstractCommand,
 	#superclass : #LtObject,
@@ -10,8 +15,8 @@ LtAbstractCommand >> acceptVisitor: aLtCommandsRegisterVisitor [
 ]
 
 { #category : #testing }
-LtAbstractCommand >> canBeRunOn: anObject [
-	"This hook allows the command decide if it can be run on anObject or not.
+LtAbstractCommand >> canBeRun [
+	"This hook allows the command decide if it can be run with the context it holds or not.
 	 It should return a boolean.
 	"
 	^ self subclassResponsibility

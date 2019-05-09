@@ -32,9 +32,12 @@ LtCommandDecorator >> basicName: aString [
 	self decoratedCommand basicName: aString
 ]
 
-{ #category : #hooks }
-LtCommandDecorator >> canBeRunOn: anObject [
-	^ self decoratedCommand canBeRunOn: anObject
+{ #category : #testing }
+LtCommandDecorator >> canBeRun [
+	"This hook allows the command decide if it can be run with the context it holds or not.
+	 It should return a boolean.
+	"
+	^ self decoratedCommand canBeRun
 ]
 
 { #category : #accessing }
