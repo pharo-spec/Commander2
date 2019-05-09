@@ -8,8 +8,8 @@ LtRequest >> actForSpec [
 		initialAnswer: self initialAnswer
 		title: self title.
 	
-	answer isEmptyOrNil
-		ifTrue: [ LtCommandAborted signal ].
+	answer isEmptyOrNil "If this is true, it means that user cancelled the UI."
+		ifTrue: [ ^ self ].
 	
 	self whenAnsweredBlock value: self command value: answer.
 	

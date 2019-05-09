@@ -22,6 +22,12 @@ LtChangePhoneCommand >> execute [
 			command newPhone: answer ];
 		signal.
 	
+	(self newPhone matchesRegex: '\d\d\d\s\d\d\d')
+		ifFalse: [ 
+			(LtCommandAborted command: self)
+				reason: 'The phone number is not well formated. Should match "\d\d\d\s\d\d\d"';
+				signal ].
+	
 	self selectedContact phone: self newPhone.
 	self contactBookPresenter updateView
 ]
