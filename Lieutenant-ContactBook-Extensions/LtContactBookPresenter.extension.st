@@ -15,5 +15,8 @@ LtContactBookPresenter class >> extraCommandsWith: presenter forRootGroup: aLtCo
 						register: ((LtInspectCommand forSpec context: [ presenter selectedContact ])
 											basicName: 'Inspect contact';
 											yourself);
+						register: ((LtInspectCommand forSpec context: [ presenter contactBook ])
+											basicName: 'Inspect contact book';
+											yourself);
 						yourself)
 ]
