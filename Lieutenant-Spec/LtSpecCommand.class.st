@@ -36,6 +36,11 @@ LtSpecCommand >> alwaysVisible: anObject [
 	alwaysVisible := anObject
 ]
 
+{ #category : #hooks }
+LtSpecCommand >> execute [
+	[ super execute ] on: LtCommandNotication do: [ :notification | notification actForSpec ]
+]
+
 { #category : #testing }
 LtSpecCommand >> hasShortcut [
 	^ shortcutKey isNotNil
