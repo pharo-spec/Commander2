@@ -7,7 +7,14 @@ Class {
 	#category : #'Lieutenant-Epicea'
 }
 
-{ #category : #accessing }
+{ #category : #cleaning }
+EpLieutenantPatcher class >> cleanMethodsNoLongerRequired [
+	"Removes all methods that are now replaced by Lieutenant commands."
+	#(#addMenuItemsForSelectedItemsIn: #codeChangesMenuActions #eventsMenuActions #filtersSubMenu #menuActionsForSelectedItems #menuMorphForSelectedItems #refactoringMenuActions) do: [ :selector |
+		(EpLogBrowserPresenter >> selector) removeFromSystem ]
+]
+
+{ #category : #patching }
 EpLieutenantPatcher class >> patch [
 	<script>
 	EpLogBrowserPresenter compile: 'initializeItemsPresenter
@@ -20,6 +27,7 @@ EpLieutenantPatcher class >> patch [
 		
 	EpLogBrowserToolbarPresenter compile: 'filtersAction
 
-	(self logBrowserPresenter rootCommandsGroup / ''Filters'')
-		asMenuPresenter openWithSpecAt: ActiveHand position'
+	(self logBrowserPresenter rootCommandsGroup / ''Filters'') beRoot
+		asMenuPresenter openWithSpecAt: ActiveHand position'.
+	
 ]
