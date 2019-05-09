@@ -22,7 +22,7 @@ LtContactBookCommand >> contactBookPresenter [
 
 { #category : #testing }
 LtContactBookCommand >> hasSelectedContact [
-	^ self selectedContact isNotNil
+	^ self contactBookPresenter isContactSelected
 ]
 
 { #category : #accessing }
