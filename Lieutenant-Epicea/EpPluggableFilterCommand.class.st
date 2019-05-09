@@ -28,6 +28,11 @@ EpPluggableFilterCommand >> asSpecCommand [
 ]
 
 { #category : #accessing }
+EpPluggableFilterCommand >> basicName [
+	^ self pluggableFilter title
+]
+
+{ #category : #accessing }
 EpPluggableFilterCommand >> description [
 	^ self pluggableFilter title
 ]
@@ -35,11 +40,6 @@ EpPluggableFilterCommand >> description [
 { #category : #hooks }
 EpPluggableFilterCommand >> execute [
 	self context addFilter: self pluggableFilter
-]
-
-{ #category : #accessing }
-EpPluggableFilterCommand >> name [
-	^ self pluggableFilter title
 ]
 
 { #category : #accessing }

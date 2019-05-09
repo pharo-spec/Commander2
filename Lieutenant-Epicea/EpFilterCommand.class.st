@@ -22,6 +22,11 @@ EpFilterCommand >> asSpecCommand [
 ]
 
 { #category : #hooks }
+EpFilterCommand >> basicName [
+	^ self filterClass title
+]
+
+{ #category : #hooks }
 EpFilterCommand >> description [
 	^ self filterClass comment
 ]
@@ -34,9 +39,4 @@ EpFilterCommand >> filterClass [
 { #category : #accessing }
 EpFilterCommand >> filterClass: anObject [
 	filterClass := anObject
-]
-
-{ #category : #hooks }
-EpFilterCommand >> name [
-	^ self filterClass title
 ]
