@@ -1,9 +1,16 @@
 Extension { #name : #EpLogBrowserPresenter }
 
 { #category : #'*Lieutenant-Epicea' }
-EpLogBrowserPresenter class >> codeChangesGroupOn: presenter [
+EpLogBrowserPresenter class >> buildCommandsGroupWith: presenter forRoot: aLtCommandsGroup [
+	aLtCommandsGroup
+		register: (self codeChangesGroupWith: presenter);
+		register: (self eventsGroupWith: presenter);
+		register: (self refactoringGroupWith: presenter)
+]
+
+{ #category : #'*Lieutenant-Epicea' }
+EpLogBrowserPresenter class >> codeChangesGroupWith: presenter [
 	"Lieutenant version of inst-side #codeChangesMenuActions"
-	<lieutenant>
 	^ (LtCommandsGroup named: 'Code changes') asSpecGroup
 		register: (EpOpenPreviewToApplySelectedChanges forSpec context: presenter);
 		register: (EpOpenPreviewToRevertSelectedChanges forSpec context: presenter);
@@ -12,18 +19,25 @@ EpLogBrowserPresenter class >> codeChangesGroupOn: presenter [
 ]
 
 { #category : #'*Lieutenant-Epicea' }
-EpLogBrowserPresenter class >> eventsGroupOn: presenter [
+EpLogBrowserPresenter class >> eventsGroupWith: presenter [
 	"Lieutenant version of inst-side #eventMenuActions"
-	<lieutenant>
 	^ (LtCommandsGroup named: 'Event') asSpecGroup
 		register: (EpCommentSelection forSpec context: presenter);
 		yourself
 ]
 
 { #category : #'*Lieutenant-Epicea' }
-EpLogBrowserPresenter class >> refactoringGroupOn: presenter [
+EpLogBrowserPresenter class >> myCustomCommandsWith: presenter forRoot: rootGroup [
+	<lieutenantExtension>
+	(rootGroup / 'Event')
+		register: ((LtCommandsGroup named: 'Custom') asSpecGroup
+						register: (LtInspectCommand forSpec context: presenter);
+						yourself)
+]
+
+{ #category : #'*Lieutenant-Epicea' }
+EpLogBrowserPresenter class >> refactoringGroupWith: presenter [
 	"Lieutenant version of inst-side #refactoringMenuActions"
-	<lieutenant>
 	^ (LtCommandsGroup named: 'Refactoring') asSpecGroup
 		register: (EpApplyCompleteRefactoringInSelection forSpec context: self);
 		register: (EpApplyPropagateRefactoringInSelection forSpec context: self);
