@@ -10,7 +10,8 @@ Class {
 	#superclass : #LtCommandsGroupDecorator,
 	#instVars : [
 		'iconName',
-		'displayStrategy'
+		'displayStrategy',
+		'isRoot'
 	],
 	#category : #'Lieutenant-Spec'
 }
@@ -42,6 +43,11 @@ LtSpecCommandGroup >> beDisplayedAsSubMenu [
 	self displayStrategy: LtSpecDisplayAsSubMenu new
 ]
 
+{ #category : #configuring }
+LtSpecCommandGroup >> beRoot [
+	self isRoot: true.
+]
+
 { #category : #displaying }
 LtSpecCommandGroup >> displayIn: aMenuPresenter do: aBlock [
 	self displayStrategy display: self in: aMenuPresenter do: aBlock
@@ -71,5 +77,16 @@ LtSpecCommandGroup >> iconName: anObject [
 LtSpecCommandGroup >> initialize [
 	super initialize.
 	self iconName: self class defaultIconName.
-	self displayStrategy: self class defaultDisplayStrategy
+	self displayStrategy: self class defaultDisplayStrategy.
+	self isRoot: false
+]
+
+{ #category : #accessing }
+LtSpecCommandGroup >> isRoot [
+	^ isRoot
+]
+
+{ #category : #accessing }
+LtSpecCommandGroup >> isRoot: anObject [
+	isRoot := anObject
 ]

@@ -45,6 +45,11 @@ LtMenuPresenterBuilder >> visitLtCommand: aLtCommand [
 
 { #category : #visiting }
 LtMenuPresenterBuilder >> visitLtCommandsGroup: aLtCommandsGroup [
+	aLtCommandsGroup isRoot
+		ifTrue: [ 
+			super visitLtCommandsGroup: aLtCommandsGroup.
+			^ self ].
+	
 	aLtCommandsGroup displayIn: stack top do: [ :specGroupOrSubMenu |
 		stack push: specGroupOrSubMenu.
 		super visitLtCommandsGroup: aLtCommandsGroup.
