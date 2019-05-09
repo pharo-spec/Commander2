@@ -94,6 +94,31 @@ LtCommandsGroup >> register: aLtCommandsOrGroup [
 ]
 
 { #category : #'public-api' }
+LtCommandsGroup >> register: aLtCommandsOrGroup after: anotherLtCommandsOrGroup [
+	self shouldBeImplemented; flag: #TODO
+]
+
+{ #category : #'public-api' }
+LtCommandsGroup >> register: aLtCommandsOrGroup before: anotherLtCommandsOrGroup [
+	self shouldBeImplemented; flag: #TODO
+]
+
+{ #category : #'public-api' }
+LtCommandsGroup >> register: aLtCommandsOrGroup insteadOf: anotherLtCommandsOrGroup [
+	self shouldBeImplemented; flag: #TODO
+]
+
+{ #category : #'public-api' }
+LtCommandsGroup >> registerFirst: aLtCommandsOrGroup [
+	self shouldBeImplemented; flag: #TODO
+]
+
+{ #category : #'public-api' }
+LtCommandsGroup >> registerLast: aLtCommandsOrGroup [
+	self shouldBeImplemented; flag: #TODO
+]
+
+{ #category : #'public-api' }
 LtCommandsGroup >> unregister: aLtCommandOrRegister [
 	entries remove: (entries detect: [ :e | e = aLtCommandOrRegister ])
 ]
