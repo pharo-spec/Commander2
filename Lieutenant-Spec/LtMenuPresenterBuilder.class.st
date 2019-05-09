@@ -36,7 +36,7 @@ LtMenuPresenterBuilder >> visitLtCommand: aLtCommand [
 		item
 			name: aLtCommand name;
 			description: aLtCommand description;
-			icon: (self iconNamed: aLtCommand iconName);
+			iconName: aLtCommand iconName;
 			action: [ aLtCommand execute ];
 			in: [ :i | 
 				aLtCommand hasShortcut
