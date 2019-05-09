@@ -6,7 +6,8 @@ EpLogBrowserPresenter class >> buildCommandsGroupWith: presenter forRoot: aLtCom
 		register: (self codeChangesGroupWith: presenter) beDisplayedAsGroup;
 		register: (self eventsGroupWith: presenter) beDisplayedAsGroup;
 		register: (self refactoringGroupWith: presenter) beDisplayedAsGroup;
-		register: (self filtersGoupWith: presenter)
+		register: (self filtersGoupWith: presenter) beDisplayedAsSubMenu;
+		register: (self fileOutGroupWith: presenter) beDisplayedAsGroup
 ]
 
 { #category : #'*Lieutenant-Epicea' }
@@ -41,6 +42,14 @@ EpLogBrowserPresenter class >> eventsGroupWith: presenter [
 	"Lieutenant version of inst-side #eventMenuActions"
 	^ (LtCommandsGroup named: 'Event') asSpecGroup
 		register: (EpCommentSelection forSpec context: presenter);
+		yourself
+]
+
+{ #category : #'*Lieutenant-Epicea' }
+EpLogBrowserPresenter class >> fileOutGroupWith: presenter [
+	"Lieutenant version of inst-side #codeChangesMenuActions"
+	^ (LtCommandsGroup named: 'FileOut') asSpecGroup
+		register: (EpFileOutSelection forSpec context: presenter);
 		yourself
 ]
 
