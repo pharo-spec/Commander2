@@ -13,7 +13,7 @@ Class {
 { #category : #decorating }
 EpCleanFilters >> asSpecCommand [
 	^ super asSpecCommand
-		icon: #smallDelete;
+		iconName: #smallDelete;
 		yourself
 ]
 

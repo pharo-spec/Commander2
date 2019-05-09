@@ -13,7 +13,7 @@ Class {
 { #category : #decorating }
 EpOpenPreviewToApplySelectedChanges >> asSpecCommand [
 	^ super asSpecCommand
-		iconNamed: #smallRedoIcon;
+		iconName: #smallRedoIcon;
 		shortcutKey: $p command;
 		yourself
 ]

@@ -13,7 +13,7 @@ Class {
 { #category : #decorating }
 EpBrowseSelection >> asSpecCommand [
 	^ super asSpecCommand
-		iconNamed: #nautilusIcon;
+		iconName: #nautilusIcon;
 		shortcutKey: $b command;
 		yourself
 ]

@@ -13,7 +13,7 @@ Class {
 { #category : #decorating }
 EpCommentSelection >> asSpecCommand [
 	^ super asSpecCommand
-		iconNamed: #announcementIcon;
+		iconName: #announcementIcon;
 		shortcutKey: $c command;
 		yourself
 ]

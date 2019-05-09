@@ -13,7 +13,7 @@ Class {
 { #category : #decorating }
 EpApplyCompleteRefactoringInSelection >> asSpecCommand [
 	^ super asSpecCommand
-		iconNamed: #smallRedoIcon;
+		iconName: #smallRedoIcon;
 		shortcutKey: $y command;
 		yourself
 ]

@@ -13,7 +13,7 @@ Class {
 { #category : #decorating }
 EpFileOutSelection >> asSpecCommand [
 	^ super asSpecCommand
-		icon: #smallSaveAsIcon;
+		iconName: #smallSaveAsIcon;
 		yourself
 ]
 

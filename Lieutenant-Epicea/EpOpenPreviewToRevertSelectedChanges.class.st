@@ -13,7 +13,7 @@ Class {
 { #category : #decorating }
 EpOpenPreviewToRevertSelectedChanges >> asSpecCommand [
 	^ super asSpecCommand
-		iconNamed: #smallUndoIcon;
+		iconName: #smallUndoIcon;
 		shortcutKey: $r command;
 		yourself
 ]

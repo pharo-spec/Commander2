@@ -13,7 +13,7 @@ Class {
 { #category : #decorating }
 EpApplyPropagateRefactoringInSelection >> asSpecCommand [
 	^ super asSpecCommand
-		iconNamed: #smallRedoIcon;
+		iconName: #smallRedoIcon;
 		shortcutKey: $s command;
 		yourself
 ]
