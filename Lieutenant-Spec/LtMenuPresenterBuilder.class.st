@@ -32,6 +32,9 @@ LtMenuPresenterBuilder >> menuPresenter: anObject [
 
 { #category : #visiting }
 LtMenuPresenterBuilder >> visitLtCommand: aLtCommand [
+	aLtCommand canBeRun "If can not be run, do not add to the menu."
+		ifFalse: [ ^ self ].
+	
 	stack top addItem: [ :item |
 		item
 			name: aLtCommand name;
