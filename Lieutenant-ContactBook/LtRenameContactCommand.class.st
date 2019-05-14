@@ -9,20 +9,7 @@ Class {
 
 { #category : #hooks }
 LtRenameContactCommand >> execute [
-	"One should never manipulate UI directly from a commande.
-	 Instead, you can use one of the subclass of LtCommandNotification.
-	 The UI interactions will be handled by the command decorator.
-	 Using this mechanism a command is not dependent on the context in which it is used.
-	"
-	(LtRequest command: self)
-		title: 'Rename a contact';
-		request: 'New name of the contact';
-		initialAnswer: self selectedContact name;
-		whenAnsweredBlock: [ :command :answer |
-			command newName: answer ];
-		signal.
-	
-	self selectedContact name: self newName.
+	self selectedContact name: self context newName.
 	self contactBookPresenter updateView
 ]
 

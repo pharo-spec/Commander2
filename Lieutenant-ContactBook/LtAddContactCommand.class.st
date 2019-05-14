@@ -36,17 +36,7 @@ LtAddContactCommand >> execute [
 	 Using this mechanism a command is not dependent on the context in which it is used.
 	"
 	| contact |
-	(LtRequest command: self)
-		title: 'Create new contact';
-		request: 'Enter new contact name and phone (split by comma)';
-		whenAnsweredBlock: [ :command :answer |
-			|splitted|
-			splitted := answer splitOn: $,.
-			command contactName: splitted first.
-			command contactPhone: splitted second ];
-		signal.
-	
-	contact := LtContact named: self contactName phone: self contactPhone.
+	contact := self context newContact.
 	self hasSelectedContact
 		ifTrue: [ self contactBook addContact: contact after: self selectedContact ]
 		ifFalse: [ self contactBook addContact: contact ].

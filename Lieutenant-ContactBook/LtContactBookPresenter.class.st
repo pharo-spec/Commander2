@@ -66,22 +66,6 @@ LtContactBookPresenter >> contactBook [
 	^ contactBook
 ]
 
-{ #category : #context }
-LtContactBookPresenter >> createCommandContext [
-	^self createCommandContextForSelection: table selectedItems
-]
-
-{ #category : #context }
-LtContactBookPresenter >> createCommandContextForSelection: selectedContacts [
-	^CmdContactBookPresenterContext for: self of: selectedContacts
-]
-
-{ #category : #shortcut }
-LtContactBookPresenter >> ensureKeyBindingsFor: aWidget [
-	
-	^self enableCommanderShortcutsIn: aWidget
-]
-
 { #category : #initialization }
 LtContactBookPresenter >> initializeWidgets [
 	table := self newTable.
@@ -89,7 +73,7 @@ LtContactBookPresenter >> initializeWidgets [
 		addColumn: (StringTableColumn title: 'Name' evaluated: #name);
 		addColumn: (StringTableColumn title: 'Phone' evaluated: #phone).
 	table contextMenu: [ self rootCommandsGroup asMenuPresenter ].
-	
+	self flag: #TODO. "Bind shortcuts."
 	table items: contactBook contents.
 	
 	
@@ -98,6 +82,46 @@ LtContactBookPresenter >> initializeWidgets [
 { #category : #testing }
 LtContactBookPresenter >> isContactSelected [
 	^table selectedItem notNil
+]
+
+{ #category : #'user interaction' }
+LtContactBookPresenter >> newContact [
+	| rawData splitted |
+	rawData := self request: 'Enter new contact name and phone (split by comma)' initialAnswer: '' title: 'Create new contact'.
+	
+	splitted := rawData splitOn: $,.
+	
+	(splitted size = 2 and: [ splitted allSatisfy: #isNotEmpty ])
+		ifFalse: [ InvalidUserInput signal: 'Please enter contact name and phone (split by comma)'  ].
+	
+	^ LtContact new
+		name: splitted first;
+		phone: splitted second;
+		yourself
+]
+
+{ #category : #'user interaction' }
+LtContactBookPresenter >> newName [
+	| newName |
+	newName := self request: 'New name of the contact' initialAnswer: self selectedContact name title: 'Rename a contact'.
+		
+	(newName isEmpty)
+		ifTrue: [ 
+			InvalidUserInput signal: 'The contact name can not be empty' ].
+	
+	^ newName
+]
+
+{ #category : #'user interaction' }
+LtContactBookPresenter >> newPhone [
+	| phone |
+	phone := self request: 'New phone for the contact' initialAnswer: self selectedContact phone title: 'Set new phone for contact'.
+		
+	(phone matchesRegex: '\d\d\d\s\d\d\d')
+		ifFalse: [ 
+			InvalidUserInput signal: 'The phone number is not well formated. Should match "\d\d\d\s\d\d\d"' ].
+	
+	^ phone
 ]
 
 { #category : #accessing }

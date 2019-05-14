@@ -14,21 +14,7 @@ LtChangePhoneCommand >> execute [
 	 The UI interactions will be handled by the command decorator.
 	 Using this mechanism a command is not dependent on the context in which it is used.
 	"
-	(LtRequest command: self)
-		title: 'Set new phone for contact';
-		request: 'New phone for the contact' ;
-		initialAnswer: self selectedContact phone;
-		whenAnsweredBlock: [ :command :answer |
-			command newPhone: answer ];
-		signal.
-	
-	(self newPhone matchesRegex: '\d\d\d\s\d\d\d')
-		ifFalse: [ 
-			(LtCommandAborted command: self)
-				reason: 'The phone number is not well formated. Should match "\d\d\d\s\d\d\d"';
-				signal ].
-	
-	self selectedContact phone: self newPhone.
+	self selectedContact phone: self context newPhone.
 	self contactBookPresenter updateView
 ]
 

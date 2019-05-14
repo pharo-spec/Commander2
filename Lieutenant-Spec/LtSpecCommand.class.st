@@ -39,7 +39,7 @@ LtSpecCommand >> alwaysVisible: anObject [
 { #category : #hooks }
 LtSpecCommand >> execute [
 	[ super execute ]
-		on: LtCommandNotication , LtCommandAborted
+		on: InteractionError
 		do: [ :notificationOrError | notificationOrError actForSpec ]
 ]
 
