@@ -28,7 +28,7 @@ LtBlockCommand >> canBeRun [
 	self hasContext "When no context is set, we consider the command to be runnable. So we call super."
 		ifFalse: [ ^ super canBeRun ].
 		
-	^ block value: self context
+	^ self canBeRunBlock value: self context
 ]
 
 { #category : #accessing }

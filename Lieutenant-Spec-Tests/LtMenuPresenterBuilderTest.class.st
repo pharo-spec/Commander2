@@ -61,6 +61,21 @@ LtMenuPresenterBuilderTest >> testVisitLtCommand [
 ]
 
 { #category : #test }
+LtMenuPresenterBuilderTest >> testVisitLtCommandThatCantBeRun [
+	self assert: menuBuilder menuPresenter defaultGroup menuItems isEmpty.
+	
+	(LtBlockCommand new
+		basicName: 'c';
+		basicDescription: 'desc';
+		context: [ 41 ];
+		canBeRunBlock: [ :x | x = 42 ];
+		block: [ :x | 42 ];
+		yourself) asSpecCommand acceptVisitor: menuBuilder.
+		
+	self assert: menuBuilder menuPresenter defaultGroup menuItems isEmpty.
+]
+
+{ #category : #test }
 LtMenuPresenterBuilderTest >> testVisitLtCommandsGroup [
 
 	self flag: #toImplement.
