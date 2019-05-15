@@ -1,9 +1,9 @@
+"
+I am a command allowing to rename a contact.
+"
 Class {
 	#name : #LtRenameContactCommand,
 	#superclass : #LtContactBookCommand,
-	#instVars : [
-		'newName'
-	],
 	#category : #'Lieutenant-ContactBook-Commands'
 }
 
@@ -34,14 +34,4 @@ LtRenameContactCommand >> initialize [
 	self
 		basicName: 'Rename'; "This is the name of the command that will be shown to user."
 		basicDescription: 'Rename the selected contact.'. "This is the description of the command that will be shown to user."
-]
-
-{ #category : #accessing }
-LtRenameContactCommand >> newName [
-	^ newName
-]
-
-{ #category : #accessing }
-LtRenameContactCommand >> newName: anObject [
-	newName := anObject
 ]

@@ -1,3 +1,6 @@
+"
+I am a contact book. I hold a list of contacts.
+"
 Class {
 	#name : #LtContactBook,
 	#superclass : #Object,

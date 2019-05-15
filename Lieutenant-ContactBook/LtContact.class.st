@@ -1,3 +1,6 @@
+"
+I model a contact, I have a name and a phone.
+"
 Class {
 	#name : #LtContact,
 	#superclass : #Object,

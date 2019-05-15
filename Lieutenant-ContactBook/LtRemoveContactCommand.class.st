@@ -1,3 +1,6 @@
+"
+I am a command allowing to remove a contact.
+"
 Class {
 	#name : #LtRemoveContactCommand,
 	#superclass : #LtContactBookCommand,

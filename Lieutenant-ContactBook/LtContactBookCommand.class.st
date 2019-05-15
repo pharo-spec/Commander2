@@ -1,3 +1,8 @@
+"
+I am an abstract command for the contact book example.
+
+I define methods to access information in my #context more easily.
+"
 Class {
 	#name : #LtContactBookCommand,
 	#superclass : #LtCommand,

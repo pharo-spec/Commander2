@@ -1,3 +1,10 @@
+"
+I am a presenter for a contact book.
+
+I provide a nice UI to manage the contacts of the contact book I am opened on.
+
+Check my class-side for example.
+"
 Class {
 	#name : #LtContactBookPresenter,
 	#superclass : #ComposablePresenter,

@@ -1,10 +1,9 @@
+"
+I am a command allowing to add a contact.
+"
 Class {
 	#name : #LtAddContactCommand,
 	#superclass : #LtContactBookCommand,
-	#instVars : [
-		'contactName',
-		'contactPhone'
-	],
 	#category : #'Lieutenant-ContactBook-Commands'
 }
 
@@ -16,26 +15,6 @@ LtAddContactCommand >> asSpecCommand [
 	^ super asSpecCommand
 		shortcutKey: KMModifier meta + $n asKeyCombination;
 		yourself
-]
-
-{ #category : #accessing }
-LtAddContactCommand >> contactName [
-	^ contactName
-]
-
-{ #category : #accessing }
-LtAddContactCommand >> contactName: anObject [
-	contactName := anObject
-]
-
-{ #category : #accessing }
-LtAddContactCommand >> contactPhone [
-	^ contactPhone
-]
-
-{ #category : #accessing }
-LtAddContactCommand >> contactPhone: anObject [
-	contactPhone := anObject
 ]
 
 { #category : #hooks }
