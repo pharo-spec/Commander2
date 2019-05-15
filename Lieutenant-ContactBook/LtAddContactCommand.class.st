@@ -8,6 +8,16 @@ Class {
 	#category : #'Lieutenant-ContactBook-Commands'
 }
 
+{ #category : #converting }
+LtAddContactCommand >> asSpecCommand [
+	"Here we define the additional information that the command will need to know
+	 when used in Spec framework.
+	"
+	^ super asSpecCommand
+		shortcutKey: KMModifier meta + $n asKeyCombination;
+		yourself
+]
+
 { #category : #accessing }
 LtAddContactCommand >> contactName [
 	^ contactName

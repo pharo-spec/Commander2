@@ -11,7 +11,7 @@ LtRemoveContactCommand >> asSpecCommand [
 	"
 	^ super asSpecCommand
 		iconName: #removeIcon;
-		shortcutKey: KMModifier command + $x asKeyCombination;
+		shortcutKey: KMModifier meta + $x asKeyCombination;
 		yourself
 ]
 

@@ -7,6 +7,21 @@ Class {
 	#category : #'Lieutenant-ContactBook-Commands'
 }
 
+{ #category : #converting }
+LtRenameContactCommand >> asSpecCommand [
+	"Here we define the additional information that the command will need to know
+	 when used in Spec framework.
+	"
+	^ super asSpecCommand
+		shortcutKey: KMModifier meta + $r asKeyCombination;
+		yourself
+]
+
+{ #category : #hooks }
+LtRenameContactCommand >> canBeRun [
+	^ self context isContactSelected
+]
+
 { #category : #hooks }
 LtRenameContactCommand >> execute [
 	self selectedContact name: self context newName.
