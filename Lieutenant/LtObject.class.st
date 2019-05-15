@@ -1,3 +1,6 @@
+"
+I am an abstract class defining the API that should be understood by any command or command group.
+"
 Class {
 	#name : #LtObject,
 	#superclass : #Object,
