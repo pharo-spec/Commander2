@@ -133,6 +133,14 @@ LtContactBookPresenter >> newPhone [
 	^ phone
 ]
 
+{ #category : #'user interaction' }
+LtContactBookPresenter >> removeContact: aLtContact [
+	| confirm |
+	confirm := self confirm: ('Are you sure you want to remove {1} contact' format: { aLtContact name }) label: 'Remove the contact'.
+	confirm
+		ifTrue: [ self contactBook removeContact: aLtContact ]
+]
+
 { #category : #accessing }
 LtContactBookPresenter >> selectedContact [
 	^table selectedItem

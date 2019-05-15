@@ -22,7 +22,7 @@ LtRemoveContactCommand >> canBeRun [
 
 { #category : #hooks }
 LtRemoveContactCommand >> execute [
-	self contactBook removeContact: self selectedContact.
+	self contactBookPresenter removeContact: self selectedContact.
 	self contactBookPresenter updateView
 ]
 

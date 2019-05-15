@@ -1,6 +1,12 @@
 Extension { #name : #ComposablePresenter }
 
 { #category : #'*Lieutenant-ToIntegrateInSpec' }
+ComposablePresenter >> confirm: queryString label: titleString [
+	^ UIManager default 
+		confirm: queryString label: titleString
+]
+
+{ #category : #'*Lieutenant-ToIntegrateInSpec' }
 ComposablePresenter >> request: request initialAnswer: initialAnwser title: title [
 	| answer |
 	answer := UIManager default 
