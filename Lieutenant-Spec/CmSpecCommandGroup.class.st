@@ -18,7 +18,7 @@ Class {
 
 { #category : #default }
 CmSpecCommandGroup class >> defaultDisplayStrategy [
-	^ LtSpecDisplayAsSubMenu new
+	^ CmSpecDisplayAsSubMenu new
 ]
 
 { #category : #default }
@@ -28,19 +28,19 @@ CmSpecCommandGroup class >> defaultIconName [
 
 { #category : #converting }
 CmSpecCommandGroup >> asMenuPresenter [
-	^ LtMenuPresenterBuilder new
+	^ CmMenuPresenterBuilder new
 		visit: self;
 		menuPresenter
 ]
 
 { #category : #configuring }
 CmSpecCommandGroup >> beDisplayedAsGroup [
-	self displayStrategy: LtSpecDisplayAsGroup new
+	self displayStrategy: CmSpecDisplayAsGroup new
 ]
 
 { #category : #configuring }
 CmSpecCommandGroup >> beDisplayedAsSubMenu [
-	self displayStrategy: LtSpecDisplayAsSubMenu new
+	self displayStrategy: CmSpecDisplayAsSubMenu new
 ]
 
 { #category : #configuring }
@@ -83,7 +83,7 @@ CmSpecCommandGroup >> initialize [
 
 { #category : #'as yet unclassified' }
 CmSpecCommandGroup >> installShortcutsIn: aPresenter [ 
-	LtShortcutInstaller new
+	CmShortcutInstaller new
 		presenter: aPresenter;
 		visit: self
 ]

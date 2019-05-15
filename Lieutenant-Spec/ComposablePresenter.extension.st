@@ -12,7 +12,7 @@ ComposablePresenter class >> buildCommandsGroupWith: presenter forRoot: aCmComma
 { #category : #'*Lieutenant-Spec' }
 ComposablePresenter class >> buildRootCommandsGroupFor: presenterIntance [
 	| rootCommandGroup |
-	rootCommandGroup := LtCommandsGroup forSpec beRoot.
+	rootCommandGroup := CmCommandsGroup forSpec beRoot.
 	"Register default commands."
 	self buildCommandsGroupWith: presenterIntance forRoot: rootCommandGroup.
 	

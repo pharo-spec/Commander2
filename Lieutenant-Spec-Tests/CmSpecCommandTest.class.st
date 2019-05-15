@@ -10,7 +10,7 @@ Class {
 { #category : #running }
 CmSpecCommandTest >> setUp [
 	super setUp.
-	command := LtSpecCommand new
+	command := CmSpecCommand new
 ]
 
 { #category : #test }
@@ -44,7 +44,7 @@ CmSpecCommandTest >> testIconName [
 
 { #category : #test }
 CmSpecCommandTest >> testShortcutKey [
-	self should: [ command shortcutKey ] raise: LtNoShortcutIsDefined.
+	self should: [ command shortcutKey ] raise: CmNoShortcutIsDefined.
 	
 	command shortcutKey: $a asKeyCombination.
 	

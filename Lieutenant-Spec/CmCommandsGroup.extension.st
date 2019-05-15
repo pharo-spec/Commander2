@@ -3,7 +3,7 @@ Extension { #name : #CmCommandsGroup }
 { #category : #'*Lieutenant-Spec' }
 CmCommandsGroup >> asSpecGroup [
 	"Subclasses might override this method to define default icon."
-	^ self decorateWith: LtSpecCommandGroup
+	^ self decorateWith: CmSpecCommandGroup
 ]
 
 { #category : #'*Lieutenant-Spec' }

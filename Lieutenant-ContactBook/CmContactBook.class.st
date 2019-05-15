@@ -44,7 +44,7 @@ CmContactBook class >> reset [
 { #category : #accessing }
 CmContactBook >> add: contactName phone: phone [
 	| contact |
-	contact := LtContact named: contactName phone: phone.
+	contact := CmContact named: contactName phone: phone.
 	self addContact: contact.
 	^contact
 ]

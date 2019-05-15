@@ -76,7 +76,7 @@ CmSpecCommand >> initialize [
 
 { #category : #accessing }
 CmSpecCommand >> shortcutKey [
-	^ shortcutKey ifNil: [ LtNoShortcutIsDefined signalCommand: self ]
+	^ shortcutKey ifNil: [ CmNoShortcutIsDefined signalCommand: self ]
 ]
 
 { #category : #accessing }

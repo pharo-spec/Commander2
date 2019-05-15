@@ -17,9 +17,9 @@ Class {
 
 { #category : #commands }
 CmContactBookPresenter class >> buildAddingGroupWith: presenterIntance [
-	^ (LtCommandsGroup named: 'Adding') asSpecGroup
+	^ (CmCommandsGroup named: 'Adding') asSpecGroup
 		basicDescription: 'Commands related to contact addition.';
-		register: (LtAddContactCommand forSpec context: presenterIntance);
+		register: (CmAddContactCommand forSpec context: presenterIntance);
 		beDisplayedAsGroup;
 		yourself
 ]
@@ -34,18 +34,18 @@ CmContactBookPresenter class >> buildCommandsGroupWith: presenterIntance forRoot
 
 { #category : #commands }
 CmContactBookPresenter class >> buildEditionGroupWith: presenterIntance [
-	^ (LtCommandsGroup named: 'Edition') asSpecGroup
+	^ (CmCommandsGroup named: 'Edition') asSpecGroup
 		basicDescription: 'Commands related to contact edition.';
-		register: (LtRenameContactCommand forSpec context: presenterIntance);
+		register: (CmRenameContactCommand forSpec context: presenterIntance);
 		beDisplayedAsGroup;
 		yourself
 ]
 
 { #category : #commands }
 CmContactBookPresenter class >> buildRemovingGroupWith: presenterIntance [
-	^ (LtCommandsGroup named: 'Removing') asSpecGroup
+	^ (CmCommandsGroup named: 'Removing') asSpecGroup
 		basicDescription: 'Command related to contact removal.';
-		register: (LtRemoveContactCommand forSpec context: presenterIntance);
+		register: (CmRemoveContactCommand forSpec context: presenterIntance);
 		beDisplayedAsGroup;
 		yourself
 ]
@@ -53,7 +53,7 @@ CmContactBookPresenter class >> buildRemovingGroupWith: presenterIntance [
 { #category : #examples }
 CmContactBookPresenter class >> coworkersExample [
 	<example>
-	^ (self on: LtContactBook coworkers) openWithSpec 
+	^ (self on: CmContactBook coworkers) openWithSpec 
 ]
 
 { #category : #examples }
@@ -68,7 +68,7 @@ CmContactBookPresenter class >> defaultSpec [
 { #category : #examples }
 CmContactBookPresenter class >> familyExample [
 	<example>
-	^ (self on: LtContactBook family) openWithSpec 
+	^ (self on: CmContactBook family) openWithSpec 
 ]
 
 { #category : #accessing }
@@ -110,7 +110,7 @@ CmContactBookPresenter >> newContact [
 	(splitted size = 2 and: [ splitted allSatisfy: #isNotEmpty ])
 		ifFalse: [ InvalidUserInput signal: 'Please enter contact name and phone (split by comma)'  ].
 	
-	^ LtContact new
+	^ CmContact new
 		name: splitted first;
 		phone: splitted second;
 		yourself

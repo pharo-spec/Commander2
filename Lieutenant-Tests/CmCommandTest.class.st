@@ -10,7 +10,7 @@ Class {
 { #category : #running }
 CmCommandTest >> setUp [
 	super setUp.
-	command := LtFakeCommand new.
+	command := CmFakeCommand new.
 ]
 
 { #category : #test }

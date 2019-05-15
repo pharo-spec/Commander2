@@ -14,23 +14,23 @@ Class {
 { #category : #running }
 CmMenuPresenterBuilderTest >> setUp [
 	super setUp.
-	menuBuilder := LtMenuPresenterBuilder new.
+	menuBuilder := CmMenuPresenterBuilder new.
 	
-	commandsGroup := (LtCommandsGroup named: 'root') asSpecGroup beRoot
-							register: (LtBlockCommand new
+	commandsGroup := (CmCommandsGroup named: 'root') asSpecGroup beRoot
+							register: (CmBlockCommand new
 											basicName: 'c1';
 											block: [ ];
 											yourself) asSpecCommand;
-							register: ((LtCommandsGroup named: 'sub1') asSpecGroup
-											register: (LtBlockCommand new
+							register: ((CmCommandsGroup named: 'sub1') asSpecGroup
+											register: (CmBlockCommand new
 															basicName: 'c2';
 															block: [ ];
 															yourself) asSpecCommand;
-											register: (LtBlockCommand new
+											register: (CmBlockCommand new
 															basicName: 'c3';
 															block: [ ];
 															yourself) asSpecCommand);
-							register: (LtBlockCommand new
+							register: (CmBlockCommand new
 											basicName: 'c4';
 											block: [ ];
 											yourself) asSpecCommand;
@@ -43,7 +43,7 @@ CmMenuPresenterBuilderTest >> testVisitLtCommand [
 	evaluationResult := nil.
 	self assert: menuBuilder menuPresenter defaultGroup menuItems isEmpty.
 	
-	(LtBlockCommand new
+	(CmBlockCommand new
 		basicName: 'c';
 		basicDescription: 'desc';
 		context: [ 41 ];
@@ -65,7 +65,7 @@ CmMenuPresenterBuilderTest >> testVisitLtCommand [
 CmMenuPresenterBuilderTest >> testVisitLtCommandThatCantBeRun [
 	self assert: menuBuilder menuPresenter defaultGroup menuItems isEmpty.
 	
-	(LtBlockCommand new
+	(CmBlockCommand new
 		basicName: 'c';
 		basicDescription: 'desc';
 		context: [ 41 ];
