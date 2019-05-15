@@ -65,8 +65,8 @@ CmCommandsGroup >> groups [
 ]
 
 { #category : #testing }
-CmCommandsGroup >> hasCommand: aLtCommand [
-	^ self commands includes: aLtCommand
+CmCommandsGroup >> hasCommand: aCmCommand [
+	^ self commands includes: aCmCommand
 ]
 
 { #category : #testing }
@@ -86,39 +86,39 @@ CmCommandsGroup >> initialize [
 ]
 
 { #category : #'public-api' }
-CmCommandsGroup >> register: aLtCommandsOrGroup [
-	(self hasEntryNamed: aLtCommandsOrGroup basicName)
-		ifTrue: [ LtDuplicatedEntryName signalEntryNamed: aLtCommandsOrGroup basicName ].
+CmCommandsGroup >> register: aCmCommandsOrGroup [
+	(self hasEntryNamed: aCmCommandsOrGroup basicName)
+		ifTrue: [ CmDuplicatedEntryName signalEntryNamed: aCmCommandsOrGroup basicName ].
 	
-	entries add: aLtCommandsOrGroup
+	entries add: aCmCommandsOrGroup
 ]
 
 { #category : #'public-api' }
-CmCommandsGroup >> register: aLtCommandsOrGroup after: anotherLtCommandsOrGroup [
+CmCommandsGroup >> register: aCmCommandsOrGroup after: anotherLtCommandsOrGroup [
 	self shouldBeImplemented; flag: #TODO
 ]
 
 { #category : #'public-api' }
-CmCommandsGroup >> register: aLtCommandsOrGroup before: anotherLtCommandsOrGroup [
+CmCommandsGroup >> register: aCmCommandsOrGroup before: anotherLtCommandsOrGroup [
 	self shouldBeImplemented; flag: #TODO
 ]
 
 { #category : #'public-api' }
-CmCommandsGroup >> register: aLtCommandsOrGroup insteadOf: anotherLtCommandsOrGroup [
+CmCommandsGroup >> register: aCmCommandsOrGroup insteadOf: anotherLtCommandsOrGroup [
 	self shouldBeImplemented; flag: #TODO
 ]
 
 { #category : #'public-api' }
-CmCommandsGroup >> registerFirst: aLtCommandsOrGroup [
+CmCommandsGroup >> registerFirst: aCmCommandsOrGroup [
 	self shouldBeImplemented; flag: #TODO
 ]
 
 { #category : #'public-api' }
-CmCommandsGroup >> registerLast: aLtCommandsOrGroup [
+CmCommandsGroup >> registerLast: aCmCommandsOrGroup [
 	self shouldBeImplemented; flag: #TODO
 ]
 
 { #category : #'public-api' }
-CmCommandsGroup >> unregister: aLtCommandOrRegister [
-	entries remove: (entries detect: [ :e | e = aLtCommandOrRegister ])
+CmCommandsGroup >> unregister: aCmCommandOrGroup [
+	entries remove: (entries detect: [ :e | e = aCmCommandOrGroup ])
 ]

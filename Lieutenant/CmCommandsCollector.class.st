@@ -22,7 +22,7 @@ CmCommandsCollector >> initialize [
 ]
 
 { #category : #visiting }
-CmCommandsCollector >> visitLtCommand: aLtCommand [
-	commandsCollected add: aLtCommand.
-	^ aLtCommand
+CmCommandsCollector >> visitLtCommand: aCmCommand [
+	commandsCollected add: aCmCommand.
+	^ aCmCommand
 ]

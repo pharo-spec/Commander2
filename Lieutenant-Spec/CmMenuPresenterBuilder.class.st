@@ -31,30 +31,30 @@ CmMenuPresenterBuilder >> menuPresenter: anObject [
 ]
 
 { #category : #visiting }
-CmMenuPresenterBuilder >> visitLtCommand: aLtCommand [
-	aLtCommand canBeRun "If can not be run, do not add to the menu."
+CmMenuPresenterBuilder >> visitLtCommand: aCmCommand [
+	aCmCommand canBeRun "If can not be run, do not add to the menu."
 		ifFalse: [ ^ self ].
 	
 	stack top addItem: [ :item |
 		item
-			name: aLtCommand name;
-			description: aLtCommand description;
-			iconName: aLtCommand iconName;
-			action: [ aLtCommand execute ];
+			name: aCmCommand name;
+			description: aCmCommand description;
+			iconName: aCmCommand iconName;
+			action: [ aCmCommand execute ];
 			in: [ :i | 
-				aLtCommand hasShortcut
-					ifTrue: [ i shortcut: aLtCommand shortcutKey ] ] ]
+				aCmCommand hasShortcut
+					ifTrue: [ i shortcut: aCmCommand shortcutKey ] ] ]
 ]
 
 { #category : #visiting }
-CmMenuPresenterBuilder >> visitLtCommandsGroup: aLtCommandsGroup [
-	aLtCommandsGroup isRoot
+CmMenuPresenterBuilder >> visitLtCommandsGroup: aCmCommandsGroup [
+	aCmCommandsGroup isRoot
 		ifTrue: [ 
-			super visitLtCommandsGroup: aLtCommandsGroup.
+			super visitLtCommandsGroup: aCmCommandsGroup.
 			^ self ].
 	
-	aLtCommandsGroup displayIn: stack top do: [ :specGroupOrSubMenu |
+	aCmCommandsGroup displayIn: stack top do: [ :specGroupOrSubMenu |
 		stack push: specGroupOrSubMenu.
-		super visitLtCommandsGroup: aLtCommandsGroup.
+		super visitLtCommandsGroup: aCmCommandsGroup.
 		stack pop ]
 ]

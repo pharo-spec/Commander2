@@ -21,9 +21,9 @@ CmShortcutInstaller >> presenter: anObject [
 ]
 
 { #category : #visiting }
-CmShortcutInstaller >> visitLtCommand: aLtCommand [
-	aLtCommand hasShortcut
+CmShortcutInstaller >> visitLtCommand: aCmCommand [
+	aCmCommand hasShortcut
 		ifFalse: [ ^ self ].
-	self presenter on: aLtCommand shortcutKey do: [ 
-		aLtCommand canBeRun ifTrue: [ aLtCommand execute ] ]
+	self presenter on: aCmCommand shortcutKey do: [ 
+		aCmCommand canBeRun ifTrue: [ aCmCommand execute ] ]
 ]

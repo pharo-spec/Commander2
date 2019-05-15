@@ -1,7 +1,7 @@
 Extension { #name : #ComposablePresenter }
 
 { #category : #'*Lieutenant-Spec' }
-ComposablePresenter class >> buildCommandsGroupWith: presenter forRoot: aLtCommandsGroup [
+ComposablePresenter class >> buildCommandsGroupWith: presenter forRoot: aCmCommandsGroup [
 	"This hook allows you to build your groups of commands.
 	 You must attach them to aLtCommandsGroup throught the registration mechanism.
 	 The presenter instance to which this group of command will be bound is provided (this is useful for setting commands context).

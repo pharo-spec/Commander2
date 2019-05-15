@@ -53,8 +53,8 @@ CmCommandDecorator >> context: anObject [
 ]
 
 { #category : #decorating }
-CmCommandDecorator >> decorate: aLtCommand [
-	self decoratedCommand: aLtCommand
+CmCommandDecorator >> decorate: aCmCommand [
+	self decoratedCommand: aCmCommand
 ]
 
 { #category : #accessing }

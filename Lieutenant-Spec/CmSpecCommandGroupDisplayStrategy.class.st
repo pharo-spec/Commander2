@@ -8,6 +8,6 @@ Class {
 }
 
 { #category : #displaying }
-CmSpecCommandGroupDisplayStrategy >> display: aLtSpecCommandGroup in: aMenuPresenter do: aBlock [
+CmSpecCommandGroupDisplayStrategy >> display: aCmSpecCommandGroup in: aMenuPresenter do: aBlock [
 	self subclassResponsibility
 ]

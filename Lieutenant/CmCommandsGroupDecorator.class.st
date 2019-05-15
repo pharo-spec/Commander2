@@ -45,8 +45,8 @@ CmCommandsGroupDecorator >> commands [
 ]
 
 { #category : #decorating }
-CmCommandsGroupDecorator >> decorate: aLtCommandsGroup [
-	self decoratedGroup: aLtCommandsGroup
+CmCommandsGroupDecorator >> decorate: aCmCommandsGroup [
+	self decoratedGroup: aCmCommandsGroup
 ]
 
 { #category : #accessing }
@@ -75,8 +75,8 @@ CmCommandsGroupDecorator >> groups [
 ]
 
 { #category : #testing }
-CmCommandsGroupDecorator >> hasCommand: aLtCommand [
-	^ self decoratedGroup hasCommand: aLtCommand
+CmCommandsGroupDecorator >> hasCommand: aCmCommand [
+	^ self decoratedGroup hasCommand: aCmCommand
 ]
 
 { #category : #testing }
@@ -90,11 +90,11 @@ CmCommandsGroupDecorator >> name [
 ]
 
 { #category : #'public-api' }
-CmCommandsGroupDecorator >> register: aLtCommandsOrRegister [
-	self decoratedGroup register: aLtCommandsOrRegister
+CmCommandsGroupDecorator >> register: aCmCommandOrGroup [
+	self decoratedGroup register: aCmCommandOrGroup
 ]
 
 { #category : #'public-api' }
-CmCommandsGroupDecorator >> unregister: aLtCommandOrRegister [
-	^ self decoratedGroup unregister: aLtCommandOrRegister
+CmCommandsGroupDecorator >> unregister: aCmCommandOrGroup [
+	^ self decoratedGroup unregister: aCmCommandOrGroup
 ]

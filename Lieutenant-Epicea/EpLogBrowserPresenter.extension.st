@@ -1,8 +1,8 @@
 Extension { #name : #EpLogBrowserPresenter }
 
 { #category : #'*Lieutenant-Epicea' }
-EpLogBrowserPresenter class >> buildCommandsGroupWith: presenter forRoot: aLtCommandsGroup [
-	aLtCommandsGroup
+EpLogBrowserPresenter class >> buildCommandsGroupWith: presenter forRoot: aCmCommandsGroup [
+	aCmCommandsGroup
 		register: (self codeChangesGroupWith: presenter) beDisplayedAsGroup;
 		register: (self eventsGroupWith: presenter) beDisplayedAsGroup;
 		register: (self refactoringGroupWith: presenter) beDisplayedAsGroup;

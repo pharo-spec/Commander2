@@ -1,16 +1,16 @@
 Extension { #name : #CmContactBookPresenter }
 
 { #category : #'*Lieutenant-ContactBook-Extensions' }
-CmContactBookPresenter class >> changePhoneCommandWith: presenter forRootGroup: aLtCommandsGroup [
+CmContactBookPresenter class >> changePhoneCommandWith: presenter forRootGroup: aCmCommandsGroup [
 	<lieutenantExtension>
-	(aLtCommandsGroup / 'Edition') "Inject an additional command in 'Edition' group."
+	(aCmCommandsGroup / 'Edition') "Inject an additional command in 'Edition' group."
 		register: (LtChangePhoneCommand forSpec context: presenter)
 ]
 
 { #category : #'*Lieutenant-ContactBook-Extensions' }
-CmContactBookPresenter class >> extraCommandsWith: presenter forRootGroup: aLtCommandsGroup [
+CmContactBookPresenter class >> extraCommandsWith: presenter forRootGroup: aCmCommandsGroup [
 	<lieutenantExtension>
-	aLtCommandsGroup
+	aCmCommandsGroup
 		register: ((LtCommandsGroup named: 'Extra') asSpecGroup
 						basicDescription: 'Extra commands to help during development.';
 						"Below is an example of reusing the same command for 2 different purposes."

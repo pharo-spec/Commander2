@@ -10,8 +10,8 @@ Class {
 }
 
 { #category : #visiting }
-CmAbstractCommand >> acceptVisitor: aLtCommandsRegisterVisitor [
-	^ aLtCommandsRegisterVisitor visitLtCommand: self
+CmAbstractCommand >> acceptVisitor: aCmCommandOrGroup [
+	^ aCmCommandOrGroup visitLtCommand: self
 ]
 
 { #category : #testing }

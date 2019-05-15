@@ -11,8 +11,8 @@ CmAbstractCommandsGroup >> / aString [
 ]
 
 { #category : #visiting }
-CmAbstractCommandsGroup >> acceptVisitor: aLtCommandsRegisterVisitor [
-	^ aLtCommandsRegisterVisitor visitLtCommandsGroup: self
+CmAbstractCommandsGroup >> acceptVisitor: aCmCommandOrGroup [
+	^ aCmCommandOrGroup visitLtCommandsGroup: self
 ]
 
 { #category : #accessing }
@@ -41,7 +41,7 @@ CmAbstractCommandsGroup >> groups [
 ]
 
 { #category : #testing }
-CmAbstractCommandsGroup >> hasCommand: aLtCommand [
+CmAbstractCommandsGroup >> hasCommand: aCmCommand [
 	^ self subclassResponsibility
 ]
 
@@ -56,11 +56,11 @@ CmAbstractCommandsGroup >> isGroup [
 ]
 
 { #category : #'public-api' }
-CmAbstractCommandsGroup >> register: aLtCommandsOrRegister [
+CmAbstractCommandsGroup >> register: aCmCommandsOrRegister [
 	^ self subclassResponsibility
 ]
 
 { #category : #'public-api' }
-CmAbstractCommandsGroup >> unregister: aLtCommandOrRegister [
+CmAbstractCommandsGroup >> unregister: aCmCommandOrRegister [
 	^ self subclassResponsibility
 ]

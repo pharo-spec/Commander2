@@ -141,11 +141,11 @@ CmContactBookPresenter >> newPhone [
 ]
 
 { #category : #'user interaction' }
-CmContactBookPresenter >> removeContact: aLtContact [
+CmContactBookPresenter >> removeContact: aCmContact [
 	| confirm |
-	confirm := self confirm: ('Are you sure you want to remove {1} contact' format: { aLtContact name }) label: 'Remove the contact'.
+	confirm := self confirm: ('Are you sure you want to remove {1} contact' format: { aCmContact name }) label: 'Remove the contact'.
 	confirm
-		ifTrue: [ self contactBook removeContact: aLtContact ]
+		ifTrue: [ self contactBook removeContact: aCmContact ]
 ]
 
 { #category : #accessing }
