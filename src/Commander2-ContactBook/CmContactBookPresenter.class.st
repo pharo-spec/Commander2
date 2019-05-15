@@ -97,7 +97,7 @@ CmContactBookPresenter >> initializeWindow: aWindowPresenter [
 
 { #category : #testing }
 CmContactBookPresenter >> isContactSelected [
-	^table selectedItem notNil
+	^ table selection selectedItem notNil
 ]
 
 { #category : #'user interaction' }
@@ -150,7 +150,7 @@ CmContactBookPresenter >> removeContact: aCmContact [
 
 { #category : #accessing }
 CmContactBookPresenter >> selectedContact [
-	^table selectedItem
+	^ table selection selectedItem
 ]
 
 { #category : #accessing }
