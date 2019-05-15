@@ -6,7 +6,7 @@ Name and description extracted from: EpLogBrowserPresenter>>#codeChangesMenuActi
 "
 Class {
 	#name : #EpOpenPreviewToRevertSelectedChanges,
-	#superclass : #LtCommand,
+	#superclass : #CmCommand,
 	#category : #'Lieutenant-Epicea'
 }
 

@@ -6,7 +6,7 @@ Name and description extracted from: EpLogBrowserPresenter>>#addMenuItemsForSele
 "
 Class {
 	#name : #EpFileOutSelection,
-	#superclass : #LtCommand,
+	#superclass : #CmCommand,
 	#category : #'Lieutenant-Epicea'
 }
 

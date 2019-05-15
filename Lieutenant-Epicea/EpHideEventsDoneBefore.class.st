@@ -8,7 +8,7 @@ Name and description extracted from: EpLogBrowserPresenter>>#filtersSubMenu
 "
 Class {
 	#name : #EpHideEventsDoneBefore,
-	#superclass : #LtCommand,
+	#superclass : #CmCommand,
 	#category : #'Lieutenant-Epicea'
 }
 

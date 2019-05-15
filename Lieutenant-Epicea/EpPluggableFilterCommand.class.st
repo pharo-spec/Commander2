@@ -6,7 +6,7 @@ Name and description extracted from: EpLogBrowserPresenter>>#filtersSubMenu
 "
 Class {
 	#name : #EpPluggableFilterCommand,
-	#superclass : #LtCommand,
+	#superclass : #CmCommand,
 	#instVars : [
 		'pluggableFilter'
 	],

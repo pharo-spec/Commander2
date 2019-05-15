@@ -1,6 +1,6 @@
 Class {
 	#name : #EpFilterCommand,
-	#superclass : #LtCommand,
+	#superclass : #CmCommand,
 	#instVars : [
 		'filterClass'
 	],

@@ -6,7 +6,7 @@ Name and description extracted from: EpLogBrowserPresenter>>#eventsMenuActions
 "
 Class {
 	#name : #EpCommentSelection,
-	#superclass : #LtCommand,
+	#superclass : #CmCommand,
 	#category : #'Lieutenant-Epicea'
 }
 

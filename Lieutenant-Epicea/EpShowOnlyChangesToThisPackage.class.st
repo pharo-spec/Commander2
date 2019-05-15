@@ -8,7 +8,7 @@ Name and description extracted from: EpLogBrowserPresenter>>#filtersSubMenu
 "
 Class {
 	#name : #EpShowOnlyChangesToThisPackage,
-	#superclass : #LtCommand,
+	#superclass : #CmCommand,
 	#category : #'Lieutenant-Epicea'
 }
 

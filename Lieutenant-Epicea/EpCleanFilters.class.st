@@ -6,7 +6,7 @@ Name and description extracted from: EpLogBrowserPresenter>>#filtersSubMenu
 "
 Class {
 	#name : #EpCleanFilters,
-	#superclass : #LtCommand,
+	#superclass : #CmCommand,
 	#category : #'Lieutenant-Epicea'
 }
 

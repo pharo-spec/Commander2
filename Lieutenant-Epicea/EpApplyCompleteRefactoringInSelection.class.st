@@ -6,7 +6,7 @@ Name and description extracted from: EpLogBrowserPresenter>>#refactoringMenuActi
 "
 Class {
 	#name : #EpApplyCompleteRefactoringInSelection,
-	#superclass : #LtCommand,
+	#superclass : #CmCommand,
 	#category : #'Lieutenant-Epicea'
 }
 
