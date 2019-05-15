@@ -1,5 +1,5 @@
 Class {
-	#name : #CmCommandsGroupDecorator,
+	#name : #CmCommandGroupDecorator,
 	#superclass : #CmAbstractCommandsGroup,
 	#traits : 'CmTDecorator',
 	#classTraits : 'CmTDecorator classTrait',
@@ -10,91 +10,91 @@ Class {
 }
 
 { #category : #accessing }
-CmCommandsGroupDecorator >> allCommands [
+CmCommandGroupDecorator >> allCommands [
 	^ self decoratedGroup allCommands
 ]
 
 { #category : #accessing }
-CmCommandsGroupDecorator >> basicDescription [
+CmCommandGroupDecorator >> basicDescription [
 	^ self decoratedGroup basicDescription
 ]
 
 { #category : #accessing }
-CmCommandsGroupDecorator >> basicDescription: aString [
+CmCommandGroupDecorator >> basicDescription: aString [
 	self decoratedGroup basicDescription: aString
 ]
 
 { #category : #accessing }
-CmCommandsGroupDecorator >> basicName [
+CmCommandGroupDecorator >> basicName [
 	^ self decoratedGroup basicName
 ]
 
 { #category : #accessing }
-CmCommandsGroupDecorator >> basicName: aString [
+CmCommandGroupDecorator >> basicName: aString [
 	self decoratedGroup basicName: aString
 ]
 
 { #category : #'public-api' }
-CmCommandsGroupDecorator >> commandOrGroupNamed: aString [
+CmCommandGroupDecorator >> commandOrGroupNamed: aString [
 	^ self decoratedGroup commandOrGroupNamed: aString
 ]
 
 { #category : #'public-api' }
-CmCommandsGroupDecorator >> commands [
+CmCommandGroupDecorator >> commands [
 	^ self decoratedGroup commands
 ]
 
 { #category : #decorating }
-CmCommandsGroupDecorator >> decorate: aCmCommandsGroup [
+CmCommandGroupDecorator >> decorate: aCmCommandsGroup [
 	self decoratedGroup: aCmCommandsGroup
 ]
 
 { #category : #accessing }
-CmCommandsGroupDecorator >> decoratedGroup [
+CmCommandGroupDecorator >> decoratedGroup [
 	^ decoratedGroup
 ]
 
 { #category : #accessing }
-CmCommandsGroupDecorator >> decoratedGroup: anObject [
+CmCommandGroupDecorator >> decoratedGroup: anObject [
 	decoratedGroup := anObject
 ]
 
 { #category : #accessing }
-CmCommandsGroupDecorator >> description [
+CmCommandGroupDecorator >> description [
 	^ self decoratedGroup description
 ]
 
 { #category : #'public-api' }
-CmCommandsGroupDecorator >> entries [
+CmCommandGroupDecorator >> entries [
 	^ self decoratedGroup entries
 ]
 
 { #category : #'public-api' }
-CmCommandsGroupDecorator >> groups [
+CmCommandGroupDecorator >> groups [
 	^ self decoratedGroup groups
 ]
 
 { #category : #testing }
-CmCommandsGroupDecorator >> hasCommand: aCmCommand [
+CmCommandGroupDecorator >> hasCommand: aCmCommand [
 	^ self decoratedGroup hasCommand: aCmCommand
 ]
 
 { #category : #testing }
-CmCommandsGroupDecorator >> hasEntryNamed: aString [
+CmCommandGroupDecorator >> hasEntryNamed: aString [
 	^ self decoratedGroup hasEntryNamed: aString
 ]
 
 { #category : #accessing }
-CmCommandsGroupDecorator >> name [
+CmCommandGroupDecorator >> name [
 	^ self decoratedGroup name
 ]
 
 { #category : #'public-api' }
-CmCommandsGroupDecorator >> register: aCmCommandOrGroup [
+CmCommandGroupDecorator >> register: aCmCommandOrGroup [
 	self decoratedGroup register: aCmCommandOrGroup
 ]
 
 { #category : #'public-api' }
-CmCommandsGroupDecorator >> unregister: aCmCommandOrGroup [
+CmCommandGroupDecorator >> unregister: aCmCommandOrGroup [
 	^ self decoratedGroup unregister: aCmCommandOrGroup
 ]

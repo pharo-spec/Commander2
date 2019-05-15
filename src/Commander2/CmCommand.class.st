@@ -27,6 +27,14 @@ CmCommand class >> forSpec [
 ]
 
 { #category : #'instance creation' }
+CmCommand class >> forSpecContext: anObject [
+
+	^ self forSpec 
+	context: anObject;
+	yourself
+]
+
+{ #category : #'instance creation' }
 CmCommand class >> forSpecWithIconNamed: aSymbol [
 	^ self new asSpecCommandWithIconNamed: aSymbol
 ]

@@ -7,7 +7,7 @@ Basically, I add:
 "
 Class {
 	#name : #CmSpecCommandGroup,
-	#superclass : #CmCommandsGroupDecorator,
+	#superclass : #CmCommandGroupDecorator,
 	#instVars : [
 		'iconName',
 		'displayStrategy',

@@ -11,7 +11,7 @@ CmContactBookPresenter class >> changePhoneCommandWith: presenter forRootGroup: 
 CmContactBookPresenter class >> extraCommandsWith: presenter forRootGroup: aCmCommandsGroup [
 	<lieutenantExtension>
 	aCmCommandsGroup
-		register: ((CmCommandsGroup named: 'Extra') asSpecGroup
+		register: ((CmCommandGroup named: 'Extra') asSpecGroup
 						basicDescription: 'Extra commands to help during development.';
 						"Below is an example of reusing the same command for 2 different purposes."
 						register: ((CmInspectCommand forSpec context: [ presenter selectedContact ]) "Here context is computed at the moment the command is executed."

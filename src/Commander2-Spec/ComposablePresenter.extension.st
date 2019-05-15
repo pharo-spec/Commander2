@@ -10,15 +10,17 @@ ComposablePresenter class >> buildCommandsGroupWith: presenter forRoot: aCmComma
 ]
 
 { #category : #'*Commander2-Spec' }
-ComposablePresenter class >> buildRootCommandsGroupFor: presenterIntance [
+ComposablePresenter class >> buildRootCommandsGroupFor: presenterInstance [
 	| rootCommandGroup |
-	rootCommandGroup := CmCommandsGroup forSpec beRoot.
+	rootCommandGroup := CmCommandGroup forSpec beRoot.
 	"Register default commands."
-	self buildCommandsGroupWith: presenterIntance forRoot: rootCommandGroup.
+	self buildCommandsGroupWith: presenterInstance forRoot: rootCommandGroup.
 	
 	"Register extension commands."
-	(Pragma allNamed: #lieutenantExtension in: self class)
-		do: [ :pragma | (self perform: pragma methodSelector withArguments: { presenterIntance . rootCommandGroup }) ].
+	(Pragma allNamed: #lieutenantExtension in: self class) do: [ :pragma | 
+		(self 
+			perform: pragma methodSelector 
+			withArguments: { presenterInstance . rootCommandGroup }) ].
 	
 	^ rootCommandGroup
 ]

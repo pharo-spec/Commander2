@@ -1,5 +1,5 @@
 Class {
-	#name : #CmCommandsGroup,
+	#name : #CmCommandGroup,
 	#superclass : #CmAbstractCommandsGroup,
 	#traits : 'CmTWithBasicNameAndDescription + CmTDecorable',
 	#classTraits : 'CmTWithBasicNameAndDescription classTrait + CmTDecorable classTrait',
@@ -10,34 +10,34 @@ Class {
 }
 
 { #category : #default }
-CmCommandsGroup class >> defaultDescription [
+CmCommandGroup class >> defaultDescription [
 	^ 'I''m group and I should provide a nice description for my user.'
 ]
 
 { #category : #default }
-CmCommandsGroup class >> defaultName [
+CmCommandGroup class >> defaultName [
 	^ 'Unnamed group'
 ]
 
 { #category : #'instance creation' }
-CmCommandsGroup class >> forSpec [
+CmCommandGroup class >> forSpec [
 	^ self new asSpecGroup
 ]
 
 { #category : #'instance creation' }
-CmCommandsGroup class >> forSpecWithIconNamed: aSymbol [
+CmCommandGroup class >> forSpecWithIconNamed: aSymbol [
 	^ self new asSpecGroupWithIconNamed: aSymbol
 ]
 
 { #category : #'instance creation' }
-CmCommandsGroup class >> named: aString [
+CmCommandGroup class >> named: aString [
 	^ self new
 		basicName: aString;
 		yourself
 ]
 
 { #category : #accessing }
-CmCommandsGroup >> allCommands [
+CmCommandGroup >> allCommands [
 	| visitor |
 	visitor := CmCommandsCollector new.
 	self acceptVisitor: visitor.
@@ -45,32 +45,32 @@ CmCommandsGroup >> allCommands [
 ]
 
 { #category : #'public-api' }
-CmCommandsGroup >> commandOrGroupNamed: aString [
+CmCommandGroup >> commandOrGroupNamed: aString [
 	^ (entries detect: [ :commandOrRegister | commandOrRegister basicName = aString ])
 ]
 
 { #category : #'public-api' }
-CmCommandsGroup >> commands [
+CmCommandGroup >> commands [
 	^ entries select: [ :entry | entry isCommand ]
 ]
 
 { #category : #'public-api' }
-CmCommandsGroup >> entries [
+CmCommandGroup >> entries [
 	^ entries
 ]
 
 { #category : #'public-api' }
-CmCommandsGroup >> groups [
+CmCommandGroup >> groups [
 	^ entries select: [ :entry | entry isGroup ]
 ]
 
 { #category : #testing }
-CmCommandsGroup >> hasCommand: aCmCommand [
+CmCommandGroup >> hasCommand: aCmCommand [
 	^ self commands includes: aCmCommand
 ]
 
 { #category : #testing }
-CmCommandsGroup >> hasEntryNamed: aString [
+CmCommandGroup >> hasEntryNamed: aString [
 	"Returns true if one of my entries (command, registry, ...) is named aString.
 	 Else returns false.
 	"
@@ -78,7 +78,7 @@ CmCommandsGroup >> hasEntryNamed: aString [
 ]
 
 { #category : #initialization }
-CmCommandsGroup >> initialize [
+CmCommandGroup >> initialize [
 	super initialize.
 	self basicName: self class defaultName.
 	self basicDescription: self class defaultDescription.
@@ -86,7 +86,7 @@ CmCommandsGroup >> initialize [
 ]
 
 { #category : #'public-api' }
-CmCommandsGroup >> register: aCmCommandsOrGroup [
+CmCommandGroup >> register: aCmCommandsOrGroup [
 	(self hasEntryNamed: aCmCommandsOrGroup basicName)
 		ifTrue: [ CmDuplicatedEntryName signalEntryNamed: aCmCommandsOrGroup basicName ].
 	
@@ -94,31 +94,31 @@ CmCommandsGroup >> register: aCmCommandsOrGroup [
 ]
 
 { #category : #'public-api' }
-CmCommandsGroup >> register: aCmCommandsOrGroup after: anotherLtCommandsOrGroup [
+CmCommandGroup >> register: aCmCommandsOrGroup after: anotherLtCommandsOrGroup [
 	self shouldBeImplemented; flag: #TODO
 ]
 
 { #category : #'public-api' }
-CmCommandsGroup >> register: aCmCommandsOrGroup before: anotherLtCommandsOrGroup [
+CmCommandGroup >> register: aCmCommandsOrGroup before: anotherLtCommandsOrGroup [
 	self shouldBeImplemented; flag: #TODO
 ]
 
 { #category : #'public-api' }
-CmCommandsGroup >> register: aCmCommandsOrGroup insteadOf: anotherLtCommandsOrGroup [
+CmCommandGroup >> register: aCmCommandsOrGroup insteadOf: anotherLtCommandsOrGroup [
 	self shouldBeImplemented; flag: #TODO
 ]
 
 { #category : #'public-api' }
-CmCommandsGroup >> registerFirst: aCmCommandsOrGroup [
+CmCommandGroup >> registerFirst: aCmCommandsOrGroup [
 	self shouldBeImplemented; flag: #TODO
 ]
 
 { #category : #'public-api' }
-CmCommandsGroup >> registerLast: aCmCommandsOrGroup [
+CmCommandGroup >> registerLast: aCmCommandsOrGroup [
 	self shouldBeImplemented; flag: #TODO
 ]
 
 { #category : #'public-api' }
-CmCommandsGroup >> unregister: aCmCommandOrGroup [
+CmCommandGroup >> unregister: aCmCommandOrGroup [
 	entries remove: (entries detect: [ :e | e = aCmCommandOrGroup ])
 ]

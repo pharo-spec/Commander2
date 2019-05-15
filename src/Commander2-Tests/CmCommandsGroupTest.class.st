@@ -17,7 +17,7 @@ Class {
 { #category : #running }
 CmCommandsGroupTest >> setUp [
 	super setUp.
-	group := CmCommandsGroup named: 'main group'.
+	group := CmCommandGroup named: 'main group'.
 	firstCommand := CmBlockCommand new
 							basicName: 'first command';
 							block: [ :x | x ];
@@ -31,11 +31,11 @@ CmCommandsGroupTest >> setUp [
 							context: [ 11 ];
 							yourself.
 	
-	subGroup1 := (CmCommandsGroup named: 'sub group 1')
+	subGroup1 := (CmCommandGroup named: 'sub group 1')
 							register: subCommand1;
 							yourself.
 	
-	subGroup2 := CmCommandsGroup named: 'sub group 2'. "Empty on purpose."
+	subGroup2 := CmCommandGroup named: 'sub group 2'. "Empty on purpose."
 	
 	group
 		register: firstCommand;
@@ -94,9 +94,9 @@ CmCommandsGroupTest >> testHasEntryNamed [
 { #category : #test }
 CmCommandsGroupTest >> testInitialize [
 	| newGroup |
-	newGroup := CmCommandsGroup new.
+	newGroup := CmCommandGroup new.
 	
-	self assert: newGroup basicName equals: CmCommandsGroup defaultName.
+	self assert: newGroup basicName equals: CmCommandGroup defaultName.
 	self assert: newGroup entries isEmpty
 ]
 
@@ -150,14 +150,14 @@ CmCommandsGroupTest >> testRegisterSubRegister [
 	| subGroup3 |
 	self deny: (group hasEntryNamed: 'sub group 3').
 	
-	subGroup3 := CmCommandsGroup named: 'sub group 3'.
+	subGroup3 := CmCommandGroup named: 'sub group 3'.
 	group register: subGroup3.
 	
 	self assert: (group hasEntryNamed: 'sub group 3').
 	self assert: (group commandOrGroupNamed: 'sub group 3') equals: subGroup3.
 	
 	self
-		should: [ group register: (CmCommandsGroup named: 'sub group 3') ]
+		should: [ group register: (CmCommandGroup named: 'sub group 3') ]
 		raise: CmDuplicatedEntryName
 		withExceptionDo: [ :error |
 			self assert: error entryName equals: 'sub group 3' ]

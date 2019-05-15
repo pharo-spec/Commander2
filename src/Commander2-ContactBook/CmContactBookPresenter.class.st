@@ -17,7 +17,7 @@ Class {
 
 { #category : #commands }
 CmContactBookPresenter class >> buildAddingGroupWith: presenterIntance [
-	^ (CmCommandsGroup named: 'Adding') asSpecGroup
+	^ (CmCommandGroup named: 'Adding') asSpecGroup
 		basicDescription: 'Commands related to contact addition.';
 		register: (CmAddContactCommand forSpec context: presenterIntance);
 		beDisplayedAsGroup;
@@ -34,7 +34,7 @@ CmContactBookPresenter class >> buildCommandsGroupWith: presenterIntance forRoot
 
 { #category : #commands }
 CmContactBookPresenter class >> buildEditionGroupWith: presenterIntance [
-	^ (CmCommandsGroup named: 'Edition') asSpecGroup
+	^ (CmCommandGroup named: 'Edition') asSpecGroup
 		basicDescription: 'Commands related to contact edition.';
 		register: (CmRenameContactCommand forSpec context: presenterIntance);
 		beDisplayedAsGroup;
@@ -43,7 +43,7 @@ CmContactBookPresenter class >> buildEditionGroupWith: presenterIntance [
 
 { #category : #commands }
 CmContactBookPresenter class >> buildRemovingGroupWith: presenterIntance [
-	^ (CmCommandsGroup named: 'Removing') asSpecGroup
+	^ (CmCommandGroup named: 'Removing') asSpecGroup
 		basicDescription: 'Command related to contact removal.';
 		register: (CmRemoveContactCommand forSpec context: presenterIntance);
 		beDisplayedAsGroup;
@@ -90,8 +90,8 @@ CmContactBookPresenter >> initializeWidgets [
 
 { #category : #initialization }
 CmContactBookPresenter >> initializeWindow: aWindowPresenter [
-	super initializeWindow: aWindowPresenter.
 	
+	super initializeWindow: aWindowPresenter.
 	self rootCommandsGroup installShortcutsIn: aWindowPresenter
 ]
 
