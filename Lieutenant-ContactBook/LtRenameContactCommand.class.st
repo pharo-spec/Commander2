@@ -32,7 +32,8 @@ LtRenameContactCommand >> execute [
 LtRenameContactCommand >> initialize [
 	super initialize.
 	self
-		basicName: 'Rename' "This is the name of the command that will be shown to user."
+		basicName: 'Rename'; "This is the name of the command that will be shown to user."
+		basicDescription: 'Rename the selected contact.'. "This is the description of the command that will be shown to user."
 ]
 
 { #category : #accessing }

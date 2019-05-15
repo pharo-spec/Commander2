@@ -11,6 +11,7 @@ Class {
 { #category : #commands }
 LtContactBookPresenter class >> buildAddingGroupWith: presenterIntance [
 	^ (LtCommandsGroup named: 'Adding') asSpecGroup
+		basicDescription: 'Commands related to contact addition.';
 		register: (LtAddContactCommand forSpec context: presenterIntance);
 		beDisplayedAsGroup;
 		yourself
@@ -27,6 +28,7 @@ LtContactBookPresenter class >> buildCommandsGroupWith: presenterIntance forRoot
 { #category : #commands }
 LtContactBookPresenter class >> buildEditionGroupWith: presenterIntance [
 	^ (LtCommandsGroup named: 'Edition') asSpecGroup
+		basicDescription: 'Commands related to contact edition.';
 		register: (LtRenameContactCommand forSpec context: presenterIntance);
 		beDisplayedAsGroup;
 		yourself
@@ -35,6 +37,7 @@ LtContactBookPresenter class >> buildEditionGroupWith: presenterIntance [
 { #category : #commands }
 LtContactBookPresenter class >> buildRemovingGroupWith: presenterIntance [
 	^ (LtCommandsGroup named: 'Removing') asSpecGroup
+		basicDescription: 'Command related to contact removal.';
 		register: (LtRemoveContactCommand forSpec context: presenterIntance);
 		beDisplayedAsGroup;
 		yourself

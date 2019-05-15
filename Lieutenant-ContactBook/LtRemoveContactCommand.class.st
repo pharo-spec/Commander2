@@ -30,5 +30,6 @@ LtRemoveContactCommand >> execute [
 LtRemoveContactCommand >> initialize [
 	super initialize.
 	self
-		basicName: 'Remove' "This is the name of the command that will be shown to user."
+		basicName: 'Remove'; "This is the name of the command that will be shown to user."
+		basicDescription: 'Removes the selected contact from the contact book.' "This is the description of the command that will be shown to user."
 ]

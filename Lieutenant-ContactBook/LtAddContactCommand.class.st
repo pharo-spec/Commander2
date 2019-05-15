@@ -58,5 +58,6 @@ LtAddContactCommand >> execute [
 LtAddContactCommand >> initialize [
 	super initialize.
 	self
-		basicName: 'New contact' "This is the name of the command that will be shown to user."
+		basicName: 'New contact'; "This is the name of the command that will be shown to user."
+		basicDescription: 'Creates a new contact and add it to the contact book.' "This is the description of the command that will be shown to user."
 ]
