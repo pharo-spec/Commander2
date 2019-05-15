@@ -1,6 +1,6 @@
 Class {
 	#name : #CmBrowseFull,
-	#superclass : #AnObsoleteLtCommand,
+	#superclass : #CmCommand,
 	#instVars : [
 		'class'
 	],

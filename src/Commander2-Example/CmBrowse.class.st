@@ -1,6 +1,6 @@
 Class {
 	#name : #CmBrowse,
-	#superclass : #AnObsoleteLtCommand,
+	#superclass : #CmCommand,
 	#category : #'Commander2-Example'
 }
 
