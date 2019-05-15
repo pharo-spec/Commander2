@@ -72,11 +72,17 @@ LtContactBookPresenter >> initializeWidgets [
 	table 
 		addColumn: (StringTableColumn title: 'Name' evaluated: #name);
 		addColumn: (StringTableColumn title: 'Phone' evaluated: #phone).
+	
 	table contextMenu: [ self rootCommandsGroup asMenuPresenter ].
-	self flag: #TODO. "Bind shortcuts."
-	table items: contactBook contents.
 	
+	table items: contactBook contents
+]
+
+{ #category : #initialization }
+LtContactBookPresenter >> initializeWindow: aWindowPresenter [
+	super initializeWindow: aWindowPresenter.
 	
+	self rootCommandsGroup installShortcutsIn: aWindowPresenter
 ]
 
 { #category : #testing }

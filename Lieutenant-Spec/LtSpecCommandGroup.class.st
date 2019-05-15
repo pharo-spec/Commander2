@@ -81,6 +81,13 @@ LtSpecCommandGroup >> initialize [
 	self isRoot: false
 ]
 
+{ #category : #'as yet unclassified' }
+LtSpecCommandGroup >> installShortcutsIn: aPresenter [ 
+	LtShortcutInstaller new
+		presenter: aPresenter;
+		visit: self
+]
+
 { #category : #accessing }
 LtSpecCommandGroup >> isRoot [
 	^ isRoot

@@ -11,7 +11,13 @@ LtRemoveContactCommand >> asSpecCommand [
 	"
 	^ super asSpecCommand
 		iconName: #removeIcon;
+		shortcutKey: KMModifier command + $x asKeyCombination;
 		yourself
+]
+
+{ #category : #hooks }
+LtRemoveContactCommand >> canBeRun [
+	^ self context isContactSelected
 ]
 
 { #category : #hooks }
