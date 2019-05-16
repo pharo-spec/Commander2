@@ -16,12 +16,12 @@ CmMenuPresenterBuilderTest >> setUp [
 	super setUp.
 	menuBuilder := CmMenuPresenterBuilder new.
 	
-	commandsGroup := (CmCommandsGroup named: 'root') asSpecGroup beRoot
+	commandsGroup := (CmCommandGroup named: 'root') asSpecGroup beRoot
 							register: (CmBlockCommand new
 											basicName: 'c1';
 											block: [ ];
 											yourself) asSpecCommand;
-							register: ((CmCommandsGroup named: 'sub1') asSpecGroup
+							register: ((CmCommandGroup named: 'sub1') asSpecGroup
 											register: (CmBlockCommand new
 															basicName: 'c2';
 															block: [ ];
