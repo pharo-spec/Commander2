@@ -2,14 +2,14 @@ Extension { #name : #CmContactBookPresenter }
 
 { #category : #'*Commander2-ContactBook-Extensions' }
 CmContactBookPresenter class >> changePhoneCommandWith: presenter forRootGroup: aCmCommandsGroup [
-	<lieutenantExtension>
+	<extensionCommands>
 	(aCmCommandsGroup / 'Edition') "Inject an additional command in 'Edition' group."
 		register: (CmChangePhoneCommand forSpec context: presenter)
 ]
 
 { #category : #'*Commander2-ContactBook-Extensions' }
 CmContactBookPresenter class >> extraCommandsWith: presenter forRootGroup: aCmCommandsGroup [
-	<lieutenantExtension>
+	<extensionCommands>
 	aCmCommandsGroup
 		register: ((CmCommandGroup named: 'Extra') asSpecGroup
 						basicDescription: 'Extra commands to help during development.';

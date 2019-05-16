@@ -17,7 +17,7 @@ ComposablePresenter class >> buildRootCommandsGroupFor: presenterInstance [
 	self buildCommandsGroupWith: presenterInstance forRoot: rootCommandGroup.
 	
 	"Register extension commands."
-	(Pragma allNamed: #lieutenantExtension in: self class) do: [ :pragma | 
+	(Pragma allNamed: #extensionCommands in: self class) do: [ :pragma | 
 		(self 
 			perform: pragma methodSelector 
 			withArguments: { presenterInstance . rootCommandGroup }) ].
