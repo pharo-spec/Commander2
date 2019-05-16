@@ -11,10 +11,15 @@ Class {
 	#category : #'Commander2-Spec'
 }
 
+{ #category : #accessing }
+CmMenuPresenterBuilder class >> menuPresenterClass [
+	^ MenuPresenter
+]
+
 { #category : #initialization }
 CmMenuPresenterBuilder >> initialize [
 	super initialize.
-	self menuPresenter: MenuPresenter new.
+	self menuPresenter: self class menuPresenterClass new.
 	stack := Stack new
 					push: self menuPresenter;
 					yourself.
