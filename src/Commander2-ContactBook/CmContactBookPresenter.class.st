@@ -10,7 +10,8 @@ Class {
 	#superclass : #ComposablePresenter,
 	#instVars : [
 		'table',
-		'contactBook'
+		'contactBook',
+		'menuBar'
 	],
 	#category : #'Commander2-ContactBook-Spec'
 }
@@ -61,7 +62,9 @@ CmContactBookPresenter class >> defaultSpec [
 
 	^ SpecLayout composed
 		newColumn: [ :column |
-			column add: #table];
+			column
+				add: #menuBar height: self toolbarHeight;
+				add: #table];
 		yourself
 ]
 
@@ -85,7 +88,9 @@ CmContactBookPresenter >> initializeWidgets [
 	
 	table contextMenu: [ self rootCommandsGroup asMenuPresenter ].
 	
-	table items: contactBook contents
+	table items: contactBook contents.
+	
+	menuBar := self rootCommandsGroup asMenuBarPresenter.
 ]
 
 { #category : #initialization }
