@@ -11,7 +11,7 @@ Class {
 	#instVars : [
 		'iconName',
 		'shortcutKey',
-		'alwaysVisible'
+		'displayStrategy'
 	],
 	#category : #'Commander2-Spec-Core'
 }
@@ -21,19 +21,29 @@ CmSpecCommand class >> defaultIconName [
 	^ #blank
 ]
 
-{ #category : #accessing }
-CmSpecCommand >> alwaysVisible [
-	"If #alwaysVisible is true, the command will always be visible in the UI.
-	 In this case, when #canBeRunOn: returns false it will be shown in disabled mode.
-	
-	 If #alwaysVisible is false, the command will not be visible in the ui when canBeRunOn: returns false.
-	"
-	^ alwaysVisible
+{ #category : #configuring }
+CmSpecCommand >> beDisabledWhenCantBeRun [
+	self displayStrategy: CmDisableWhenCantBeRun new
+]
+
+{ #category : #configuring }
+CmSpecCommand >> beHiddenWhenCantBeRun [
+	self displayStrategy: CmHideWhenCantBeRun new
+]
+
+{ #category : #displaying }
+CmSpecCommand >> displayIn: aMenuGroupOrPresenter do: aBlock [
+	self displayStrategy display: self in: aMenuGroupOrPresenter do: aBlock
 ]
 
 { #category : #accessing }
-CmSpecCommand >> alwaysVisible: anObject [
-	alwaysVisible := anObject
+CmSpecCommand >> displayStrategy [
+	^ displayStrategy
+]
+
+{ #category : #accessing }
+CmSpecCommand >> displayStrategy: anObject [
+	displayStrategy := anObject
 ]
 
 { #category : #hooks }
@@ -71,7 +81,7 @@ CmSpecCommand >> iconName: aSymbol [
 CmSpecCommand >> initialize [ 
 	super initialize.
 	self iconName: self class defaultIconName.
-	self alwaysVisible: true
+	self beDisabledWhenCantBeRun
 ]
 
 { #category : #accessing }

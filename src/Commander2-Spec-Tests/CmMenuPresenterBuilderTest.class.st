@@ -62,7 +62,7 @@ CmMenuPresenterBuilderTest >> testVisitLtCommand [
 ]
 
 { #category : #test }
-CmMenuPresenterBuilderTest >> testVisitLtCommandThatCantBeRun [
+CmMenuPresenterBuilderTest >> testVisitLtCommandThatCantBeRunWithDisableStrategy [
 	self assert: menuBuilder menuPresenter defaultGroup menuItems isEmpty.
 	
 	(CmBlockCommand new
@@ -72,6 +72,21 @@ CmMenuPresenterBuilderTest >> testVisitLtCommandThatCantBeRun [
 		canBeRunBlock: [ :x | x = 42 ];
 		block: [ :x | 42 ];
 		yourself) asSpecCommand acceptVisitor: menuBuilder.
+		
+	self assert: menuBuilder menuPresenter defaultGroup menuItems size equals: 1.
+]
+
+{ #category : #test }
+CmMenuPresenterBuilderTest >> testVisitLtCommandThatCantBeRunWithHideStrategy [
+	self assert: menuBuilder menuPresenter defaultGroup menuItems isEmpty.
+	
+	(CmBlockCommand new
+		basicName: 'c';
+		basicDescription: 'desc';
+		context: [ 41 ];
+		canBeRunBlock: [ :x | x = 42 ];
+		block: [ :x | 42 ];
+		yourself) asSpecCommand beHiddenWhenCantBeRun acceptVisitor: menuBuilder.
 		
 	self assert: menuBuilder menuPresenter defaultGroup menuItems isEmpty.
 ]

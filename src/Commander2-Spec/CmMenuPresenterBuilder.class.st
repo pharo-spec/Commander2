@@ -37,10 +37,7 @@ CmMenuPresenterBuilder >> menuPresenter: anObject [
 
 { #category : #visiting }
 CmMenuPresenterBuilder >> visitLtCommand: aCmCommand [
-	aCmCommand canBeRun "If can not be run, do not add to the menu."
-		ifFalse: [ ^ self ].
-	
-	stack top addItem: [ :item |
+	aCmCommand displayIn: stack top do: [ :item |
 		item
 			name: aCmCommand name;
 			description: aCmCommand description;
@@ -48,7 +45,7 @@ CmMenuPresenterBuilder >> visitLtCommand: aCmCommand [
 			action: [ aCmCommand execute ];
 			in: [ :i | 
 				aCmCommand hasShortcut
-					ifTrue: [ i shortcut: aCmCommand shortcutKey ] ] ]
+					ifTrue: [ i shortcut: aCmCommand shortcutKey ] ] ].
 ]
 
 { #category : #visiting }

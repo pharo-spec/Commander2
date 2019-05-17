@@ -95,7 +95,7 @@ CmSpecCommandGroup >> initialize [
 	self isRoot: false
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #'shortcuts installation' }
 CmSpecCommandGroup >> installShortcutsIn: aPresenter [ 
 	CmShortcutInstaller new
 		presenter: aPresenter;
