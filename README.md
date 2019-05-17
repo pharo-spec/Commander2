@@ -11,7 +11,7 @@ Implementation of the command design pattern with the following objectives:
 
 ## Install
 
-```
+```Smalltalk
 Metacello new
 	repository: 'github://pharo-spec/Commander2/src';
 	baseline: 'Commander2';
