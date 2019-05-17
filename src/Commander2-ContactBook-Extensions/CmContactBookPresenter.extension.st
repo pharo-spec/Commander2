@@ -3,14 +3,14 @@ Extension { #name : #CmContactBookPresenter }
 { #category : #'*Commander2-ContactBook-Extensions' }
 CmContactBookPresenter class >> changePhoneCommandWith: presenter forRootGroup: aCmCommandsGroup [
 	<extensionCommands>
-	(aCmCommandsGroup / 'Edition') "Inject an additional command in 'Edition' group."
+	(aCmCommandsGroup / 'Context Menu' / 'Edition') "Inject an additional command in 'Edition' group."
 		register: (CmChangePhoneCommand forSpec context: presenter)
 ]
 
 { #category : #'*Commander2-ContactBook-Extensions' }
 CmContactBookPresenter class >> extraCommandsWith: presenter forRootGroup: aCmCommandsGroup [
 	<extensionCommands>
-	aCmCommandsGroup
+	aCmCommandsGroup / 'Context Menu'
 		register: ((CmCommandGroup named: 'Extra') asSpecGroup
 						basicDescription: 'Extra commands to help during development.';
 						"Below is an example of reusing the same command for 2 different purposes."

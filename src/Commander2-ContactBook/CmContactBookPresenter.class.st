@@ -28,9 +28,17 @@ CmContactBookPresenter class >> buildAddingGroupWith: presenterIntance [
 { #category : #commands }
 CmContactBookPresenter class >> buildCommandsGroupWith: presenterIntance forRoot: rootCommandGroup [
 	rootCommandGroup
+		register: (self buildMenuBarGroupWith: presenterIntance);
+		register: (self buildContextualMenuGroupWith: presenterIntance)
+]
+
+{ #category : #commands }
+CmContactBookPresenter class >> buildContextualMenuGroupWith: presenterIntance [
+	^ (CmCommandGroup named: 'Context Menu') asSpecGroup
 		register: (self buildEditionGroupWith: presenterIntance);
 		register: (self buildAddingGroupWith: presenterIntance);
-		register: (self buildRemovingGroupWith: presenterIntance)
+		register: (self buildRemovingGroupWith: presenterIntance);
+		yourself
 ]
 
 { #category : #commands }
@@ -39,6 +47,13 @@ CmContactBookPresenter class >> buildEditionGroupWith: presenterIntance [
 		basicDescription: 'Commands related to contact edition.';
 		register: (CmRenameContactCommand forSpec context: presenterIntance);
 		beDisplayedAsGroup;
+		yourself
+]
+
+{ #category : #commands }
+CmContactBookPresenter class >> buildMenuBarGroupWith: presenterIntance [
+	^ (CmCommandGroup named: 'MenuBar') asSpecGroup
+		register: (CmPrintContactBookInTranscript forSpec context: presenterIntance);
 		yourself
 ]
 
@@ -86,11 +101,11 @@ CmContactBookPresenter >> initializeWidgets [
 		addColumn: (StringTableColumn title: 'Name' evaluated: #name);
 		addColumn: (StringTableColumn title: 'Phone' evaluated: #phone).
 	
-	table contextMenu: [ self rootCommandsGroup asMenuPresenter ].
+	table contextMenu: [ (self rootCommandsGroup / 'Context Menu') beRoot asMenuPresenter ].
 	
 	table items: contactBook contents.
 	
-	menuBar := self rootCommandsGroup asMenuBarPresenter.
+	menuBar := (self rootCommandsGroup / 'MenuBar')  asMenuBarPresenter.
 ]
 
 { #category : #initialization }
