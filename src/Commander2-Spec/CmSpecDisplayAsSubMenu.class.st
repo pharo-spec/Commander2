@@ -4,7 +4,7 @@ I display a command group as a submenu in the MenuPresenter.
 Class {
 	#name : #CmSpecDisplayAsSubMenu,
 	#superclass : #CmSpecCommandGroupDisplayStrategy,
-	#category : #'Commander2-Spec'
+	#category : #'Commander2-Spec-Core'
 }
 
 { #category : #displaying }

@@ -8,7 +8,7 @@ Class {
 		'menuPresenter',
 		'stack'
 	],
-	#category : #'Commander2-Spec'
+	#category : #'Commander2-Spec-Visitors'
 }
 
 { #category : #accessing }

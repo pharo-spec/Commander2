@@ -13,7 +13,7 @@ Class {
 		'shortcutKey',
 		'alwaysVisible'
 	],
-	#category : #'Commander2-Spec'
+	#category : #'Commander2-Spec-Core'
 }
 
 { #category : #default }

@@ -13,7 +13,7 @@ Class {
 		'displayStrategy',
 		'isRoot'
 	],
-	#category : #'Commander2-Spec'
+	#category : #'Commander2-Spec-Core'
 }
 
 { #category : #default }
@@ -27,10 +27,24 @@ CmSpecCommandGroup class >> defaultIconName [
 ]
 
 { #category : #converting }
+CmSpecCommandGroup >> asMenuBarPresenter [
+	^ CmMenuBarPresenterBuilder new
+		visit: self;
+		menuPresenter
+]
+
+{ #category : #converting }
 CmSpecCommandGroup >> asMenuPresenter [
 	^ CmMenuPresenterBuilder new
 		visit: self;
 		menuPresenter
+]
+
+{ #category : #converting }
+CmSpecCommandGroup >> asToolBarPresenter [
+	^ CmToolBarPresenterBuilder new
+		visit: self;
+		toolbarPresenter
 ]
 
 { #category : #configuring }
