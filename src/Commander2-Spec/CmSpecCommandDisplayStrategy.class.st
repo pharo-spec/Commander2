@@ -1,3 +1,6 @@
+"
+I allow to configure how a spec group display itself when shown in UI.
+"
 Class {
 	#name : #CmSpecCommandDisplayStrategy,
 	#superclass : #Object,

@@ -1,5 +1,5 @@
 "
-I allow to configure how a spec command group display itself in a MenuPresenter.
+I allow to configure how a spec command group display when shown in UI.
 "
 Class {
 	#name : #CmSpecCommandGroupDisplayStrategy,

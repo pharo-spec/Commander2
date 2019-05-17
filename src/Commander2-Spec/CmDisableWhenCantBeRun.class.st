@@ -1,3 +1,6 @@
+"
+I implement the fact that the button corresponding to a command is disabled when it can not be run.
+"
 Class {
 	#name : #CmDisableWhenCantBeRun,
 	#superclass : #CmSpecCommandDisplayStrategy,
