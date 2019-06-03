@@ -55,7 +55,14 @@ CmSpecCommand >> execute [
 ]
 
 { #category : #testing }
-CmSpecCommand >> hasShortcut [
+CmSpecCommand >> hasIcon [
+
+	^ icon isNotNil
+]
+
+{ #category : #testing }
+CmSpecCommand >> hasShortcutKey [
+
 	^ shortcutKey isNotNil
 ]
 

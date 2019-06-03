@@ -9,6 +9,7 @@ Class {
 
 { #category : #displaying }
 CmSpecDisplayAsGroup >> display: aCmSpecCommandGroup in: aMenuPresenter do: aBlock [
+
 	aMenuPresenter addGroup: [ :menuGroup |
 		aBlock value: menuGroup ]
 ]

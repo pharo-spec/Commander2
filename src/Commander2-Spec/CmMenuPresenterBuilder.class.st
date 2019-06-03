@@ -33,11 +33,12 @@ CmMenuPresenterBuilder >> fillItem: aMenuItem with: aCommand [
 
 { #category : #initialization }
 CmMenuPresenterBuilder >> initialize [
+	
 	super initialize.
 	self menuPresenter: self class menuPresenterClass new.
 	stack := Stack new
-					push: self menuPresenter;
-					yourself.
+		push: self menuPresenter;
+		yourself
 ]
 
 { #category : #accessing }
@@ -60,13 +61,15 @@ CmMenuPresenterBuilder >> visitCommand: aCmCommand [
 
 { #category : #visiting }
 CmMenuPresenterBuilder >> visitCommandGroup: aCmCommandsGroup [
-	aCmCommandsGroup isRoot
-		ifTrue: [ 
-			super visitCommandGroup: aCmCommandsGroup.
-			^ self ].
-	
-	aCmCommandsGroup displayIn: stack top do: [ :specGroupOrSubMenu |
-		stack push: specGroupOrSubMenu.
+
+	aCmCommandsGroup isRoot ifTrue: [ 
 		super visitCommandGroup: aCmCommandsGroup.
-		stack pop ]
+		^ self ].
+	
+	aCmCommandsGroup 
+		displayIn: stack top 
+		do: [ :specGroupOrSubMenu |
+			stack push: specGroupOrSubMenu.
+			super visitCommandGroup: aCmCommandsGroup.
+			stack pop ]
 ]

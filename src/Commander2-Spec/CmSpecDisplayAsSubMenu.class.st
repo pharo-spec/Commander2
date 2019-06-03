@@ -9,13 +9,23 @@ Class {
 
 { #category : #displaying }
 CmSpecDisplayAsSubMenu >> display: aCmSpecCommandGroup in: aMenuPresenter do: aBlock [
+
 	aMenuPresenter addItem: [ :menuItem |
-		| subMenu |
-		menuItem
-			name: aCmSpecCommandGroup name;
-			description: aCmSpecCommandGroup description;
-			icon: (self iconNamed: aCmSpecCommandGroup iconName).
-		subMenu := MenuPresenter new.
-		aBlock value: subMenu.
-		menuItem subMenu: subMenu ]
+		menuItem subMenu: (self 
+			fillSubMenuIn: menuItem 
+			with: aCmSpecCommandGroup 
+			do: aBlock) ]
+]
+
+{ #category : #private }
+CmSpecDisplayAsSubMenu >> fillSubMenuIn: menuItem with: aCmSpecCommandGroup do: aBlock [
+	| subMenu |
+	
+	menuItem
+		name: aCmSpecCommandGroup name;
+		description: aCmSpecCommandGroup description;
+		icon: aCmSpecCommandGroup icon.
+	subMenu := MenuPresenter new.
+	aBlock value: subMenu.
+	^ subMenu
 ]

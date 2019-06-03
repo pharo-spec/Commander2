@@ -9,15 +9,16 @@ Class {
 	#name : #CmSpecCommandGroup,
 	#superclass : #CmCommandGroupDecorator,
 	#instVars : [
-		'iconName',
 		'displayStrategy',
-		'isRoot'
+		'isRoot',
+		'icon'
 	],
 	#category : #'Commander2-Spec-Core'
 }
 
 { #category : #default }
 CmSpecCommandGroup class >> defaultDisplayStrategy [
+
 	^ CmSpecDisplayAsSubMenu new
 ]
 
@@ -64,7 +65,11 @@ CmSpecCommandGroup >> beRoot [
 
 { #category : #displaying }
 CmSpecCommandGroup >> displayIn: aMenuPresenter do: aBlock [
-	self displayStrategy display: self in: aMenuPresenter do: aBlock
+
+	self displayStrategy 
+		display: self 
+		in: aMenuPresenter 
+		do: aBlock
 ]
 
 { #category : #accessing }
@@ -78,19 +83,28 @@ CmSpecCommandGroup >> displayStrategy: anObject [
 ]
 
 { #category : #accessing }
-CmSpecCommandGroup >> iconName [
-	^ iconName
+CmSpecCommandGroup >> icon [ 
+
+	^ icon
 ]
 
 { #category : #accessing }
-CmSpecCommandGroup >> iconName: anObject [
-	iconName := anObject
+CmSpecCommandGroup >> icon: anIcon [
+
+	icon := anIcon
+]
+
+{ #category : #accessing }
+CmSpecCommandGroup >> iconName: aSymbol [
+
+
+	self icon: (self iconNamed: aSymbol)
 ]
 
 { #category : #initialization }
 CmSpecCommandGroup >> initialize [
+
 	super initialize.
-	self iconName: self class defaultIconName.
 	self displayStrategy: self class defaultDisplayStrategy.
 	self isRoot: false
 ]
