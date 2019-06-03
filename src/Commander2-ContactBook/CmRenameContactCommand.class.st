@@ -13,7 +13,7 @@ CmRenameContactCommand >> asSpecCommand [
 	 when used in Spec framework.
 	"
 	^ super asSpecCommand
-		shortcutKey: KMModifier meta + $r asKeyCombination;
+		shortcutKey: $r meta;
 		yourself
 ]
 

@@ -13,7 +13,7 @@ CmAddContactCommand >> asSpecCommand [
 	 when used in Spec framework.
 	"
 	^ super asSpecCommand
-		shortcutKey: KMModifier meta + $n asKeyCombination;
+		shortcutKey: $n meta;
 		yourself
 ]
 
