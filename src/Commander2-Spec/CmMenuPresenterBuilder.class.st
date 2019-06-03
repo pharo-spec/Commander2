@@ -36,7 +36,7 @@ CmMenuPresenterBuilder >> menuPresenter: anObject [
 ]
 
 { #category : #visiting }
-CmMenuPresenterBuilder >> visitLtCommand: aCmCommand [
+CmMenuPresenterBuilder >> visitCommand: aCmCommand [
 	aCmCommand displayIn: stack top do: [ :item |
 		item
 			name: aCmCommand name;
@@ -49,14 +49,14 @@ CmMenuPresenterBuilder >> visitLtCommand: aCmCommand [
 ]
 
 { #category : #visiting }
-CmMenuPresenterBuilder >> visitLtCommandsGroup: aCmCommandsGroup [
+CmMenuPresenterBuilder >> visitCommandsGroup: aCmCommandsGroup [
 	aCmCommandsGroup isRoot
 		ifTrue: [ 
-			super visitLtCommandsGroup: aCmCommandsGroup.
+			super visitCommandsGroup: aCmCommandsGroup.
 			^ self ].
 	
 	aCmCommandsGroup displayIn: stack top do: [ :specGroupOrSubMenu |
 		stack push: specGroupOrSubMenu.
-		super visitLtCommandsGroup: aCmCommandsGroup.
+		super visitCommandsGroup: aCmCommandsGroup.
 		stack pop ]
 ]

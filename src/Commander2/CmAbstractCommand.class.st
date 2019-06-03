@@ -11,7 +11,7 @@ Class {
 
 { #category : #visiting }
 CmAbstractCommand >> acceptVisitor: aCmCommandOrGroup [
-	^ aCmCommandOrGroup visitLtCommand: self
+	^ aCmCommandOrGroup visitCommand: self
 ]
 
 { #category : #testing }

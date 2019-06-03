@@ -12,7 +12,7 @@ CmAbstractCommandsGroup >> / aString [
 
 { #category : #visiting }
 CmAbstractCommandsGroup >> acceptVisitor: aCmCommandOrGroup [
-	^ aCmCommandOrGroup visitLtCommandsGroup: self
+	^ aCmCommandOrGroup visitCommandsGroup: self
 ]
 
 { #category : #accessing }

@@ -29,7 +29,7 @@ CmToolBarPresenterBuilder >> toolbarPresenter: anObject [
 ]
 
 { #category : #visiting }
-CmToolBarPresenterBuilder >> visitLtCommand: aCmCommandEntry [
+CmToolBarPresenterBuilder >> visitCommand: aCmCommandEntry [
 	self toolbarPresenter
 		addItem: (ToolBarButton new
 						label: aCmCommandEntry name;

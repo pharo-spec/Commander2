@@ -17,12 +17,12 @@ CmVisitor >> visit: anObject [
 ]
 
 { #category : #visiting }
-CmVisitor >> visitLtCommand: aCmCommandEntry [
+CmVisitor >> visitCommand: aCmCommandEntry [
 	^ self subclassResponsibility
 ]
 
 { #category : #visiting }
-CmVisitor >> visitLtCommandsGroup: aCmCommandsGroup [
+CmVisitor >> visitCommandsGroup: aCmCommandsGroup [
 	^ aCmCommandsGroup entries collect: [ :entry |
 		entry acceptVisitor: self ]
 ]
