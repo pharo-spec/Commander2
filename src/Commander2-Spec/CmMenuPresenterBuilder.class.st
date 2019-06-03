@@ -16,6 +16,21 @@ CmMenuPresenterBuilder class >> menuPresenterClass [
 	^ MenuPresenter
 ]
 
+{ #category : #private }
+CmMenuPresenterBuilder >> fillItem: aMenuItem with: aCommand [
+
+	aMenuItem
+		name: aCommand name;
+		description: aCommand description;
+		icon: aCommand icon;
+		action: [ aCommand execute ].
+
+	aCommand hasShortcut ifTrue: [ 
+		aMenuItem shortcut: aCommand shortcutKey ].
+		
+	^ aMenuItem
+]
+
 { #category : #initialization }
 CmMenuPresenterBuilder >> initialize [
 	super initialize.
@@ -37,26 +52,21 @@ CmMenuPresenterBuilder >> menuPresenter: anObject [
 
 { #category : #visiting }
 CmMenuPresenterBuilder >> visitCommand: aCmCommand [
-	aCmCommand displayIn: stack top do: [ :item |
-		item
-			name: aCmCommand name;
-			description: aCmCommand description;
-			icon: aCmCommand icon;
-			action: [ aCmCommand execute ];
-			in: [ :i | 
-				aCmCommand hasShortcut
-					ifTrue: [ i shortcut: aCmCommand shortcutKey ] ] ].
+
+	aCmCommand 
+		displayIn: stack top 
+		do: [ :item | self fillItem: item with: aCmCommand ]
 ]
 
 { #category : #visiting }
-CmMenuPresenterBuilder >> visitCommandsGroup: aCmCommandsGroup [
+CmMenuPresenterBuilder >> visitCommandGroup: aCmCommandsGroup [
 	aCmCommandsGroup isRoot
 		ifTrue: [ 
-			super visitCommandsGroup: aCmCommandsGroup.
+			super visitCommandGroup: aCmCommandsGroup.
 			^ self ].
 	
 	aCmCommandsGroup displayIn: stack top do: [ :specGroupOrSubMenu |
 		stack push: specGroupOrSubMenu.
-		super visitCommandsGroup: aCmCommandsGroup.
+		super visitCommandGroup: aCmCommandsGroup.
 		stack pop ]
 ]

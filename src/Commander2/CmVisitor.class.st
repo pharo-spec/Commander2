@@ -22,7 +22,7 @@ CmVisitor >> visitCommand: aCmCommandEntry [
 ]
 
 { #category : #visiting }
-CmVisitor >> visitCommandsGroup: aCmCommandsGroup [
+CmVisitor >> visitCommandGroup: aCmCommandsGroup [
 	^ aCmCommandsGroup entries collect: [ :entry |
 		entry acceptVisitor: self ]
 ]
