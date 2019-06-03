@@ -11,7 +11,8 @@ Class {
 	#instVars : [
 		'iconName',
 		'shortcutKey',
-		'displayStrategy'
+		'displayStrategy',
+		'icon'
 	],
 	#category : #'Commander2-Spec-Core'
 }
@@ -61,20 +62,20 @@ CmSpecCommand >> hasShortcut [
 { #category : #icons }
 CmSpecCommand >> icon [
 	"Precondition: do not call icon on receiver not having an icon."
-	"It may be better to have iconNamed:ifNone: in addition to iconNamed: in superclass."
-	^ self iconNamed: self iconName
+
+	^ icon
 ]
 
-{ #category : #accessing }
-CmSpecCommand >> iconName [
-	"Return the name of an icon."
-	^ iconName
+{ #category : #icons }
+CmSpecCommand >> icon: anIcon [
 	
+	icon := anIcon
 ]
 
 { #category : #accessing }
 CmSpecCommand >> iconName: aSymbol [ 
-	iconName := aSymbol
+
+	self icon: (self iconNamed: aSymbol)
 ]
 
 { #category : #initialization }

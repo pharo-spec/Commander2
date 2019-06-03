@@ -41,7 +41,7 @@ CmMenuPresenterBuilder >> visitLtCommand: aCmCommand [
 		item
 			name: aCmCommand name;
 			description: aCmCommand description;
-			iconName: aCmCommand iconName;
+			icon: aCmCommand icon;
 			action: [ aCmCommand execute ];
 			in: [ :i | 
 				aCmCommand hasShortcut
