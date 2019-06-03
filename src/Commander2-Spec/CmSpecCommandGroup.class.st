@@ -35,6 +35,17 @@ CmSpecCommandGroup >> asMenuBarPresenter [
 ]
 
 { #category : #converting }
+CmSpecCommandGroup >> asMenuBarPresenterWith: aBlock [
+	| builder |
+
+	builder := CmMenuBarPresenterBuilder new.
+	aBlock value: builder menuPresenter.
+	^ builder
+		visit: self;
+		menuPresenter
+]
+
+{ #category : #converting }
 CmSpecCommandGroup >> asMenuPresenter [
 	^ CmMenuPresenterBuilder new
 		visit: self;
@@ -42,8 +53,30 @@ CmSpecCommandGroup >> asMenuPresenter [
 ]
 
 { #category : #converting }
+CmSpecCommandGroup >> asMenuPresenterWith: aBlock [
+	| builder |
+
+	builder := CmMenuPresenterBuilder new.
+	aBlock value: builder menuPresenter.
+	^ builder
+		visit: self;
+		menuPresenter
+]
+
+{ #category : #converting }
 CmSpecCommandGroup >> asToolBarPresenter [
 	^ CmToolBarPresenterBuilder new
+		visit: self;
+		toolbarPresenter
+]
+
+{ #category : #converting }
+CmSpecCommandGroup >> asToolBarPresenterWith: aBlock [
+	| builder |
+	
+	builder := CmToolBarPresenterBuilder new.
+	aBlock value: builder toolbarPresenter.
+	^ builder
 		visit: self;
 		toolbarPresenter
 ]

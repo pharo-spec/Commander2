@@ -17,11 +17,6 @@ Class {
 	#category : #'Commander2-Spec-Core'
 }
 
-{ #category : #default }
-CmSpecCommand class >> defaultIconName [
-	^ #blank
-]
-
 { #category : #configuring }
 CmSpecCommand >> beDisabledWhenCantBeRun [
 	self displayStrategy: CmDisableWhenCantBeRun new
