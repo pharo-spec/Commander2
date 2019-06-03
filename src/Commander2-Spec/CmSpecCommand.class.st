@@ -80,8 +80,8 @@ CmSpecCommand >> iconName: aSymbol [
 
 { #category : #initialization }
 CmSpecCommand >> initialize [ 
+
 	super initialize.
-	self iconName: self class defaultIconName.
 	self beDisabledWhenCantBeRun
 ]
 

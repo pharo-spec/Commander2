@@ -22,7 +22,7 @@ CmShortcutInstaller >> presenter: anObject [
 
 { #category : #visiting }
 CmShortcutInstaller >> visitCommand: aCmCommand [
-	aCmCommand hasShortcut
+	aCmCommand hasShortcutKey
 		ifFalse: [ ^ self ].
 	self presenter on: aCmCommand shortcutKey do: [ 
 		aCmCommand canBeRun ifTrue: [ aCmCommand execute ] ]

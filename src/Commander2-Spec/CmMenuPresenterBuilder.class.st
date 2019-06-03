@@ -25,7 +25,7 @@ CmMenuPresenterBuilder >> fillItem: aMenuItem with: aCommand [
 		icon: aCommand icon;
 		action: [ aCommand execute ].
 
-	aCommand hasShortcut ifTrue: [ 
+	aCommand hasShortcutKey ifTrue: [ 
 		aMenuItem shortcut: aCommand shortcutKey ].
 		
 	^ aMenuItem
