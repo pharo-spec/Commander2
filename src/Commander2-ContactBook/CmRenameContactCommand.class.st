@@ -9,8 +9,8 @@ Class {
 
 { #category : #converting }
 CmRenameContactCommand >> asSpecCommand [
-	"Here we define the additional information that the command will need to know
-	 when used in Spec framework.
+	"Here we define the additional information the command will need to know
+	 when used in the Spec framework.
 	"
 	^ super asSpecCommand
 		shortcutKey: $r meta;
@@ -32,6 +32,6 @@ CmRenameContactCommand >> execute [
 CmRenameContactCommand >> initialize [
 	super initialize.
 	self
-		basicName: 'Rename'; "This is the name of the command that will be shown to user."
-		basicDescription: 'Rename the selected contact.'. "This is the description of the command that will be shown to user."
+		basicName: 'Rename'; "This is the name of the command that will be shown to the user."
+		basicDescription: 'Rename the selected contact.'. "This is the description of the command that will be shown to the user."
 ]
