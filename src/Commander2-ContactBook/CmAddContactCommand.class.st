@@ -9,8 +9,8 @@ Class {
 
 { #category : #converting }
 CmAddContactCommand >> asSpecCommand [
-	"Here we define the additional information that the command will need to know
-	 when used in Spec framework.
+	"Here we define the additional information the command will need to know
+	 when used in the Spec framework.
 	"
 	^ super asSpecCommand
 		shortcutKey: $n meta;
@@ -19,10 +19,10 @@ CmAddContactCommand >> asSpecCommand [
 
 { #category : #hooks }
 CmAddContactCommand >> execute [
-	"One should never manipulate UI directly from a commande.
-	 Instead, you can use one of the subclass of LtCommandNotification.
+	"One should never manipulate UI directly from a command.
+	 Instead, you can use one of the subclasses of LtCommandNotification.
 	 The UI interactions will be handled by the command decorator.
-	 Using this mechanism a command is not dependent on the context in which it is used.
+	 By using this mechanism, a command is not dependent on the context in which it is used.
 	"
 	| contact |
 	contact := self context newContact.
@@ -37,6 +37,6 @@ CmAddContactCommand >> execute [
 CmAddContactCommand >> initialize [
 	super initialize.
 	self
-		basicName: 'New contact'; "This is the name of the command that will be shown to user."
-		basicDescription: 'Creates a new contact and add it to the contact book.' "This is the description of the command that will be shown to user."
+		basicName: 'New contact'; "This is the name of the command that will be shown to the user."
+		basicDescription: 'Creates a new contact and add it to the contact book.' "This is the description of the command that will be shown to the user."
 ]

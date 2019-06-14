@@ -9,8 +9,8 @@ Class {
 
 { #category : #converting }
 CmRemoveContactCommand >> asSpecCommand [
-	"Here we define the additional information that the command will need to know
-	 when used in Spec framework.
+	"Here we define the additional information the command will need to know
+	 when used in the Spec framework.
 	"
 	^ super asSpecCommand
 		iconName: #removeIcon;
@@ -33,6 +33,6 @@ CmRemoveContactCommand >> execute [
 CmRemoveContactCommand >> initialize [
 	super initialize.
 	self
-		basicName: 'Remove'; "This is the name of the command that will be shown to user."
-		basicDescription: 'Removes the selected contact from the contact book.' "This is the description of the command that will be shown to user."
+		basicName: 'Remove'; "This is the name of the command that will be shown to the user."
+		basicDescription: 'Removes the selected contact from the contact book.' "This is the description of the command that will be shown to the user."
 ]
