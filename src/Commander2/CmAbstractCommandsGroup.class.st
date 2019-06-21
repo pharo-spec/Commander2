@@ -1,3 +1,8 @@
+"
+I am an abstract class defining the API a command group should understand.
+
+See my subclasses for concrete examples.
+"
 Class {
 	#name : #CmAbstractCommandsGroup,
 	#superclass : #CmObject,

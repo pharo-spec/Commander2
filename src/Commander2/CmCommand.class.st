@@ -1,3 +1,11 @@
+"
+I am the common superclass to all commands defined in the context of Commander2.
+
+My subclasses need to redefine at least #execute method.
+This method defines the behaviour of the command.
+
+Eventually, #canBeRun can be override to check if the command can be run according to its current context.
+"
 Class {
 	#name : #CmCommand,
 	#superclass : #CmAbstractCommand,

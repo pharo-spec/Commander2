@@ -1,3 +1,10 @@
+"
+I allow one to group together commands that are semantically related.
+
+I can hold either commands or sub-groups.
+
+I provide a nice API to query the tree of commands and groups. See my 'public-api' protocol.
+"
 Class {
 	#name : #CmCommandGroup,
 	#superclass : #CmAbstractCommandsGroup,

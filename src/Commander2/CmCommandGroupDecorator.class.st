@@ -1,3 +1,8 @@
+"
+I am the implementation of the decorator design pattern for command group.
+
+I just delegate everything to the #decoratedGroup. My subclasses probably do something more interesting.
+"
 Class {
 	#name : #CmCommandGroupDecorator,
 	#superclass : #CmAbstractCommandsGroup,
