@@ -24,7 +24,7 @@ CmSpecCommandTest >> testHasShortcut [
 
 { #category : #test }
 CmSpecCommandTest >> testIcon [
-	self assert: command icon equals: (command iconNamed: command class defaultIconName).
+	self assert: command icon isNil.
 	
 	command iconName: #add.
 	
@@ -33,7 +33,7 @@ CmSpecCommandTest >> testIcon [
 
 { #category : #test }
 CmSpecCommandTest >> testIconName [
-	self assert: command iconName equals: command class defaultIconName.
+	self assert: command iconName isNil.
 	
 	command iconName: #add.
 	

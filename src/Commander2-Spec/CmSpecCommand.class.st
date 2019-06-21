@@ -9,10 +9,10 @@ Class {
 	#name : #CmSpecCommand,
 	#superclass : #CmCommandDecorator,
 	#instVars : [
+		'iconProvider',
 		'iconName',
 		'shortcutKey',
-		'displayStrategy',
-		'icon'
+		'displayStrategy'
 	],
 	#category : #'Commander2-Spec-Core'
 }
@@ -52,7 +52,7 @@ CmSpecCommand >> execute [
 { #category : #testing }
 CmSpecCommand >> hasIcon [
 
-	^ icon isNotNil
+	^ self iconName isNotNil
 ]
 
 { #category : #testing }
@@ -61,23 +61,36 @@ CmSpecCommand >> hasShortcutKey [
 	^ shortcutKey isNotNil
 ]
 
-{ #category : #icons }
+{ #category : #accessing }
 CmSpecCommand >> icon [
-	"Precondition: do not call icon on receiver not having an icon."
-
-	^ icon
+	self iconName ifNil: [ ^ nil ].
+	
+	^ self iconNamed: self iconName
 ]
 
-{ #category : #icons }
-CmSpecCommand >> icon: anIcon [
-	
-	icon := anIcon
+{ #category : #accessing }
+CmSpecCommand >> iconName [
+	^ iconName
 ]
 
 { #category : #accessing }
 CmSpecCommand >> iconName: aSymbol [ 
+	iconName := aSymbol
+]
 
-	self icon: (self iconNamed: aSymbol)
+{ #category : #accessing }
+CmSpecCommand >> iconNamed: aSymbol [
+	^ self iconProvider iconNamed: aSymbol
+]
+
+{ #category : #accessing }
+CmSpecCommand >> iconProvider [
+	^ iconProvider ifNil: [ iconProvider := Smalltalk ui icons ]
+]
+
+{ #category : #accessing }
+CmSpecCommand >> iconProvider: anObject [
+	iconProvider := anObject
 ]
 
 { #category : #initialization }
