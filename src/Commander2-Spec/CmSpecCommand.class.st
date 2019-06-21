@@ -78,6 +78,12 @@ CmSpecCommand >> iconName: aSymbol [
 	iconName := aSymbol
 ]
 
+{ #category : #configuring }
+CmSpecCommand >> iconName: aString from: anIconProvider [ 
+	self iconProvider: anIconProvider.
+	self iconName: aString.
+]
+
 { #category : #accessing }
 CmSpecCommand >> iconNamed: aSymbol [
 	^ self iconProvider iconNamed: aSymbol
