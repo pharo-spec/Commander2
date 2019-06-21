@@ -24,6 +24,8 @@ CmShortcutInstaller >> presenter: anObject [
 CmShortcutInstaller >> visitCommand: aCmCommand [
 	aCmCommand hasShortcutKey
 		ifFalse: [ ^ self ].
-	self presenter on: aCmCommand shortcutKey do: [ 
-		aCmCommand canBeRun ifTrue: [ aCmCommand execute ] ]
+	self presenter
+		bindKeyCombination: aCmCommand shortcutKey
+		toAction: [ aCmCommand canBeRun
+				ifTrue: [ aCmCommand execute ] ]
 ]
