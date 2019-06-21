@@ -28,12 +28,12 @@ CmSpecCommandTest >> setUp [
 ]
 
 { #category : #test }
-CmSpecCommandTest >> testHasShortcut [
-	self deny: command hasShortcut.
+CmSpecCommandTest >> testHasShortcutKey [
+	self deny: command hasShortcutKey.
 	
 	command shortcutKey: $a asKeyCombination.
 	
-	self assert: command hasShortcut.
+	self assert: command hasShortcutKey.
 ]
 
 { #category : #test }
