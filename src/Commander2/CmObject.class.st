@@ -7,26 +7,6 @@ Class {
 	#category : #'Commander2-Core'
 }
 
-{ #category : #accessing }
-CmObject >> basicDescription [
-	^ self subclassResponsibility
-]
-
-{ #category : #accessing }
-CmObject >> basicDescription: aString [
-	^ self subclassResponsibility
-]
-
-{ #category : #accessing }
-CmObject >> basicName [
-	^ self subclassResponsibility
-]
-
-{ #category : #accessing }
-CmObject >> basicName: aString [
-	^ self subclassResponsibility
-]
-
 { #category : #testing }
 CmObject >> isCommand [
 	^ false

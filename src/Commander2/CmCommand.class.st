@@ -91,13 +91,3 @@ CmCommand >> initialize [
 	self basicName: self class defaultCommandName.
 	self basicDescription: self class defaultDescription
 ]
-
-{ #category : #hooks }
-CmCommand >> name [
-	"This hook is called to generate a name that depends on the context.
-	 When entering this method, one can expect that the context can be accessed
-	 through a call to #context method.
-	 By default, my #basicName is returned.
-	"
-	^ self basicName
-]
