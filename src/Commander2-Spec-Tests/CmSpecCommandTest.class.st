@@ -28,6 +28,15 @@ CmSpecCommandTest >> setUp [
 ]
 
 { #category : #test }
+CmSpecCommandTest >> testHasIcon [
+	self deny: command hasIcon.
+	
+	command iconName: #banana.
+	
+	self assert: command hasIcon
+]
+
+{ #category : #test }
 CmSpecCommandTest >> testHasShortcutKey [
 	self deny: command hasShortcutKey.
 	
