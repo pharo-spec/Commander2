@@ -101,6 +101,38 @@ CmCommandGroupTest >> testInitialize [
 ]
 
 { #category : #test }
+CmCommandGroupTest >> testRegisterAfter [
+	| command |
+	command := CmBlockCommand new
+							basicName: 'added after command';
+							block: [ :x | x ];
+							context: [ 1 ];
+							yourself.
+							
+	self assert: group entries third equals: subGroup2.
+	
+	group register: command after: subGroup1.
+	self deny: group entries third equals: subGroup2.
+	self assert: group entries third equals: command.
+]
+
+{ #category : #test }
+CmCommandGroupTest >> testRegisterBefore [
+	| command |
+	command := CmBlockCommand new
+							basicName: 'added before command';
+							block: [ :x | x ];
+							context: [ 1 ];
+							yourself.
+							
+	self assert: group entries second equals: subGroup1.
+	
+	group register: command before: subGroup1.
+	self deny: group entries second equals: subGroup1.
+	self assert: group entries second equals: command.
+]
+
+{ #category : #test }
 CmCommandGroupTest >> testRegisterCommandWithContext [
 	| secondCommand |
 	self deny: (group hasEntryNamed: 'second command').
@@ -171,6 +203,7 @@ CmCommandGroupTest >> testRegisterInsteadOf [
 							context: [ 1 ];
 							yourself.
 	
+	self deny: (group hasCommand: command).
 	self assert: group entries second equals: subGroup1.
 	
 	group register: command insteadOf: subGroup1.

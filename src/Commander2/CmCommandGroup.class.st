@@ -127,12 +127,14 @@ CmCommandGroup >> register: aCommandOrGroup [
 
 { #category : #'public-api' }
 CmCommandGroup >> register: aCommandOrGroup after: anotherCommandOrGroup [
-	self shouldBeImplemented; flag: #TODO
+	self ensureNotDuplicated: aCommandOrGroup.
+	self entries add: aCommandOrGroup after: anotherCommandOrGroup
 ]
 
 { #category : #'public-api' }
 CmCommandGroup >> register: aCommandOrGroup before: anotherCommandOrGroup [
-	self shouldBeImplemented; flag: #TODO
+	self ensureNotDuplicated: aCommandOrGroup.
+	self entries add: aCommandOrGroup before: anotherCommandOrGroup
 ]
 
 { #category : #'public-api' }
