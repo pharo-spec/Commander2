@@ -61,9 +61,32 @@ CmCommandGroup >> commands [
 	^ entries select: [ :entry | entry isCommand ]
 ]
 
+{ #category : #private }
+CmCommandGroup >> ensureNotDuplicated: aCommandOrGroup [
+	"Check that aCommandOrGroup's #basicName is not already used by one of my entries.
+	 If it is, raises a CmDuplicatedEntryName error.
+	"
+	(self hasEntryNamed: aCommandOrGroup basicName)
+		ifTrue: [ CmDuplicatedEntryName signalEntryNamed: aCommandOrGroup basicName ]
+]
+
 { #category : #'public-api' }
 CmCommandGroup >> entries [
 	^ entries
+]
+
+{ #category : #private }
+CmCommandGroup >> entriesIndexOf: aCommandOrGroup [
+	"Returns the index of aCommandOrGroup in my entries.
+	 If aCommandOrGroup is not included in my entries, raises a NotFound error.
+	"
+	^ entries
+		indexOf: aCommandOrGroup
+		ifAbsent:[ 
+			NotFound new
+				collection: self;
+				object: aCommandOrGroup;
+				signal: 'Command or group to replace is not found in the group.' ]
 ]
 
 { #category : #'public-api' }
@@ -84,6 +107,11 @@ CmCommandGroup >> hasEntryNamed: aString [
 	^ entries anySatisfy: [ :any | any basicName = aString ]
 ]
 
+{ #category : #testing }
+CmCommandGroup >> hasGroup: aCommandGroup [
+	^ self groups includes: aCommandGroup
+]
+
 { #category : #initialization }
 CmCommandGroup >> initialize [
 	super initialize.
@@ -93,36 +121,41 @@ CmCommandGroup >> initialize [
 ]
 
 { #category : #'public-api' }
-CmCommandGroup >> register: aCmCommandsOrGroup [
-	(self hasEntryNamed: aCmCommandsOrGroup basicName)
-		ifTrue: [ CmDuplicatedEntryName signalEntryNamed: aCmCommandsOrGroup basicName ].
+CmCommandGroup >> register: aCommandOrGroup [
+	self registerLast: aCommandOrGroup
+]
+
+{ #category : #'public-api' }
+CmCommandGroup >> register: aCommandOrGroup after: anotherCommandOrGroup [
+	self shouldBeImplemented; flag: #TODO
+]
+
+{ #category : #'public-api' }
+CmCommandGroup >> register: aCommandOrGroup before: anotherCommandOrGroup [
+	self shouldBeImplemented; flag: #TODO
+]
+
+{ #category : #'public-api' }
+CmCommandGroup >> register: aCommandOrGroup insteadOf: anotherCommandOrGroup [
+	| commandToReplaceIndex |
+	commandToReplaceIndex := self entriesIndexOf: anotherCommandOrGroup.
 	
-	entries add: aCmCommandsOrGroup
+	((self commands collect: #basicName) \ { (entries at: commandToReplaceIndex) } includes: aCommandOrGroup name)
+		ifTrue: [ CmDuplicatedEntryName signalEntryNamed: aCommandOrGroup name ].
+	
+	entries at: commandToReplaceIndex put: aCommandOrGroup
 ]
 
 { #category : #'public-api' }
-CmCommandGroup >> register: aCmCommandsOrGroup after: anotherLtCommandsOrGroup [
-	self shouldBeImplemented; flag: #TODO
+CmCommandGroup >> registerFirst: aCommandOrGroup [
+	self ensureNotDuplicated: aCommandOrGroup.
+	entries addFirst: aCommandOrGroup
 ]
 
 { #category : #'public-api' }
-CmCommandGroup >> register: aCmCommandsOrGroup before: anotherLtCommandsOrGroup [
-	self shouldBeImplemented; flag: #TODO
-]
-
-{ #category : #'public-api' }
-CmCommandGroup >> register: aCmCommandsOrGroup insteadOf: anotherLtCommandsOrGroup [
-	self shouldBeImplemented; flag: #TODO
-]
-
-{ #category : #'public-api' }
-CmCommandGroup >> registerFirst: aCmCommandsOrGroup [
-	self shouldBeImplemented; flag: #TODO
-]
-
-{ #category : #'public-api' }
-CmCommandGroup >> registerLast: aCmCommandsOrGroup [
-	self shouldBeImplemented; flag: #TODO
+CmCommandGroup >> registerLast: aCommandOrGroup [
+	self ensureNotDuplicated: aCommandOrGroup.
+	entries addLast: aCommandOrGroup
 ]
 
 { #category : #'public-api' }

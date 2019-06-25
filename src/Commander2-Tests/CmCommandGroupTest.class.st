@@ -146,6 +146,57 @@ CmCommandGroupTest >> testRegisterCommandWithContextBlock [
 ]
 
 { #category : #test }
+CmCommandGroupTest >> testRegisterFirst [
+	| command oldFirst |
+	command := CmBlockCommand new
+							basicName: 'added first command';
+							block: [ :x | x ];
+							context: [ 1 ];
+							yourself.
+							
+	self deny: group entries first equals: command.
+	oldFirst := group entries first.
+	
+	group registerFirst: command.
+	self assert: group entries first equals: command.
+	self assert: group entries second equals: oldFirst.
+]
+
+{ #category : #test }
+CmCommandGroupTest >> testRegisterInsteadOf [
+	| command |
+	command := CmBlockCommand new
+							basicName: 'added first command';
+							block: [ :x | x ];
+							context: [ 1 ];
+							yourself.
+	
+	self assert: group entries second equals: subGroup1.
+	
+	group register: command insteadOf: subGroup1.
+	
+	self assert: group entries second equals: command.
+	self deny: (group hasGroup: subGroup1)
+]
+
+{ #category : #test }
+CmCommandGroupTest >> testRegisterLast [
+	| command oldLast |
+	command := CmBlockCommand new
+							basicName: 'last first command';
+							block: [ :x | x ];
+							context: [ 1 ];
+							yourself.
+							
+	self deny: group entries last equals: command.
+	oldLast := group entries last.
+	
+	group registerLast: command.
+	self assert: group entries last equals: command.
+	self assert: group entries allButLast last equals: oldLast.
+]
+
+{ #category : #test }
 CmCommandGroupTest >> testRegisterSubRegister [
 	| subGroup3 |
 	self deny: (group hasEntryNamed: 'sub group 3').
