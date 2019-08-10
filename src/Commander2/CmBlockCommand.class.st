@@ -23,7 +23,7 @@ CmBlockCommand >> block: anObject [
 	block := anObject
 ]
 
-{ #category : #hooks }
+{ #category : #testing }
 CmBlockCommand >> canBeRun [
 	self hasContext "When no context is set, we consider the command to be runnable. So we call super."
 		ifFalse: [ ^ super canBeRun ].

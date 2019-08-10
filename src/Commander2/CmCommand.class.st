@@ -58,7 +58,7 @@ CmCommand class >> runWith: anObject [
 	self new runWith: anObject
 ]
 
-{ #category : #hooks }
+{ #category : #testing }
 CmCommand >> canBeRun [
 	"See my super class comment for this method.
 	 By default I return true.

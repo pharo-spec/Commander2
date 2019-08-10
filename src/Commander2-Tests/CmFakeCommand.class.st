@@ -4,7 +4,7 @@ Class {
 	#category : #'Commander2-Tests'
 }
 
-{ #category : #hooks }
+{ #category : #testing }
 CmFakeCommand >> canBeRun [
 	^ self context = 42
 ]
