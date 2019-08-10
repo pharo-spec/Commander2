@@ -19,6 +19,10 @@ Metacello new
 ```
 
 ## Example
+
+> Note: This example is now shipped with the Spec2 integration which is managed by [Spec2 project](https://github.com/pharo-spec/Spec).
+> The code is thus no longer available in this repository.
+
 `Commander2-ContactBook` package contains an example of Commander2 usage in the context of a Spec application.
 
 The following code should be checked when learning how to use the framework:
