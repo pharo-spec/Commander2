@@ -72,7 +72,7 @@ CmCommandDecorator >> description [
 	^ self decoratedCommand description
 ]
 
-{ #category : #hooks }
+{ #category : #executing }
 CmCommandDecorator >> execute [
 	self decoratedCommand execute
 ]

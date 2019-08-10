@@ -41,7 +41,7 @@ CmBlockCommand >> canBeRunBlock: anObject [
 	canBeRunBlock := anObject
 ]
 
-{ #category : #execution }
+{ #category : #executing }
 CmBlockCommand >> execute [
 	self hasContext
 		ifTrue: [ block value: self context ]
