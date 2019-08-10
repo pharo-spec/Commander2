@@ -35,11 +35,11 @@ CmCommandDecorator >> basicName: aString [
 ]
 
 { #category : #testing }
-CmCommandDecorator >> canBeRun [
+CmCommandDecorator >> canBeExecuted [
 	"This hook allows the command decide if it can be run with the context it holds or not.
 	 It should return a boolean.
 	"
-	^ self decoratedCommand canBeRun
+	^ self decoratedCommand canBeExecuted
 ]
 
 { #category : #accessing }

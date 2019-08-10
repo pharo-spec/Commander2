@@ -24,9 +24,9 @@ CmBlockCommand >> block: anObject [
 ]
 
 { #category : #testing }
-CmBlockCommand >> canBeRun [
+CmBlockCommand >> canBeExecuted [
 	self hasContext "When no context is set, we consider the command to be runnable. So we call super."
-		ifFalse: [ ^ super canBeRun ].
+		ifFalse: [ ^ super canBeExecuted ].
 		
 	^ self canBeRunBlock value: self context
 ]

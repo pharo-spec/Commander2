@@ -59,7 +59,7 @@ CmCommand class >> runWith: anObject [
 ]
 
 { #category : #testing }
-CmCommand >> canBeRun [
+CmCommand >> canBeExecuted [
 	"See my super class comment for this method.
 	 By default I return true.
 	"

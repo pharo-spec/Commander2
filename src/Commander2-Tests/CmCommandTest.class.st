@@ -24,12 +24,12 @@ CmCommandTest >> testBasicName [
 ]
 
 { #category : #test }
-CmCommandTest >> testCanBeRun [
+CmCommandTest >> testCanBeExecuted [
 	command context: 0. "Need to set context before because the command expects it."
-	self deny: command canBeRun.
+	self deny: command canBeExecuted.
 	
 	command context: 42.
-	self assert: command canBeRun.
+	self assert: command canBeExecuted.
 ]
 
 { #category : #test }

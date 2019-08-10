@@ -5,7 +5,7 @@ Class {
 }
 
 { #category : #testing }
-CmFakeCommand >> canBeRun [
+CmFakeCommand >> canBeExecuted [
 	^ self context = 42
 ]
 

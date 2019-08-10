@@ -15,7 +15,7 @@ CmAbstractCommand >> acceptVisitor: aCmCommandOrGroup [
 ]
 
 { #category : #testing }
-CmAbstractCommand >> canBeRun [
+CmAbstractCommand >> canBeExecuted [
 	"This hook allows the command decide if it can be run with the context it holds or not.
 	 It should return a boolean.
 	"
