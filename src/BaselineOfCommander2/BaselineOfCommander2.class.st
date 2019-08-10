@@ -11,6 +11,5 @@ BaselineOfCommander2 >> baseline: spec [
 	spec for: #common do: [ 
 		spec 
 			package: 'Commander2';
-			package: 'Commander2-Example';
 			package: 'Commander2-Tests' ]
 ]
