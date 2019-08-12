@@ -28,31 +28,6 @@ CmCommand class >> defaultDescription [
 	^ 'I''m command and I should provide a nice description for my user.'
 ]
 
-{ #category : #'instance creation' }
-CmCommand class >> forSpec [
-	^ self new
-		asSpecCommand
-]
-
-{ #category : #'instance creation' }
-CmCommand class >> forSpecContext: anObject [
-
-	^ self forSpec 
-	context: anObject;
-	yourself
-]
-
-{ #category : #'instance creation' }
-CmCommand class >> forSpecWithIconNamed: aSymbol [
-	^ self new asSpecCommandWithIconNamed: aSymbol
-]
-
-{ #category : #'instance creation' }
-CmCommand class >> forSpecWithIconNamed: aSymbol shortcutKey: aKMKeyCombination [
-	^ self new
-		asSpecCommandWithIconNamed: aSymbol shortcutKey: aKMKeyCombination
-]
-
 { #category : #running }
 CmCommand class >> runWith: anObject [
 	self new runWith: anObject
