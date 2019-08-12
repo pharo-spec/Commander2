@@ -27,16 +27,6 @@ CmCommandGroup class >> defaultName [
 ]
 
 { #category : #'instance creation' }
-CmCommandGroup class >> forSpec [
-	^ self new asSpecGroup
-]
-
-{ #category : #'instance creation' }
-CmCommandGroup class >> forSpecWithIconNamed: aSymbol [
-	^ self new asSpecGroupWithIconNamed: aSymbol
-]
-
-{ #category : #'instance creation' }
 CmCommandGroup class >> named: aString [
 	^ self new
 		basicName: aString;
