@@ -25,10 +25,9 @@ CmBlockCommand >> block: anObject [
 
 { #category : #testing }
 CmBlockCommand >> canBeExecuted [
-	self hasContext "When no context is set, we consider the command to be runnable. So we call super."
-		ifFalse: [ ^ super canBeExecuted ].
-		
-	^ self canBeRunBlock value: self context
+	self hasContext
+		ifFalse: [ ^ super canBeExecuted ].	"When no context is set, we consider the command to be runnable. So we call super."
+	^ self canBeExecutedBlock value: self context
 ]
 
 { #category : #accessing }
@@ -51,5 +50,5 @@ CmBlockCommand >> execute [
 { #category : #initialization }
 CmBlockCommand >> initialize [
 	super initialize.
-	self canBeRunBlock: [ :ctxt | true ]
+	self canBeExecutedBlock: [ :ctxt | true ]
 ]
