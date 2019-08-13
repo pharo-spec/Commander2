@@ -8,7 +8,7 @@ Class {
 	#superclass : #CmCommand,
 	#instVars : [
 		'block',
-		'canBeRunBlock'
+		'canBeExecutedBlock'
 	],
 	#category : #'Commander2-Commands'
 }
@@ -32,13 +32,13 @@ CmBlockCommand >> canBeExecuted [
 ]
 
 { #category : #accessing }
-CmBlockCommand >> canBeRunBlock [
-	^ canBeRunBlock
+CmBlockCommand >> canBeExecutedBlock [
+	^ canBeExecutedBlock
 ]
 
 { #category : #accessing }
-CmBlockCommand >> canBeRunBlock: anObject [
-	canBeRunBlock := anObject
+CmBlockCommand >> canBeExecutedBlock: anObject [
+	canBeExecutedBlock := anObject
 ]
 
 { #category : #executing }
