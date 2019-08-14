@@ -38,9 +38,9 @@ CmV2ReleaseMigrator >> classes: anObject [
 	classes := anObject
 ]
 
-{ #category : #private }
+{ #category : #accessing }
 CmV2ReleaseMigrator >> environment [
-	^ RBPackageEnvironment packages: (self classes collect: #package) asSet asArray
+	^ RBNamespace onEnvironment: (RBPackageEnvironment packages: (self classes collect: #package) asSet asArray)
 ]
 
 { #category : #actions }
