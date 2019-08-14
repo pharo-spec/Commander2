@@ -3,7 +3,10 @@ SmalltalkCISpec {
     SCIMetacelloLoadSpec {
       #baseline : 'Commander2',
       #directory : 'src',
-      #platforms : [ #pharo ]
+      #platforms : [ #pharo ],
+      #onConflict : #useIncoming,
+      #onUpgrade : #useIncoming,
+      #ignoreImage : true
     }
   ]
 }
