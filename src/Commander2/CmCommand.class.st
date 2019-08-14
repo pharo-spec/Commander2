@@ -19,7 +19,7 @@ Class {
 
 { #category : #default }
 CmCommand class >> defaultDescription [
-	^ 'I''m command and I should provide a nice description for my user.'
+	^ 'Not described command.'
 ]
 
 { #category : #default }
