@@ -54,7 +54,9 @@ CmV2ReleaseMigrator >> migrateClass: class [
 	self renameMethodWithSelector: #name as: #dynamicName for: class.
 	self renameMethodWithSelector: #description as: #dynamicDescription for: class.
 	self renameMethodWithSelector: #basicName as: #name for: class.
+	self renameMethodWithSelector: #basicName: as: #name: for: class.
 	self renameMethodWithSelector: #basicDescription as: #description for: class.
+	self renameMethodWithSelector: #basicDescription: as: #description: for: class.
 ]
 
 { #category : #private }
