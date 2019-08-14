@@ -15,22 +15,41 @@ Basically, I do the following renamings of methods (order is important):
 Class {
 	#name : #CmV2ReleaseMigrator,
 	#superclass : #Object,
+	#instVars : [
+		'classes'
+	],
 	#category : #'Commander2-V2ReleaseMigrator'
 }
 
 { #category : #actions }
-CmV2ReleaseMigrator class >> migrate [
-	<script>
-	^ self new migrate
+CmV2ReleaseMigrator class >> migrate: aCollectionOfClasses [
+	^ self new
+		classes: aCollectionOfClasses;
+		migrate
+]
+
+{ #category : #accessing }
+CmV2ReleaseMigrator >> classes [
+	^ classes
+]
+
+{ #category : #accessing }
+CmV2ReleaseMigrator >> classes: anObject [
+	classes := anObject
 ]
 
 { #category : #actions }
 CmV2ReleaseMigrator >> migrate [
-	CmCommand allSubclassesDo: [ :class |
-		self renameMethodWithSelector: #name as: #dynamicName for: class.
-		self renameMethodWithSelector: #description as: #dynamicDescription for: class.
-		self renameMethodWithSelector: #basicName as: #name for: class.
-		self renameMethodWithSelector: #basicDescription as: #description for: class. ]
+	self classes do: [ :class |
+		self migrateClass: class ]
+]
+
+{ #category : #private }
+CmV2ReleaseMigrator >> migrateClass: class [
+	self renameMethodWithSelector: #name as: #dynamicName for: class.
+	self renameMethodWithSelector: #description as: #dynamicDescription for: class.
+	self renameMethodWithSelector: #basicName as: #name for: class.
+	self renameMethodWithSelector: #basicDescription as: #description for: class.
 ]
 
 { #category : #private }
