@@ -20,6 +20,7 @@ Class {
 
 { #category : #actions }
 CmV2ReleaseMigrator class >> migrate [
+	<script>
 	^ self new migrate
 ]
 
