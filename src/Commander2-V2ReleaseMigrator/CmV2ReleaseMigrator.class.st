@@ -46,7 +46,7 @@ CmV2ReleaseMigrator >> environment [
 { #category : #actions }
 CmV2ReleaseMigrator >> migrate [
 	self classes do: [ :class |
-		self migrateClass: class ]
+		self migrateClass: class ] displayingProgress: 'Migrating classes to Commander v2.0.0'
 ]
 
 { #category : #private }
