@@ -28,11 +28,6 @@ CmCommand class >> defaultName [
 	^ 'Unnamed'
 ]
 
-{ #category : #running }
-CmCommand class >> runWith: anObject [
-	self new runWith: anObject
-]
-
 { #category : #testing }
 CmCommand >> canBeExecuted [
 	"See my super class comment for this method.
