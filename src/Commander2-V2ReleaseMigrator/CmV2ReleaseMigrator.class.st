@@ -38,6 +38,11 @@ CmV2ReleaseMigrator >> classes: anObject [
 	classes := anObject
 ]
 
+{ #category : #private }
+CmV2ReleaseMigrator >> environment [
+	^ RBPackageEnvironment packages: (self classes collect: #package) asSet asArray
+]
+
 { #category : #actions }
 CmV2ReleaseMigrator >> migrate [
 	self classes do: [ :class |
@@ -61,5 +66,5 @@ CmV2ReleaseMigrator >> renameMethodWithSelector: oldSelector as: newSelector for
 	"No permutation."
 	permutation := (1 to: (aClass>>oldSelector) argumentNames size) asArray.
 	
-	(RBRenameMethodRefactoring renameMethod: oldSelector in: aClass to: newSelector permutation: permutation) execute
+	(RBRenameMethodRefactoring model: self environment renameMethod: oldSelector in: aClass to: newSelector permutation: permutation) execute
 ]
