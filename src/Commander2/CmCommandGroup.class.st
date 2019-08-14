@@ -29,7 +29,7 @@ CmCommandGroup class >> defaultName [
 { #category : #'instance creation' }
 CmCommandGroup class >> named: aString [
 	^ self new
-		basicName: aString;
+		name: aString;
 		yourself
 ]
 
@@ -43,7 +43,7 @@ CmCommandGroup >> allCommands [
 
 { #category : #'public-api' }
 CmCommandGroup >> commandOrGroupNamed: aString [
-	^ (entries detect: [ :commandOrRegister | commandOrRegister basicName = aString ])
+	^ (entries detect: [ :commandOrRegister | commandOrRegister name = aString ])
 ]
 
 { #category : #'public-api' }
@@ -56,8 +56,8 @@ CmCommandGroup >> ensureNotDuplicated: aCommandOrGroup [
 	"Check that aCommandOrGroup's #basicName is not already used by one of my entries.
 	 If it is, raises a CmDuplicatedEntryName error.
 	"
-	(self hasEntryNamed: aCommandOrGroup basicName)
-		ifTrue: [ CmDuplicatedEntryName signalEntryNamed: aCommandOrGroup basicName ]
+	(self hasEntryNamed: aCommandOrGroup name)
+		ifTrue: [ CmDuplicatedEntryName signalEntryNamed: aCommandOrGroup name ]
 ]
 
 { #category : #'public-api' }
@@ -94,7 +94,7 @@ CmCommandGroup >> hasEntryNamed: aString [
 	"Returns true if one of my entries (command, registry, ...) is named aString.
 	 Else returns false.
 	"
-	^ entries anySatisfy: [ :any | any basicName = aString ]
+	^ entries anySatisfy: [ :any | any name = aString ]
 ]
 
 { #category : #testing }
@@ -105,8 +105,8 @@ CmCommandGroup >> hasGroup: aCommandGroup [
 { #category : #initialization }
 CmCommandGroup >> initialize [
 	super initialize.
-	self basicName: self class defaultName.
-	self basicDescription: self class defaultDescription.
+	self name: self class defaultName.
+	self description: self class defaultDescription.
 	entries := OrderedCollection new
 ]
 
@@ -132,7 +132,7 @@ CmCommandGroup >> register: aCommandOrGroup insteadOf: anotherCommandOrGroup [
 	| commandToReplaceIndex |
 	commandToReplaceIndex := self entriesIndexOf: anotherCommandOrGroup.
 	
-	((self commands collect: #basicName) \ { (entries at: commandToReplaceIndex) } includes: aCommandOrGroup name)
+	((self commands collect: #name) \ { (entries at: commandToReplaceIndex) } includes: aCommandOrGroup name)
 		ifTrue: [ CmDuplicatedEntryName signalEntryNamed: aCommandOrGroup name ].
 	
 	entries at: commandToReplaceIndex put: aCommandOrGroup

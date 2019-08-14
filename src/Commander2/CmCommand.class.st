@@ -58,6 +58,6 @@ CmCommand >> hasContext [
 { #category : #initialization }
 CmCommand >> initialize [
 	super initialize.
-	self basicName: self class defaultName.
-	self basicDescription: self class defaultDescription
+	self name: self class defaultName.
+	self description: self class defaultDescription
 ]
