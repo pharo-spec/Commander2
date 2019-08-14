@@ -18,14 +18,14 @@ Class {
 }
 
 { #category : #default }
-CmCommand class >> defaultCommandName [ 
-
-	^ 'Unnamed'
+CmCommand class >> defaultDescription [
+	^ 'I''m command and I should provide a nice description for my user.'
 ]
 
 { #category : #default }
-CmCommand class >> defaultDescription [
-	^ 'I''m command and I should provide a nice description for my user.'
+CmCommand class >> defaultName [ 
+
+	^ 'Unnamed'
 ]
 
 { #category : #running }
@@ -63,6 +63,6 @@ CmCommand >> hasContext [
 { #category : #initialization }
 CmCommand >> initialize [
 	super initialize.
-	self basicName: self class defaultCommandName.
+	self basicName: self class defaultName.
 	self basicDescription: self class defaultDescription
 ]
