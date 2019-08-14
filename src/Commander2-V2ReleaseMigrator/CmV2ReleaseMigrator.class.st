@@ -3,7 +3,7 @@ I migrate code depending on Commander2 v1.2.0 to Commander2 v2.0.0.
 
 Just run
 
-CmV2ReleaseMigrator migrate.
+CmV2ReleaseMigrator migrate: {MyCommand1. MyCommand2}.
 
 Basically, I do the following renamings of methods (order is important):
 
