@@ -40,7 +40,7 @@ CmV2ReleaseMigrator >> renameMethodWithSelector: oldSelector as: newSelector for
 		ifFalse: [ ^ self ].
 		
 	"No permutation."
-	permutation := (1 to: (aClass>>oldSelector) arguments size) asArray.
+	permutation := (1 to: (aClass>>oldSelector) argumentNames size) asArray.
 	
 	(RBRenameMethodRefactoring renameMethod: oldSelector in: aClass to: newSelector permutation: permutation) execute
 ]
