@@ -18,7 +18,8 @@ BaselineOfCommander2 >> baseline: spec [
 			package: 'Commander2-V2ReleaseMigrator'.
 		spec
 			group: 'core' with: #('Commander2' 'Commander2-Deprecations');
-			group: 'tests' with: #('core' 'Commander2-Tests');
+			group: 'ui' with: #('Commander2-UI');
+			group: 'tests' with: #('core' 'ui' 'Commander2-Tests' 'Commander2-UI-Tests');
 			group: 'migration' with: #('Commander2-V2ReleaseMigrator');
-			group: 'default' with: #('Commander2' 'Commander2-Deprecations' 'Commander2-Tests'). ]
+			group: 'default' with: #('core' 'ui' 'tests'). ]
 ]
