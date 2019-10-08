@@ -127,6 +127,6 @@ CmUICommand >> shortcutKey [
 ]
 
 { #category : #accessing }
-CmUICommand >> shortcutKey: aString [
- 	shortcutKey := aString 
+CmUICommand >> shortcutKey: aShortcutKey [
+ 	shortcutKey := aShortcutKey 
 ]
