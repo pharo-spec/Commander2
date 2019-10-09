@@ -7,6 +7,6 @@ Trait {
 }
 
 { #category : #decorating }
-CmTDecorable >> decorateWith: aDecorator [
-	^ aDecorator decorate: self
+CmTDecorable >> decorateWith: aDecoratorClass [
+	^ aDecoratorClass decorate: self
 ]
