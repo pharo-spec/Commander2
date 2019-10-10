@@ -42,6 +42,11 @@ CmUICommand >> beHiddenWhenCantBeRun [
 ]
 
 { #category : #accessing }
+CmUICommand >> defaultIconProvider [
+	^ Smalltalk ui icons
+]
+
+{ #category : #accessing }
 CmUICommand >> displayStrategy [
 	^ displayStrategy
 ]
@@ -93,7 +98,7 @@ CmUICommand >> iconNamed: aSymbol [
 
 { #category : #accessing }
 CmUICommand >> iconProvider [
-	^ iconProvider ifNil: [ iconProvider := Smalltalk ui icons ]
+	^ iconProvider ifNil: [ iconProvider := self defaultIconProvider ]
 ]
 
 { #category : #accessing }
