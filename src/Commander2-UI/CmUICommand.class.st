@@ -91,7 +91,7 @@ CmUICommand >> iconName: aString from: anIconProvider [
 	self iconName: aString.
 ]
 
-{ #category : #accessing }
+{ #category : #private }
 CmUICommand >> iconNamed: aSymbol [
 	^ self iconProvider iconNamed: aSymbol
 ]
