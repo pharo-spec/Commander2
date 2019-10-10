@@ -86,7 +86,10 @@ CmUICommand >> iconName: aSymbol [
 ]
 
 { #category : #configuring }
-CmUICommand >> iconName: aString from: anIconProvider [ 
+CmUICommand >> iconName: aString from: anIconProvider [
+	"This methods is just some syntax sugar to allow one to set both the icon name and icon provider in a single message.
+	 It is totally equivalent to set the icon name and provider separately.
+	"
 	self iconProvider: anIconProvider.
 	self iconName: aString.
 ]
